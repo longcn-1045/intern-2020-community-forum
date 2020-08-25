@@ -4,3 +4,26 @@ en:
       title: "Intern2020CommunityForum"
       vietnam: "Vietnamese"
       english: "English"
+  dashboard:
+    sidebar:
+      title: "AdminLTE 3"
+      name: "Minh Thong"
+      page: "Starter Pages"
+      user: "Users"
+      profile: "Profile"
+      change_password: "Change Password"
+      list: "List"
+      post: "Posts"
+      add : "Add"
+      topic: "Topic"
+      sidebar_content: "Sidebar content"
+    content:
+      page: "Starter Pages"
+      home: "Home"
+    footer:
+      title: "YAM Forum"
+      copy: "Copyright 2014-2019."
+      right: "All rights reserved."
+    header:
+      home: "Home"
+      contact: "Contact"

@@ -1,6 +1,29 @@
-en:
+vi:
   layouts:
     application:
       title: "Intern2020CommunityForum"
       vietnam: "Tiếng việt"
       english: "Tiếng anh"
+  dashboard:
+    sidebar:
+      title: "AdminLTE 3"
+      name: "Minh Thong"
+      page: "Trang bắt đầu"
+      user: "Người dùng"
+      profile: "Thông tin cá nhân"
+      change_password: "Đổi mật khẩu"
+      list: "Danh sách"
+      post: "Bài viết"
+      add : "Thêm"
+      topic: "Chủ đề"
+      sidebar_content: "Nội dung"
+    content:
+      page: "Trang bắt đầu"
+      home: "Trang chủ"
+    footer:
+      title: "YAM Forum"
+      copy: "Copyright 2014-2019."
+      right: "All rights reserved."
+    header:
+      home: "Trang chủ"
+      contact: "Liên lạc"

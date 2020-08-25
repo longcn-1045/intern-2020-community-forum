@@ -1,0 +1,110 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <%= link_to "#", class: "brand-link" do %>
+    <%= image_tag "/img/AdminLTELogo.png", class: "brand-image img-circle elevation-3", alt: "logo" %>
+    <span class="brand-text font-weight-light"><%= t "dashboard.sidebar.title" %></span>
+  <% end %>
+  <div class="sidebar">
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <%= image_tag "/img/user2-160x160.jpg", class: "img-circle elevation-2", alt: "User Image" %>
+      </div>
+      <div class="info">
+        <%= link_to t("dashboard.sidebar.name"), "#", class: "d-block" %>
+      </div>
+    </div>
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item has-treeview menu-open">
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              <%= t "dashboard.sidebar.page" %>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <%= link_to "#", class: "nav-link active" do %>
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              <%= t "dashboard.sidebar.user" %>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link active" do %>
+                <i class="fas fa-address-card nav-icon"></i>
+                <p><%= t "dashboard.sidebar.profile" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fas fa-cog nav-icon"></i>
+                <p><%= t "dashboard.sidebar.change_password" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fas fa-users nav-icon"></i>
+                <p><%= t "dashboard.sidebar.list" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <%= link_to "#", class: "nav-link active" do %>
+            <i class="nav-icon fas fa-newspaper"></i>
+            <p>
+              <%= t "dashboard.sidebar.post" %>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link active" do %>
+                <i class="fas fa-list-ul nav-icon"></i>
+                <p><%= t "dashboard.sidebar.list" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fas fa-plus nav-icon"></i>
+                <p><%= t "dashboard.sidebar.add" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <%= link_to "#", class: "nav-link active" do %>
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              <%= t "dashboard.sidebar.topic" %>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link active" do %>
+                <i class="fas fa-list-ul nav-icon"></i>
+                <p><%= t "dashboard.sidebar.list" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fas fa-plus nav-icon"></i>
+                <p><%= t "dashboard.sidebar.add" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>
+<aside class="control-sidebar control-sidebar-dark">
+  <div class="p-3">
+    <h5><%= t "dashboard.sidebar.title" %></h5>
+    <p><%= t "dashboard.sidebar.sidebar_content" %></p>
+  </div>
+</aside>

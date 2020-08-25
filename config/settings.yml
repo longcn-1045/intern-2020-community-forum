@@ -1,0 +1,4 @@
+dashboard:
+  header:
+    message: 3
+    notification: 15

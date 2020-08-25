@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= t ".title" %></title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "admin/admin", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_pack_tag "admin/admin", "data-turbolinks-track": "reload" %>
+    <%= render "layouts/admin/rails_default" %>
   </head>
   <body>
-    <%= link_to t(".english"), locale:"en" %>
-    <%= link_to t(".vietnam"), locale:"vi" %>
-    <%= yield %>
+    <div class="wrapper">
+      <%= render "layouts/admin/header" %>
+      <%= render "layouts/admin/sidebar" %>
+      <div class="content-wrapper">
+        <%= render "layouts/admin/content_header" %>
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render "layouts/admin/footer" %>
+    </div>
   </body>
 </html>
