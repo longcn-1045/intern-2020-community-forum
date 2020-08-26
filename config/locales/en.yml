@@ -4,6 +4,41 @@ en:
       title: "Intern2020CommunityForum"
       vietnam: "Vietnamese"
       english: "English"
+    header:
+      home: "Home"
+      contact: "Contact"
+      help: Help
+      about: About Us
+      signin: Sign In
+      signup: Sign Up
+      user: User
+      profile: Profile
+      edit_profile: Edit Profile
+      signout: Sign Out
+    footer:
+      title: "YAM Forum"
+      copy: "@Copyright 2020."
+      right: "| All rights reserved."
+    left_sidebar:
+      home: Home
+      topics: Topics
+      tags: Tags
+      users: Users
+      favorite: Favorite
+    right_sidebar:
+      add_post: Add Post
+      posts: Posts
+      users: Users
+      recent_post: Recent Post
+      celebrities: Celebrities
+      categories: Categories
+      tags: Tags
+      follow_us: Follow Us
+      subscribe: Subscribe
+      to_rss: To RSS Feed
+      to_fb: To Facebook Feed
+      to_yt: To youtube Feed
+      to_wt: To twitter Feed
   dashboard:
     sidebar:
       title: "AdminLTE 3"

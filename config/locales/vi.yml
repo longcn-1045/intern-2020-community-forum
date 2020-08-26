@@ -4,6 +4,41 @@ vi:
       title: "Intern2020CommunityForum"
       vietnam: "Tiếng việt"
       english: "Tiếng anh"
+    header:
+      home: "Trang chủ"
+      contact: "Liên lạc"
+      help: Giúp đỡ
+      about: Về chúng tôi
+      signin: Đăng nhập
+      signup: Đăng ký
+      user: Người dùng
+      profile: Tài khoản
+      edit_profile: Chỉnh sửa
+      signout: Đăng xuất
+    footer:
+      title: "YAM Forum"
+      copy: "@Copyright 2020."
+      right: "| All rights reserved."
+    left_sidebar:
+      home: Trang chủ
+      topics: Chủ đề
+      tags: Gắn thẻ
+      users: Người dùng
+      favorite: Bài viết đã lưu
+    right_sidebar:
+      add_post: Thêm bài viết
+      posts: Bài viết
+      users: Người dùng
+      recent_post: Bài viết mới nhất
+      celebrities: Người nổi tiếng
+      categories: Chủ đề
+      tags: Gán thẻ
+      follow_us: Theo dõi chúng tôi
+      subscribe: Đăng ký
+      to_rss: RSS
+      to_fb: Facebook
+      to_yt: Youtube
+      to_wt: Twitter
   dashboard:
     sidebar:
       title: "AdminLTE 3"

@@ -2,3 +2,5 @@ dashboard:
   header:
     message: 3
     notification: 15
+client:
+  logo: "/images/logo.png"

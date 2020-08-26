@@ -1,0 +1,45 @@
+@import 'colors';
+
+.sidebar97269 {
+  margin-top: 30px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    li{
+      margin-bottom: 30px;
+      overflow: hidden;
+
+      a {
+        color: $main_color;
+        font-weight: 700;
+
+        i {
+          font-size: 18px;
+
+          &::before{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.translate-button {
+  display: flex;
+  margin: 10px 0;
+
+  a {
+    text-decoration: none;
+    color: $main_color;
+    font-size: 18px;
+    border: 1px solid $main_color;
+    margin-right: 15px;
+    padding: 4px 12px;
+    font-weight: 600;
+    display: block;
+  }
+}

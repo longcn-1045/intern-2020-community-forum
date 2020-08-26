@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= t ".title" %></title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
-  </head>
-  <body>
-    <%= link_to t(".english"), locale:"en" %>
-    <%= link_to t(".vietnam"), locale:"vi" %>
-    <%= yield %>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= full_title yield :title %></title>
+  <%= render "layouts/rails_default" %>
+  <script src="https://kit.fontawesome.com/5d3f9f4ac6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <%= render "layouts/header" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <%= render "layouts/left_sidebar" %>
+      </div>
+      <div class="col-md-7">
+        <div class="translate-button">
+          <%= link_to t(".english"), locale: :en %>
+          <%= link_to t(".vietnam"), locale: :vi %>
+        </div>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>">
+            <%= message %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <div class="col-md-3">
+        <%= render "layouts/right_sidebar" %>
+      </div>
+    </div>
+  </div>
+  <%= render "layouts/footer" %>
+</body>
 </html>
