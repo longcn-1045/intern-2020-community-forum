@@ -10,6 +10,11 @@
       <div class="content-wrapper">
         <%= render "layouts/admin/content_header" %>
         <div class="content">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>">
+              <%= message %>
+            </div>
+          <% end %>
           <%= yield %>
         </div>
       </div>

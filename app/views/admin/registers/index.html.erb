@@ -1,0 +1,71 @@
+<div class="register-box">
+  <div class="register-logo">
+    <%= t "layouts.application.title" %>
+  </div>
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg"><%= t "registers.index.title" %></p>
+
+      <%= form_for @user, url: admin_users_path do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <div class="input-group mb-3">
+          <%= f.text_field :name, class: "form-control", placeholder: t("registers.index.name") %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.email_field :email, class: "form-control", placeholder: t("registers.index.email") %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.password_field :password, class: "form-control", placeholder: t("registers.index.password") %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.password_field :password_confirmation, class: "form-control",  placeholder: t("registers.index.password_confirm") %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+               <%= t "registers.index.term" %>
+              </label>
+            </div>
+          </div>
+          <div class="col-4">
+            <%= f.submit t("registers.index.register"), class: "btn btn-primary btn-block" %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="social-auth-links text-center">
+        <%= link_to "#", class: "btn btn-block btn-primary" do %>
+          <i class="fab fa-facebook mr-2"></i> <%= t "sessions.new.signin_fb" %>
+        <% end %>
+        <%= link_to "#", class: "btn btn-block btn-danger" do %>
+          <i class="fab fa-google-plus mr-2"></i> <%= t "sessions.new.signin_gg" %>
+        <% end %>
+      </div>
+      <%= link_to admin_login_path, class: "text-center" do %>
+        <%= t "registers.index.had_account" %>
+      <% end %>
+    </div>
+  </div>
+</div>

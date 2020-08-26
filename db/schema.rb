@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2020_08_24_035607) do
+ActiveRecord::Schema.define(version: 2020_08_25_125458) do
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -109,11 +109,10 @@ ActiveRecord::Schema.define(version: 2020_08_24_035607) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean "status"
-    t.bigint "role_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   add_foreign_key "logs", "users"
@@ -129,5 +128,4 @@ ActiveRecord::Schema.define(version: 2020_08_24_035607) do
   add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
-  add_foreign_key "users", "roles"
 end

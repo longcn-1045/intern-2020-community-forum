@@ -4,3 +4,15 @@ dashboard:
     notification: 15
 client:
   logo: "/images/logo.png"
+user:
+  validates:
+    max_name: 50
+    max_email: 255
+    min_pass: 6
+    checkbox: 1
+    size: 50
+    time: 2
+    max_content: 140
+    string: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+checkbox:
+    number: "1"

@@ -1,6 +1,8 @@
 class AdminController < ActionController::Base
   layout "admin"
 
+  include SessionsHelper
+
   before_action :set_locale
 
   private
@@ -16,5 +18,21 @@ class AdminController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t "layouts.application.require_login"
+    redirect_to admin_login_url
+  end
+
+  def load_user
+    @user = User.find_by id: params[:id]
+    return if @user
+
+    flash[:danger] = t "users.controller.not_found"
+    redirect_to admin_root_path
   end
 end

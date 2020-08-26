@@ -4,6 +4,9 @@ en:
       title: "Intern2020CommunityForum"
       vietnam: "Vietnamese"
       english: "English"
+      logout: "Logout"
+      require_login: "You are not logged in !!"
+      form: "The form contains"
     header:
       home: "Home"
       contact: "Contact"
@@ -62,3 +65,36 @@ en:
     header:
       home: "Home"
       contact: "Contact"
+  sessions:
+    controller:
+      inform_failed: "Invalid User"
+    new:
+      sign_in: "Sign in to start your session"
+      signin_fb: "Sign in using Facebook"
+      signin_gg: "Sign in using Google"
+      remember_me: "Remember Me !!!"
+      signin: "Sign In"
+      forgot_password: "I forgot my password"
+      register: "Register a new membership"
+      email: "Email"
+      password: "Password"
+  users:
+    controller:
+      signup_success: "Welcome to AdminLTE"
+      signup_fail: "Sign up failed !!"
+      cautious_login: "You are not logged in !!"
+      not_found: "User not found!!!"
+    error:
+      count:
+        one: "%{count} errors"
+        other: "%{count} errors"
+  registers:
+    index:
+      had_account: "I already have a membership"
+      register: "Register"
+      title: "Register a new membership"
+      term: "I agree to the terms"
+      name: "Full name"
+      email: "Email"
+      password: "Password"
+      password_confirm: "Retype Password"

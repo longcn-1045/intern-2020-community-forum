@@ -4,6 +4,9 @@ vi:
       title: "Intern2020CommunityForum"
       vietnam: "Tiếng việt"
       english: "Tiếng anh"
+      logout: "Đăng xuất"
+      require_login: "Bạn chưa đăng nhập !!"
+      form: "Form này bao gồm"
     header:
       home: "Trang chủ"
       contact: "Liên lạc"
@@ -62,3 +65,36 @@ vi:
     header:
       home: "Trang chủ"
       contact: "Liên lạc"
+  sessions:
+    controller:
+      inform_failed: "Người dùng không tồn tại!"
+    new:
+      sign_in: "Đăng nhập để bắt đầu phiên làm việc"
+      signin_fb: "Đăng nhập bằng Facebook"
+      signin_gg: "Đăng nhập bằng Google"
+      remember_me: "Nhớ mật khẩu ?"
+      signin: "Đăng nhập"
+      forgot_password: "Quên mật khẩu ?"
+      register: "Đăng kí"
+      email: "Email"
+      password: "Mật khẩu"
+  users:
+    controller:
+      signup_success: "Chào mừng đến với AdminLTE"
+      signup_fail: "Đăng kí thất bại !!"
+      cautious_login: "Bạn chưa đăng nhập !!"
+      not_found: "Người dùng không tồn tại!"
+    error:
+      count:
+        one: "%{count} lỗi"
+        other: "%{count} lỗi"
+  registers:
+    index:
+      had_account: "Tôi đã có tài khoản !!"
+      register: "Đăng ký"
+      title: "Đăng làm thành viên mới"
+      term: "Tôi đồng ý với các điều khoản"
+      name: "Tên đầy đủ"
+      email: "Email"
+      password: "Mật khẩu"
+      password_confirm: "Xác nhận mật khẩu"
