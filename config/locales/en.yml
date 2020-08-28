@@ -46,7 +46,7 @@ en:
     sidebar:
       title: "AdminLTE 3"
       name: "Minh Thong"
-      page: "Starter Pages"
+      page: "Home Page"
       user: "Users"
       profile: "Profile"
       change_password: "Change Password"
@@ -84,10 +84,40 @@ en:
       signup_fail: "Sign up failed !!"
       cautious_login: "You are not logged in !!"
       not_found: "User not found!!!"
+      not_allow: "You have not right to access !!"
+      not_update: "You have not right to do it !!"
+      not_correct: "You have no right to do it !!"
+      delete: "Delete"
+      delete_fail: "Delete Fail"
     error:
       count:
         one: "%{count} errors"
         other: "%{count} errors"
+    update:
+      success: "Update Success"
+      fail: "Update failed"
+    form:
+      title: "Users"
+      name: "Full name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Confirm Password"
+      update: "Update"
+    show:
+      name: "Full name"
+      email: "Email"
+      role: "Role"
+      status: "Status"
+      created_at: "Created_at"
+    index:
+      confirm_delete: "Are you sure ?"
+      delete: "Delete"
+      images: "Images"
+      name: "Full name"
+      email: "Email"
+      status: "Status"
+      role: "Role"
+      action: "Action"
   registers:
     index:
       had_account: "I already have a membership"

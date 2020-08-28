@@ -1,0 +1,29 @@
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title"><%= t "users.form.title" %></h3>
+  </div>
+  <%= form_for @user, url: admin_user_path(params[:id]) do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="card-body">
+       <div class="form-group">
+        <%= f.label t "users.form.name" %>
+        <%= f.text_field :name, class: "form-control", placeholder: t("users.form.name") %>
+      </div>
+      <div class="form-group">
+        <%= f.label t "users.form.email" %>
+        <%= f.text_field :email, class: "form-control", placeholder: t("users.form.email") %>
+      </div>
+      <div class="form-group">
+        <%= f.label t "users.form.password" %>
+        <%= f.password_field :password, class: "form-control", placeholder: t("users.form.password") %>
+      </div>
+      <div class="form-group">
+        <%= f.label t "users.form.password_confirmation" %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: t("users.form.password_confirmation") %>
+      </div>
+    </div>
+    <div class="card-footer">
+      <%= f.submit t("users.form.update"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

@@ -14,17 +14,16 @@
     </div>
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item has-treeview menu-open">
-          <%= link_to "#", class: "nav-link" do %>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link" do %>
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               <%= t "dashboard.sidebar.page" %>
-              <i class="right fas fa-angle-left"></i>
             </p>
           <% end %>
         </li>
-        <li class="nav-item has-treeview menu-open">
-          <%= link_to "#", class: "nav-link active" do %>
+        <li class="nav-item has-treeview">
+          <%= link_to "#", class: "nav-link" do %>
             <i class="nav-icon fas fa-user"></i>
             <p>
               <%= t "dashboard.sidebar.user" %>
@@ -33,27 +32,21 @@
           <% end %>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <%= link_to "#", class: "nav-link active" do %>
+              <%= link_to admin_user_path(session[:user_id]), class: "nav-link" do %>
                 <i class="fas fa-address-card nav-icon"></i>
                 <p><%= t "dashboard.sidebar.profile" %></p>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "#", class: "nav-link" do %>
-                <i class="fas fa-cog nav-icon"></i>
-                <p><%= t "dashboard.sidebar.change_password" %></p>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "#", class: "nav-link" do %>
+              <%= link_to admin_users_path, class: "nav-link" do %>
                 <i class="fas fa-users nav-icon"></i>
                 <p><%= t "dashboard.sidebar.list" %></p>
               <% end %>
             </li>
           </ul>
         </li>
-        <li class="nav-item has-treeview menu-open">
-          <%= link_to "#", class: "nav-link active" do %>
+        <li class="nav-item has-treeview">
+          <%= link_to "#", class: "nav-link" do %>
             <i class="nav-icon fas fa-newspaper"></i>
             <p>
               <%= t "dashboard.sidebar.post" %>
@@ -62,7 +55,7 @@
           <% end %>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <%= link_to "#", class: "nav-link active" do %>
+              <%= link_to "#", class: "nav-link" do %>
                 <i class="fas fa-list-ul nav-icon"></i>
                 <p><%= t "dashboard.sidebar.list" %></p>
               <% end %>
@@ -75,8 +68,8 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item has-treeview menu-open">
-          <%= link_to "#", class: "nav-link active" do %>
+        <li class="nav-item has-treeview">
+          <%= link_to "#", class: "nav-link" do %>
             <i class="nav-icon fas fa-book"></i>
             <p>
               <%= t "dashboard.sidebar.topic" %>
@@ -85,7 +78,7 @@
           <% end %>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <%= link_to "#", class: "nav-link active" do %>
+              <%= link_to "#", class: "nav-link" do %>
                 <i class="fas fa-list-ul nav-icon"></i>
                 <p><%= t "dashboard.sidebar.list" %></p>
               <% end %>

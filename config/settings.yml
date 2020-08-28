@@ -14,5 +14,7 @@ user:
     time: 2
     max_content: 140
     string: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
-checkbox:
-    number: "1"
+  per_page: 8
+  role: "member"
+theme:
+  name_bootstrap: "twitter-bootstrap-3"

@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   PERMIT_ATTRIBUTES = %i(name email password password_confirmation).freeze
 
+  enum role: {member: 0, admin: 1}
+  enum status: {active: 0, block: 1}
+
   attr_accessor :remember_token, :activation_token, :reset_token
 
   validates :name, presence: true,

@@ -32,11 +32,22 @@ module SessionsHelper
   end
 
   def check_remember user
-    if params[:session][:remember_me] == Settings.checkbox.number
+    if params[:session][:remember_me] == Settings.user.validates.checkbox
       remember user
     else
       forget user
     end
+  end
+
+  def admin_user
+    return if current_user.role != Settings.user.role
+
+    flash[:danger] = t "users.controller.not_allow"
+    redirect_to root_path
+  end
+
+  def current_user? user
+    user && user == current_user
   end
 
   def log_out

@@ -8,7 +8,7 @@ class Admin::SessionsController < AdminController
     if user&.authenticate params[:session][:password]
       log_in user
       check_remember user
-      redirect_back_or user
+      redirect_to admin_root_path
     else
       flash.now[:danger] = t "sessions.controller.inform_failed"
       render :new

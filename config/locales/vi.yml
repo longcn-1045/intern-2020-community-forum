@@ -46,7 +46,7 @@ vi:
     sidebar:
       title: "AdminLTE 3"
       name: "Minh Thong"
-      page: "Trang bắt đầu"
+      page: "Trang chủ"
       user: "Người dùng"
       profile: "Thông tin cá nhân"
       change_password: "Đổi mật khẩu"
@@ -84,10 +84,40 @@ vi:
       signup_fail: "Đăng kí thất bại !!"
       cautious_login: "Bạn chưa đăng nhập !!"
       not_found: "Người dùng không tồn tại!"
+      not_allow: "Bạn không có quyền truy cập !!"
+      not_update: "Bạn không có quyền sửa !!"
+      not_correct: "Bạn không có quyền sửa thông tin người khác !!"
+      delete: "Xóa"
+      delete_fail: "Xóa thất bại"
     error:
       count:
         one: "%{count} lỗi"
         other: "%{count} lỗi"
+    form:
+      title: "Người dùng"
+      name: "Họ và tên"
+      email: "Email"
+      password: "Mật khẩu"
+      password_confirmation: "Xác nhận mật khẩu"
+      update: "Cập nhật"
+    update:
+      success: "Cập nhật thành công"
+      fail: "Cập nhật thất bại"
+    show:
+      name: "Họ và tên"
+      email: "Email"
+      role: "Vai trò"
+      status: "Trạng thái"
+      created_at: "Bắt đầu từ "
+    index:
+      confirm_delete: "Bạn chắc chắn chứ ?"
+      delete: "Xóa"
+      images: "Ảnh"
+      name: "Họ và tên"
+      email: "Email"
+      status: "Trạng thái"
+      role: "Vai trò"
+      action: "Hành động"
   registers:
     index:
       had_account: "Tôi đã có tài khoản !!"
