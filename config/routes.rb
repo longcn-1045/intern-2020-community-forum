@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => "/ckeditor"
+
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
@@ -16,5 +18,8 @@ Rails.application.routes.draw do
       delete "/logout", to: "sessions#destroy"
       resources :users
     end
+
+    resources :users, except: %i(new create destroy)
+    resources :posts
   end
 end

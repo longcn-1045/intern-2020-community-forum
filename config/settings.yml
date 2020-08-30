@@ -14,6 +14,9 @@ user:
     time: 2
     max_content: 140
     string: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+    image_size_limit: 500
+    content: 6000
+    title: 500
   per_page: 8
   role: "member"
 theme:

@@ -1,10 +1,21 @@
 class User < ApplicationRecord
-  PERMIT_ATTRIBUTES = %i(name email password password_confirmation).freeze
+  PERMIT_ATTRIBUTES =
+    %i(
+      name
+      email
+      password
+      password_confirmation
+      avatar
+    ).freeze
 
   enum role: {member: 0, admin: 1}
   enum status: {active: 0, block: 1}
 
   attr_accessor :remember_token, :activation_token, :reset_token
+
+  has_many :posts, dependent: :destroy
+
+  mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true,
       length: {maximum: Settings.user.validates.max_name}
@@ -49,6 +60,11 @@ class User < ApplicationRecord
 
   def forget
     update remember_digest: nil
+  end
+
+  def display_image
+    image.variant resize_to_limit: [Settings.user.validates.image_size_limit,
+      Settings.user.validates.image_size_limit]
   end
 
   private

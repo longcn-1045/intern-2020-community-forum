@@ -42,24 +42,29 @@
           <li>
             <%= link_to t(".contact"), contact_path %>
           </li>
-          <li>
-            <%= link_to t(".signin"), "#" %>
-          </li>
-          <li>
-            <%= link_to t(".signup"), "#" %>
-          </li>
-          <li class="dropdown">
-            <%= link_to "#", class: "dropdown-toggle",
-              data: {toggle: "dropdown"} do %>
-              <%= t ".user" %>
-              <span class="caret"></span>
-            <% end %>
-            <div class="dropdown-menu">
-              <%= link_to t(".profile"), "#", class: "dropdown-item" %>
-              <%= link_to t(".edit_profile"), "#", class: "dropdown-item" %>
-              <%= link_to t(".signout"), "#", class: "dropdown-item" %>
-            </div>
-          </li>
+          <% if logged_in? %>
+            <li class="dropdown">
+              <%= link_to "#", class: "dropdown-toggle",
+                data: {toggle: "dropdown"} do %>
+                <%= t ".user" %>
+                <span class="caret"></span>
+              <% end %>
+              <div class="dropdown-menu">
+                <%= link_to t(".profile"), current_user,
+                  class: "dropdown-item" %>
+                <%= link_to t(".edit_profile"),
+                  edit_user_path(current_user), class: "dropdown-item" %>
+                <%= link_to t(".signout"), admin_logout_path, method: :delete,  class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to t(".signin"), admin_login_path %>
+            </li>
+            <li>
+              <%= link_to t(".signup"), admin_signup_path %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

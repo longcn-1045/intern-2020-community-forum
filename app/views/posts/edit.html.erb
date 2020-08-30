@@ -1,0 +1,11 @@
+<% provide :title, t(".edit_post") %>
+<% provide :button_text, t(".edit_post") %>
+<% provide :controller, t(".posts") %>
+<% provide :action, t(".edit") %>
+<% content_for :javascript_includes do %>
+  <%= javascript_pack_tag "form_post", "data-turbolinks-track": "reload" %>
+<% end %>
+
+<h3><%= t ".edit_post" %></h3>
+
+<%= render "form" %>
