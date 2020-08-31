@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: %i(edit update destroy show)
+  after_action :build_tags, only: %i(new edit)
 
   def index; end
 
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build post_params
+    binding.pry
     if @post.save
       flash[:success] = t ".post_created"
     else
@@ -35,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit :content, :title, :topic_id
+    params.require(:post).permit Post::PERMIT_ATTRIBUTES
   end
 
   def find_post
@@ -44,5 +46,9 @@ class PostsController < ApplicationController
 
     flash[:danger] = t ".not_found"
     redirect_to root_url
+  end
+
+  def build_tags
+    @post.tags.build
   end
 end

@@ -92,3 +92,23 @@
     font-weight: bold
   }
 }
+
+.button-add-tag {
+  text-decoration: none;
+  button {
+    font-size: 14px;
+    padding: 3px 12px;
+  }
+}
+
+.button-remove-tag {
+  text-decoration: none;
+  color: red;
+  text-align: right;
+}
+
+.nested-fields {
+  .form-group {
+    margin-bottom: 0;
+  }
+}

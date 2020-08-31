@@ -31,7 +31,11 @@
     </div>
     <div class="col-md-5">
       <div class="edit-user-avatar">
-        <%= image_tag @user.avatar.url, id: "user_ava_preview" %>
+        <% if @user.avatar.nil? %>
+          <%= image_tag @user.avatar.url, id: "user_ava_preview" %>
+        <% else %>
+          <%= image_tag Settings.client.logo, id: "user_ava_preview" %>
+        <% end %>
         <%= f.label :avatar, "Upload your avatar", class: "btn btn-light btn-block" %>
         <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
       </div>

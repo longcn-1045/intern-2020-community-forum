@@ -76,10 +76,13 @@ en:
       topic: Topic
       tags: Tags
       content: Content
+      topic_default: "-- Type topic here --"
+      new_tag: Add Tag
     edit:
       edit_post: Edit Post
       posts: Posts
       edit: Edit
+      not_found: Not Found
   dashboard:
     sidebar:
       title: "AdminLTE 3"

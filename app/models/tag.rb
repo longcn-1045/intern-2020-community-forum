@@ -3,5 +3,5 @@ class Tag < ApplicationRecord
   has_many :posts, through: :post_tags
 
   validates :name, presence: true,
-  length: {maximum: Settings.user.validates.max_name}
+    length: {maximum: Settings.user.validates.max_name}
 end
