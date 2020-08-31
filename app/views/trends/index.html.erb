@@ -1,0 +1,17 @@
+<% provide :title, t(".trends") %>
+<% provide :controller, t(".trends") %>
+<% provide :action, t(".index") %>
+
+<div class="trends-index">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Discover Popular Users</h3>
+    </div>
+    <%= render @users %>
+    <hr>
+    <div class="col-md-12">
+      <h3>Discover Popular Users</h3>
+    </div>
+    <%= render @topics %>
+  </div>
+</div>

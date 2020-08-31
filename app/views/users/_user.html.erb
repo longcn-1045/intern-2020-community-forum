@@ -1,0 +1,13 @@
+<div class="col-md-4">
+  <div class="item">
+    <div class="item-ava">
+      <% if user.avatar.present? %>
+        <%= image_tag user.avatar.url %>
+      <% else %>
+        <%= image_tag Settings.client.logo %>
+      <% end %>
+    </div>
+    <p class="item-name"><%= link_to user.name, user %></p>
+    <p class="follower"><%= t ".follow" %></p>
+  </div>
+</div>

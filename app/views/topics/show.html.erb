@@ -1,0 +1,15 @@
+<% provide :title, t(".topics") %>
+<% provide :controller, t(".topics") %>
+<% provide :action, t(".show") %>
+
+<div class="show-topic">
+  <% if @topic.posts.size.positive? %>
+    <h3>Topic <%= @topic.name %>: <%= @topic.posts.size %> posts</h3>
+    <div class="post-list">
+      <%= render @topic.posts %>
+    </div>
+  <% else %>
+    <h3>Topic <%= @topic.name %></h3>
+    <h5><%= t ".no_post" %></h5>
+  <% end %>
+</div>

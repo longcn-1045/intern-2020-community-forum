@@ -17,9 +17,12 @@ user:
     image_size_limit: 500
     content: 6000
     title: 500
+  default_avatar: "/images/avatar.png"
   per_page: 8
   role: "member"
 post:
   max_tags_size: 3
 theme:
   name_bootstrap: "twitter-bootstrap-3"
+posts:
+  per_page: 8

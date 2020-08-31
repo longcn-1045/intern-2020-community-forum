@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build post_params
-    binding.pry
     if @post.save
       flash[:success] = t ".post_created"
     else

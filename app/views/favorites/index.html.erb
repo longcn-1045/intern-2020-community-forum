@@ -1,0 +1,10 @@
+<% provide :title, t(".favorites") %>
+<% provide :controller, t(".favorites") %>
+<% provide :action, t(".index") %>
+
+<div class="favorites-index">
+  <h3>Favorites: <%= @posts.size %> posts</h3>
+  <div class="post-list">
+    <%= render @posts %>
+  </div>
+</div>

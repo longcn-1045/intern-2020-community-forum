@@ -41,7 +41,8 @@
         <%= yield %>
       </div>
       <div class="col-md-3">
-        <%= render "layouts/right_sidebar" %>
+        <%= render "layouts/right_sidebar", posts: Post.first(3),
+          celebrities: User.first(3), topics: Topic.all %>
       </div>
     </div>
   </div>

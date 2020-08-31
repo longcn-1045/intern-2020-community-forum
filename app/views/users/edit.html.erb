@@ -1,4 +1,6 @@
 <% provide :title, t(".edit_user") %>
+<% provide :controller, t(".users") %>
+<% provide :action, t(".edit") %>
 <% content_for :javascript_includes do %>
   <%= javascript_pack_tag "form_user", "data-turbolinks-track": "reload" %>
 <% end %>

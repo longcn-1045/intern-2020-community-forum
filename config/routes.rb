@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     get "static_pages/about", as: "about"
     get "static_pages/contact", as: "contact"
 
+    get "favorites/index", as: "favorites"
+    get "trends/index", as: "trends"
+
     namespace :admin do
       root "dashboard#index"
 
@@ -21,5 +24,6 @@ Rails.application.routes.draw do
 
     resources :users, except: %i(new create destroy)
     resources :posts
+    resources :topics, only: %i(index show)
   end
 end
