@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     resources :users, except: %i(new create destroy)
     resources :posts
     resources :topics, only: %i(index show)
+    resources :post_marks, only: %i(create destroy)
   end
 end

@@ -1,10 +1,17 @@
 <div class="post-item">
-  <div class="user-ava">
-    <% if post.user.avatar.url %>
-      <%= image_tag post.user.avatar.url %>
-    <% else %>
-      <%= image_tag Settings.user.default_avatar %>
-    <% end %>
+  <div class="post-sidebar">
+    <div class="user-ava">
+      <% if post.user.avatar.url %>
+        <%= image_tag post.user.avatar.url %>
+      <% else %>
+        <%= image_tag Settings.user.default_avatar %>
+      <% end %>
+    </div>
+    <div class="post-like">
+      <a href="#"><i class="fas fa-sort-up"></i></a>
+      <p>123s</p>
+      <a href="#"><i class="fas fa-sort-down"></i></a>
+    </div>
   </div>
   <div class="post-info">
     <p class="post-header">
@@ -30,17 +37,18 @@
       <% end %>
     </div>
     <div class="post-footer">
-      <div class="post-likes">
-        6 likes
-      </div>
-      <div class="post-shares">
-        6 shares
-      </div>
       <div class="post-comments">
         6 comments
       </div>
       <div class="post-views">
         <%= post.view = post.view.nil? ? 0 : post.view %> views
+      </div>
+      <div id="saving-post-<%= post.id %>">
+        <% if current_user.save_post? post %>
+          <%= render partial: "posts/unsave", locals: {post: post} %>
+        <% else %>
+          <%= render partial: "posts/save", locals: {post: post} %>
+        <% end %>
       </div>
       <div class="comment-post">
         <button type="button" class="btn btn-primary">

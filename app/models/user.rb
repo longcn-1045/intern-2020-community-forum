@@ -15,6 +15,9 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
+  has_many :post_marks, dependent: :destroy
+  has_many :mark_posts, through: :post_marks, source: :post
+
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true,
@@ -44,6 +47,18 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+  end
+
+  def save_post post
+    mark_posts << post
+  end
+
+  def unsave_post post
+    mark_posts.delete post
+  end
+
+  def save_post? post
+    mark_posts.include? post
   end
 
   def remember

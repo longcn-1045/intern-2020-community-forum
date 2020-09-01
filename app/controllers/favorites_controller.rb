@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = current_user.mark_posts
   end
 end

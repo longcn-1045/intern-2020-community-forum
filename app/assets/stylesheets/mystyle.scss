@@ -113,10 +113,11 @@
   }
 }
 
-#post-show  {
+#post-show {
+  display: flex;
+  margin-bottom: 15px;
   background-color: white;
   padding: 15px;
-  display: flex;
 
   .user-ava {
     img {
@@ -128,13 +129,30 @@
     }
   }
 
+  .post-like {
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 20px;
+    a {
+      color: $desc_line;
+      font-size: 20px;
+      font-weight: 400;
+      i {
+        font-size: 40px;
+      }
+    }
+    p {
+      margin-bottom: 0;
+      color: $desc_line;
+      font-weight: 400;
+    }
+  }
+
   .post-info {
     width: 90%;
-
     p {
       margin-bottom: 10px;
     }
-
     .post-header {
       .user-name {
         font-size: 16px;
@@ -216,16 +234,36 @@
 
     .post-footer {
       background-color: $wild-sand;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
       padding: 10px;
 
-      .post-comments, .post-views, .post-likes, .post-shares {
+      .post-comments, .post-views, .post-likes, .post-saved,
+        .post-unsaved {
         padding: 6px 10px;
         border: 1px solid $iron;
         background-color: white;
         font-size: 15px;
         margin-right: 10px;
+      }
+
+      .post-saved {
+        padding: 6px 15px;
+        cursor: pointer;
+        i {
+          margin-right: 5px;
+        }
+      }
+
+      .post-unsaved {
+        padding: 6px 15px;
+        border: 1px solid $strong_line;
+        color: $strong_line;
+        cursor: pointer;
+        i {
+          margin-right: 5px;
+        }
       }
 
       .comment-post {
@@ -329,6 +367,25 @@
         }
       }
 
+      .post-like {
+        text-align: center;
+        margin-right: 10px;
+        margin-top: 20px;
+        a {
+          color: $desc_line;
+          font-size: 20px;
+          font-weight: 400;
+          i {
+            font-size: 40px;
+          }
+        }
+        p {
+          margin-bottom: 0;
+          color: $desc_line;
+          font-weight: 400;
+        }
+      }
+
       .post-info {
         width: 90%;
         p {
@@ -420,12 +477,31 @@
           align-items: center;
           padding: 10px;
 
-          .post-comments, .post-views, .post-likes, .post-shares {
+          .post-comments, .post-views, .post-likes, .post-saved,
+            .post-unsaved {
             padding: 6px 10px;
             border: 1px solid $iron;
             background-color: white;
             font-size: 15px;
             margin-right: 10px;
+          }
+
+          .post-saved {
+            padding: 6px 15px;
+            cursor: pointer;
+            i {
+              margin-right: 5px;
+            }
+          }
+
+          .post-unsaved {
+            padding: 6px 15px;
+            border: 1px solid $strong_line;
+            color: $strong_line;
+            cursor: pointer;
+            i {
+              margin-right: 5px;
+            }
           }
 
           .comment-post {
