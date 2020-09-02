@@ -133,10 +133,18 @@
     text-align: center;
     margin-right: 10px;
     margin-top: 20px;
-    a {
+    button {
       color: $desc_line;
       font-size: 20px;
       font-weight: 400;
+      border: none;
+      background: #fff;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+
       i {
         font-size: 40px;
       }
@@ -371,14 +379,24 @@
         text-align: center;
         margin-right: 10px;
         margin-top: 20px;
-        a {
+
+        button {
           color: $desc_line;
           font-size: 20px;
           font-weight: 400;
+          border: none;
+          background: #fff;
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+          }
+
           i {
             font-size: 40px;
           }
         }
+
         p {
           margin-bottom: 0;
           color: $desc_line;

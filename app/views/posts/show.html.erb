@@ -11,10 +11,12 @@
         <%= image_tag Settings.user.default_avatar %>
       <% end %>
     </div>
-    <div class="post-like">
-      <a href="#"><i class="fas fa-sort-up"></i></a>
-      <p>123s</p>
-      <a href="#"><i class="fas fa-sort-down"></i></a>
+    <div class="post-like" id="like-post-<%= @post.id %>">
+      <% if current_user.like_post? @post %>
+        <%= render partial: "posts/unlike", locals: {post: @post} %>
+      <% else %>
+        <%= render partial: "posts/like", locals: {post: @post} %>
+      <% end %>
     </div>
   </div>
   <div class="post-info">

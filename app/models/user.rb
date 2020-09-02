@@ -18,6 +18,9 @@ class User < ApplicationRecord
   has_many :post_marks, dependent: :destroy
   has_many :mark_posts, through: :post_marks, source: :post
 
+  has_many :post_likes, dependent: :destroy
+  has_many :like_posts, through: :post_likes, source: :post
+
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true,
@@ -59,6 +62,18 @@ class User < ApplicationRecord
 
   def save_post? post
     mark_posts.include? post
+  end
+
+  def like_post post
+    like_posts << post
+  end
+
+  def unlike_post post
+    like_posts.delete post
+  end
+
+  def like_post? post
+    like_posts.include? post
   end
 
   def remember

@@ -26,5 +26,6 @@ Rails.application.routes.draw do
     resources :posts
     resources :topics, only: %i(index show)
     resources :post_marks, only: %i(create destroy)
+    resources :post_likes, only: %i(create destroy)
   end
 end

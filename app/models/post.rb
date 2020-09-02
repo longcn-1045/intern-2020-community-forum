@@ -15,6 +15,9 @@ class Post < ApplicationRecord
   has_many :post_marks, dependent: :destroy
   has_many :mark_users, through: :post_marks, source: :user
 
+  has_many :post_likes, dependent: :destroy
+  has_many :like_users, through: :post_likes, source: :user
+
   accepts_nested_attributes_for :tags,
                                 allow_destroy: true,
                                 reject_if: :reject_tags

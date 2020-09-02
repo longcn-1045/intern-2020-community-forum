@@ -1,0 +1,5 @@
+<% if @error.present? %>
+  alert("<%= @error %>");
+<% else %>
+  $("#like-post-<%= @post.id %>").html("<%= j render partial: 'posts/like', locals: {post: @post} %>");
+<% end %>
