@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_030401) do
+ActiveRecord::Schema.define(version: 2020_09_02_110828) do
+
+  create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body", size: :long
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -141,6 +151,15 @@ ActiveRecord::Schema.define(version: 2020_08_27_030401) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "topic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["topic_id"], name: "index_user_topics_on_topic_id"
+    t.index ["user_id"], name: "index_user_topics_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -173,4 +192,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_030401) do
   add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
+  add_foreign_key "user_topics", "topics"
+  add_foreign_key "user_topics", "users"
 end

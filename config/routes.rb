@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :users, except: %i(new create destroy)
     resources :posts
     resources :topics, only: %i(index show)
-    resources :post_marks, only: %i(create destroy)
-    resources :post_likes, only: %i(create destroy)
+    resources :post_marks, :post_likes,
+      :user_topics, :relationships, only: %i(create destroy)
   end
 end

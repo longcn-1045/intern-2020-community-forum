@@ -3,13 +3,22 @@
 <% provide :action, t(".show") %>
 
 <div class="show-topic">
-  <% if @topic.posts.size.positive? %>
+  <div class="show-topic-info">
     <h3>Topic <%= @topic.name %>: <%= @topic.posts.size %> posts</h3>
+
+    <div class="item-info" id="user-topic-<%= @topic.id %>">
+      <% if current_user.follow_topic? @topic %>
+        <%= render partial: "topics/unfollow", locals: {topic: @topic} %>
+      <% else %>
+        <%= render partial: "topics/follow", locals: {topic: @topic} %>
+      <% end %>
+    </div>
+  </div>
+  <% if @topic.posts.size.positive? %>
     <div class="post-list">
       <%= render @topic.posts %>
     </div>
   <% else %>
-    <h3>Topic <%= @topic.name %></h3>
     <h5><%= t ".no_post" %></h5>
   <% end %>
 </div>

@@ -21,6 +21,17 @@ class User < ApplicationRecord
   has_many :post_likes, dependent: :destroy
   has_many :like_posts, through: :post_likes, source: :post
 
+  has_many :user_topics, dependent: :destroy
+  has_many :topics, through: :user_topics
+
+  has_many :active_relationships, class_name: Relationship.name,
+  foreign_key: :follower_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+
+  has_many :passive_relationships, class_name: Relationship.name,
+  foreign_key: :followed_id, dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
+
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true,
@@ -74,6 +85,30 @@ class User < ApplicationRecord
 
   def like_post? post
     like_posts.include? post
+  end
+
+  def follow_topic topic
+    topics << topic
+  end
+
+  def unfollow_topic topic
+    topics.delete topic
+  end
+
+  def follow_topic? topic
+    topics.include? topic
+  end
+
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   def remember

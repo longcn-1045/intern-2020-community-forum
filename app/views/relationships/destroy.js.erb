@@ -1,0 +1,5 @@
+<% if @error.present? %>
+  alert("<%= @error %>");
+<% else %>
+  $(".follow-user-<%= @user.id %>").html("<%= j render partial: 'users/follow', locals: {user: @user} %>");
+<% end %>

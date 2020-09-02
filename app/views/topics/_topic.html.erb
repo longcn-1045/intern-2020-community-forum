@@ -7,11 +7,12 @@
       <% end %>
     </div>
     <hr>
-    <div class="item-info">
-      <p>4 <%= t ".followers" %></p>
-      <p class="unfollow">
-        <%= link_to t(".unfollow"), "$" %>
-      </p>
+    <div class="item-info" id="user-topic-<%= topic.id %>">
+      <% if current_user.follow_topic? topic %>
+        <%= render partial: "topics/unfollow", locals: {topic: topic} %>
+      <% else %>
+        <%= render partial: "topics/follow", locals: {topic: topic} %>
+      <% end %>
     </div>
   </div>
 </div>

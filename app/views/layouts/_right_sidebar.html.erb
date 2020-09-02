@@ -52,7 +52,13 @@
           <%= link_to celeb do %>
             <h5><%= celeb.name %></h5>
           <% end %>
-          <%= link_to "Follow", "#", class: "designetion439" %>
+          <div class="follow-user-<%= celeb.id %>" >
+            <% if current_user.following? celeb %>
+              <%= render partial: "users/unfollow", locals: {user: celeb} %>
+            <% else %>
+              <%= render partial: "users/follow", locals: {user: celeb} %>
+            <% end %>
+          </div>
         </span>
       </div>
       <hr>
