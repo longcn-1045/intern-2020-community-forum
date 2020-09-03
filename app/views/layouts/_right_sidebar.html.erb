@@ -36,6 +36,13 @@
       <hr>
     <% end %>
   </div>
+  <div class="categori-part329">
+    <h4><%= t ".lasted_activities" %></h4>
+    <div class="logs-index">
+      <%= render @logs %>
+    </div>
+    <%= link_to "Show all activities.", logs_path %>
+  </div>
   <div class="highest-part302">
     <h4><%= t ".celebrities" %></h4>
     <% celebrities.each do |celeb|%>
@@ -64,16 +71,6 @@
       <hr>
     <% end %>
   </div>
-<!--   <div class="categori-part329">
-    <h4><%= t ".categories" %></h4>
-    <ul>
-      <% topics.each do |topic|%>
-        <li>
-          <%= link_to topic.name, topic %>
-        </li>
-      <% end %>
-    </ul>
-  </div> -->
   <div class="categori-part329">
     <h4><%= t ".categories" %></h4>
     <ul>

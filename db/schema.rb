@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_02_110828) do
+ActiveRecord::Schema.define(version: 2020_09_03_013939) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -54,10 +54,14 @@ ActiveRecord::Schema.define(version: 2020_09_02_110828) do
   end
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "controller"
+    t.string "action"
+    t.string "browser"
+    t.string "ip_address"
     t.index ["user_id"], name: "index_logs_on_user_id"
   end
 

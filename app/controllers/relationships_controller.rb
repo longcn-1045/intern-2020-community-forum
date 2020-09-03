@@ -8,6 +8,7 @@ class RelationshipsController < ApplicationController
         @error = t ".followed user"
       else
         current_user.follow @user
+        record_activity "You have followed user #{@user.name}"
       end
     end
 
@@ -18,6 +19,7 @@ class RelationshipsController < ApplicationController
     if @user.present?
       if current_user.following? @user
         current_user.unfollow @user
+        record_activity "You have unfollowed user #{@user.name}"
       else
         @error = t ".unfollowed user"
       end

@@ -138,7 +138,7 @@
       font-size: 20px;
       font-weight: 400;
       border: none;
-      background: #fff;
+      background: white;
       cursor: pointer;
 
       &:focus {
@@ -385,7 +385,7 @@
           font-size: 20px;
           font-weight: 400;
           border: none;
-          background: #fff;
+          background: white;
           cursor: pointer;
 
           &:focus {
@@ -582,7 +582,7 @@
           display: block;
           color: black;
           padding: 3px 10px;
-          background-color: #fff;
+          background-color: white;
           cursor: pointer;
           font-size: 14px;
           font-weight: bold;
@@ -593,7 +593,7 @@
           display: block;
           color: $strong_line;
           padding: 3px 10px;
-          background-color: #fff;
+          background-color: white;
           cursor: pointer;
           font-size: 14px;
           font-weight: bold;
@@ -649,7 +649,7 @@
           display: block;
           color: black;
           padding: 3px 10px;
-          background-color: #fff;
+          background-color: white;
           cursor: pointer;
           font-size: 14px;
           font-weight: bold;
@@ -660,7 +660,7 @@
           display: block;
           color: $strong_line;
           padding: 3px 10px;
-          background-color: #fff;
+          background-color: white;
           cursor: pointer;
           font-size: 14px;
           font-weight: bold;
@@ -714,4 +714,61 @@
   color: white;
   font-weight: bold;
   border: none;
+}
+
+.logs-index {
+  background-color: white;
+  padding: 15px;
+
+  .item {
+    display: flex;
+    align-items: center;
+
+    .item-ava {
+      margin-right: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    .item-info {
+      p {
+        margin: 0;
+        color: gray;
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    border: 2px solid $main_bg;
+    background-color: white;
+  }
+}
+
+.categori-part329 {
+  .logs-index {
+    padding: 0;
+
+    p {
+      font-size: 14px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid $alto;
+      background-color: white;
+    }
+  }
+  a {
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+  }
 }

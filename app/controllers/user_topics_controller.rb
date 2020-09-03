@@ -8,6 +8,7 @@ class UserTopicsController < ApplicationController
         @error = t ".followed topic"
       else
         current_user.follow_topic @topic
+        record_activity "You have followed topic #{@topic.name}"
       end
     end
 
@@ -18,6 +19,7 @@ class UserTopicsController < ApplicationController
     if @topic.present?
       if current_user.follow_topic? @topic
         current_user.unfollow_topic @topic
+        record_activity "You have unfollowed topic #{@topic.name}"
       else
         @error = t ".unfollowed topic"
       end

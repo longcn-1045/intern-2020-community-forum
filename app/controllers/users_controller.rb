@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update user_params
+      record_activity "You have updated your profile"
       flash[:success] = t ".profile_updated"
       redirect_to @user
     else

@@ -14,6 +14,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
 
   has_many :posts, dependent: :destroy
+  has_many :logs, dependent: :destroy
 
   has_many :post_marks, dependent: :destroy
   has_many :mark_posts, through: :post_marks, source: :post

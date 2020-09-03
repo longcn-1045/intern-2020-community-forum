@@ -4,7 +4,12 @@ class PostMarksController < ApplicationController
 
   def create
     if @post.present?
-      current_user.save_post @post
+      if current_user.save_post? @post
+        @error = t ".saved_post"
+      else
+        current_user.save_post @post
+        record_activity "You have marked post #{@post.title}"
+      end
     end
 
     respond_to :js
@@ -12,7 +17,12 @@ class PostMarksController < ApplicationController
 
   def destroy
     if @post.present?
-      current_user.unsave_post @post
+      if current_user.save_post? @post
+        current_user.unsave_post @post
+        record_activity "You have unmarked post #{@post.title}"
+      else
+        @error = t ".unsaved_post"
+      end
     end
 
     respond_to :js

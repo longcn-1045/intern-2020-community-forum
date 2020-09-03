@@ -8,6 +8,7 @@ class PostLikesController < ApplicationController
         @error = t ".liked_post"
       else
         current_user.like_post @post
+        record_activity "You have liked post #{@post.title}"
       end
     end
 
@@ -18,6 +19,7 @@ class PostLikesController < ApplicationController
     if @post.present?
       if current_user.like_post? @post
         current_user.unlike_post @post
+        record_activity "You have unliked post #{@post.title}"
       else
         @error = t ".unliked_post"
       end

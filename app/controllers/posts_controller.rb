@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build post_params
     if @post.save
+      record_activity "You have created new post"
       flash[:success] = t ".post_created"
     else
       flash[:danger] = t ".post_create_failed"
@@ -24,6 +25,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update post_params
+      record_activity "You have updated post #{@post.title}"
       flash[:success] = t ".post_updated"
     else
       flash[:danger] = t ".post_update_failed"

@@ -26,3 +26,5 @@ theme:
   name_bootstrap: "twitter-bootstrap-3"
 posts:
   per_page: 8
+logs:
+  max_content: 500

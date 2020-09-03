@@ -1,0 +1,18 @@
+<div class="item">
+  <div class="item-ava">
+    <% if log.user.avatar.present? %>
+      <%= image_tag log.user.avatar.url %>
+    <% else %>
+      <%= image_tag Settings.client.logo %>
+    <% end %>
+  </div>
+  <div class="item-info">
+    <p class="item-content">
+      <%= log.content %>
+    </p>
+    <p class="item-time">
+      <%= time_ago_in_words(log.created_at) + " ago" %>
+    </p>
+  </div>
+</div>
+<hr>

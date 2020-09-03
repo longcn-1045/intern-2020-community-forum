@@ -13,6 +13,17 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  def record_activity(content)
+    activity = Log.new
+    activity.user = current_user
+    activity.content = content
+    activity.browser = request.env['HTTP_USER_AGENT']
+    activity.ip_address = request.env['REMOTE_ADDR']
+    activity.controller = controller_name
+    activity.action = action_name
+    activity.save
+  end
+
   private
 
   def set_locale
