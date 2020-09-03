@@ -1,10 +1,10 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   storage :file
 
   def store_dir
-    Settings.store.avatar_dir
+    Settings.store.posts_dir
   end
 
   process resize_to_fit: Settings.store.size

@@ -32,7 +32,7 @@ module SessionsHelper
   end
 
   def check_remember user
-    if params[:session][:remember_me] == Settings.user.validates.checkbox
+    if params[:session][:remember_me].eql? Settings.user.validates.checkbox
       remember user
     else
       forget user
@@ -63,5 +63,12 @@ module SessionsHelper
 
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
+  end
+
+  def correct_user
+    return if current_user? @user
+
+    flash[:warning] = t "users.controller.not_correct"
+    redirect_to admin_users_path
   end
 end

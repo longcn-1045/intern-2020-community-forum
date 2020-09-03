@@ -1,21 +1,17 @@
 class User < ApplicationRecord
-  PERMIT_ATTRIBUTES =
-    %i(
-      name
-      email
-      password
-      password_confirmation
-      avatar
-    ).freeze
+  PERMIT_ATTRIBUTES = %i(name email password password_confirmation
+                          avatar_cache avatar).freeze
 
   enum role: {member: 0, admin: 1}
   enum status: {active: 0, block: 1}
+
+  mount_uploader :avatar, AvatarUploader
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
   has_many :posts, dependent: :destroy
 
-  mount_uploader :avatar, AvatarUploader
+  accepts_nested_attributes_for :posts
 
   validates :name, presence: true,
       length: {maximum: Settings.user.validates.max_name}
@@ -28,6 +24,8 @@ class User < ApplicationRecord
       allow_nil: true
 
   has_secure_password
+
+  scope :order_created_at, ->{order created_at: :desc}
 
   before_save :downcase_email
 

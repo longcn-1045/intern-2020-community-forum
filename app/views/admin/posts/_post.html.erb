@@ -1,0 +1,23 @@
+<tr>
+  <td><%= image_tag post.image_url.to_s %></td>
+  <td><%= post.title %></td>
+  <td>
+    <div class: <%= "status" + post_status(post.on?)[:css] %> >
+      <span>
+        <%= post_status(post.on?)[:status] %>
+      </span>
+    </div>
+  </td>
+  <td><%= post.name %></td>
+  <td><%= post.topic.name %></td>
+  <td>
+    <%= link_to edit_admin_post_path post.id, class: "nav-link active d-inline" do %>
+      <i class="fas fa-edit nav-icon text-success"></i>
+    <% end %>
+      <%= link_to admin_post_path(post.id), method: :delete,
+        data: { confirm: t("users.index.confirm_delete") },
+        class: "nav-link active d-inline" do %>
+        <i class="fas fa-trash-alt nav-icon text-danger"></i>
+      <% end %>
+  </td>
+</tr>

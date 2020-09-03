@@ -154,7 +154,10 @@ vi:
       role: "Vai trò"
       status: "Trạng thái"
       created_at: "Bắt đầu từ "
+      avatar: "Ảnh đại diện"
     index:
+      user_numbers: "Tổng số thành viên: "
+      title: "Danh sách thành viên"
       confirm_delete: "Bạn chắc chắn chứ ?"
       delete: "Xóa"
       images: "Ảnh"
@@ -163,6 +166,13 @@ vi:
       status: "Trạng thái"
       role: "Vai trò"
       action: "Hành động"
+      member: "MEMBER"
+      admin: "ADMIN"
+      active: "Hoạt động"
+      block: "Khóa"
+      count:
+        one: "%{count} thành viên"
+        other: "%{count} thành viên"
     edit:
       not_found: Không tìm thấy người dùng
       edit_user: Cập nhật người dùng
@@ -181,3 +191,37 @@ vi:
       email: "Email"
       password: "Mật khẩu"
       password_confirm: "Xác nhận mật khẩu"
+  post:
+    new:
+      post: "Viết bài"
+      topic: "Chủ đề"
+      title: "Tiêu đề"
+      content: "Nội dung"
+      status: "Trạng thái"
+      create: "Submit"
+      post_image: "Ảnh bài viết"
+      remove: "Xóa ảnh"
+    controller:
+      create_success: "Tạo bài thành công"
+      create_failed: "Tạo bài thất bại"
+      deleted_success: "Xóa bài viết thành công"
+      deleted_error: "Xóa bài viết thất bại"
+      not_found: "Không tìm thấy bài viết"
+      not_allow: "Bạn không có quyền làm vậy !!"
+    index:
+      post_numbers: "Tổng số bài viết: "
+      title: "Bài viết"
+      images: "Ảnh"
+      title: "Tiêu đề"
+      status: "Trạng thái"
+      writer: "Tác giả"
+      topic: "Chủ đề"
+      action: "Hành động"
+      on_status: "ON"
+      off_status: "OFF"
+      count:
+        one: "%{count} bài viết"
+        other: "%{count} bài viết"
+    edit:
+      post_image: "Ảnh bài viết"
+      remove_post: "Xóa ảnh"

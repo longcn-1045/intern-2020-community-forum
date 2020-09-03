@@ -149,13 +149,18 @@ en:
       password: "Password"
       password_confirmation: "Confirm Password"
       update: "Update"
+      remove: "Remove avatar"
+      my_avatar: "My Avatar"
     show:
       name: "Full name"
       email: "Email"
       role: "Role"
       status: "Status"
       created_at: "Created_at"
+      avatar: "Avatar"
     index:
+      user_numbers: "Total Member: "
+      title: "Users"
       confirm_delete: "Are you sure ?"
       delete: "Delete"
       images: "Images"
@@ -164,6 +169,13 @@ en:
       status: "Status"
       role: "Role"
       action: "Action"
+      member: "MEMBER"
+      admin: "ADMIN"
+      active: "ACTIVE"
+      block: "BLOCK"
+      count:
+        one: "%{count} member"
+        other: "%{count} members"
     edit:
       not_found: Not Found User
       edit_user: Edit User
@@ -182,3 +194,37 @@ en:
       email: "Email"
       password: "Password"
       password_confirm: "Retype Password"
+  post:
+    new:
+      post: "Post"
+      topic: "Topic"
+      title: "Title"
+      content: "Content"
+      status: "Status"
+      create: "Submit"
+      post_image: "Post Image"
+      remove: "Remove image"
+    controller:
+      create_success: "Create post success"
+      create_failed: "Create post failed"
+      deleted_success: "Delete success"
+      deleted_error: "Delete failed"
+      not_found: "Post not found"
+      not_allow: "You have no right to do it !!"
+    index:
+      post_numbers: "Total Post: "
+      title: "Posts"
+      images: "Images"
+      title: "Title"
+      status: "Status"
+      writer: "Writer"
+      topic: "Topic"
+      action: "Action"
+      on_status: "ON"
+      off_status: "OFF"
+      count:
+        one: "%{count} post"
+        other: "%{count} posts"
+    edit:
+      post_image: "Post Image"
+      remove_post: "Remove image"

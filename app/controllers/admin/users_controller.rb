@@ -5,7 +5,7 @@ class Admin::UsersController < AdminController
   before_action :admin_user, except: :create
 
   def index
-    @users = User.page(params[:page]).per Settings.user.per_page
+    @users = User.order_created_at.page(params[:page]).per Settings.user.page
   end
 
   def show; end
@@ -15,7 +15,7 @@ class Admin::UsersController < AdminController
   end
 
   def create
-    @user = User.new user_params
+    @user = User.new
     if @user.save
       log_in @user
       flash[:info] = t "users.controller.signup_success"
@@ -29,6 +29,7 @@ class Admin::UsersController < AdminController
   def edit; end
 
   def update
+    @user.avatar = params[:file]
     if @user.update user_params
       flash[:success] = t "users.update.success"
       redirect_to admin_users_path
@@ -52,12 +53,5 @@ class Admin::UsersController < AdminController
 
   def user_params
     params.require(:user).permit User::PERMIT_ATTRIBUTES
-  end
-
-  def correct_user
-    return if current_user? @user
-
-    flash[:warning] = t "users.controller.not_correct"
-    redirect_to admin_users_path
   end
 end
