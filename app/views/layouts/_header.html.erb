@@ -3,23 +3,24 @@
     <div class="row">
       <div class="col-md-12">
         <div class="navbar-serch-right-side">
-          <!-- TODO -->
-          <!-- <form class="navbar-form" role="search">
+          <%= form_with url: searchs_path, method: :get,
+            class: "navbar-form", local: true do |form| %>
             <div class="input-group add-on">
-              <input class="form-control form-control222" placeholder="Search" name="srch-term" id="srch-term" type="text">
+              <%= form.text_field :query,
+                class: "form-control form-control222",id: "srch-term",
+                style: "color: black;" %>
               <div class="input-group-btn">
-                <button class="btn btn-default btn-default2913" type="submit">
+                <%= button_tag class: "btn btn-default btn-default2913" do %>
                   <i class="fas fa-search"></i>
-                </button>
+                <% end %>
               </div>
             </div>
-          </form> -->
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <div class="top-menu-bottom932">
   <nav class="navbar navbar-default">
     <div class="container d-flex">

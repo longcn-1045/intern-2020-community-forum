@@ -6,6 +6,7 @@ class User < ApplicationRecord
       password
       password_confirmation
       avatar
+      query
     ).freeze
 
   enum role: {member: 0, admin: 1}
@@ -61,6 +62,14 @@ class User < ApplicationRecord
 
     def new_token
       SecureRandom.urlsafe_base64
+    end
+
+    def search query
+      if query
+        self.where('name LIKE ?', "%#{query}%")
+      else
+        self.all
+      end
     end
   end
 

@@ -285,7 +285,7 @@
   }
 }
 
-#personal-page, .show-topic, .favorites-index, .homepage {
+#personal-page, .show-topic, .favorites-index, .homepage, .searchs-index {
   background-color: white;
   padding-top: 16px;
 
@@ -535,7 +535,7 @@
   }
 }
 
-.topics-list, .trends-index {
+.topics-list, .trends-index, .searchs-index {
   background-color: white;
   padding: 15px;
 
@@ -670,7 +670,7 @@
   }
 }
 
-.users-index, .trends-index {
+.users-index, .trends-index, .searchs-index {
   background-color: white;
   padding: 15px;
 
@@ -770,5 +770,23 @@
     display: block;
     text-align: center;
     text-decoration: none;
+  }
+}
+
+.navbar-serch-right-side {
+  .btn-default2913 {
+    padding: 0 10px;
+  }
+}
+
+.searchs-index {
+  padding: 20px;
+
+  button.btn-block {
+    margin-bottom: 20px;
+  }
+
+  hr {
+    margin: 20px 0;
   }
 }

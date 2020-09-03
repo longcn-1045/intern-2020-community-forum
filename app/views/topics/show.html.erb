@@ -15,9 +15,7 @@
     </div>
   </div>
   <% if @topic.posts.size.positive? %>
-    <div class="post-list">
-      <%= render @topic.posts %>
-    </div>
+    <%= render @topic.posts %>
   <% else %>
     <h5><%= t ".no_post" %></h5>
   <% end %>

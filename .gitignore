@@ -50,3 +50,5 @@ config/environments/*.local.yml
 public/uploads/user/avatar/
 public/uploads/ckeditor/attachments/
 public/uploads/ckeditor/pictures/
+
+public/public

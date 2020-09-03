@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     get "favorites/index", as: "favorites"
     get "trends/index", as: "trends"
+    get "/searchs", to: "searchs#index", as: "searchs"
 
     namespace :admin do
       root "dashboard#index"

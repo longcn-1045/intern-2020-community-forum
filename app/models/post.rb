@@ -28,6 +28,16 @@ class Post < ApplicationRecord
   validates :title, presence: true,
     length: {maximum: Settings.user.validates.title}
 
+  class << self
+    def search query
+      if query
+        self.where('title LIKE ?', "%#{query}%")
+      else
+        self.all
+      end
+    end
+  end
+
   private
 
   def reject_tags attributes

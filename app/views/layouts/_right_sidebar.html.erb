@@ -9,12 +9,12 @@
   <div class="status-part3821">
     <%= link_to "#" do %>
       <i class="fas fa-newspaper" aria-hidden="true">
-        <%= t ".followers" %> <%= celebrities.size %>
+        <%= t ".followers" %> <%= current_user.followers.size %>
       </i>
     <% end %>
     <%= link_to "#" do %>
       <i class="fas fa-users" aria-hidden="true">
-        <%= t ".followings" %> <%= celebrities.size %>
+        <%= t ".followings" %> <%= current_user.following.size %>
       </i>
     <% end %>
   </div>
@@ -39,7 +39,7 @@
   <div class="categori-part329">
     <h4><%= t ".lasted_activities" %></h4>
     <div class="logs-index">
-      <%= render @logs %>
+      <%= render Log.all %>
     </div>
     <%= link_to "Show all activities.", logs_path %>
   </div>
