@@ -7,10 +7,17 @@ vi:
       logout: "Đăng xuất"
       require_login: "Bạn chưa đăng nhập !!"
       form: "Form này bao gồm"
+      home: Trang chủ
+      user: Người dùng
+      edit: Chỉnh sửa
+      not_found: Không tìm thấy người dùng
+      please_login: Bạn chưa đăng nhập
+      new: Thêm mới
+      posts: Bài viết
     header:
       home: "Trang chủ"
       contact: "Liên lạc"
-      help: Giúp đỡ
+      help: "Giúp đỡ"
       about: Về chúng tôi
       signin: Đăng nhập
       signup: Đăng ký
@@ -28,6 +35,7 @@ vi:
       tags: Gắn thẻ
       users: Người dùng
       favorite: Bài viết đã lưu
+      trend: Trào lưu
     right_sidebar:
       add_post: Thêm bài viết
       posts: Bài viết
@@ -42,6 +50,36 @@ vi:
       to_fb: Facebook
       to_yt: Youtube
       to_wt: Twitter
+  application:
+    find_user:
+      not_found: Không tìm thấy
+    logged_in_user:
+      please_login: Bạn chưa đăng nhập
+  shared:
+    error_messages:
+      error: Lỗi
+  posts:
+    new:
+      new_post: Thêm mới bài viết
+      posts: Bài viết
+      new: Thêm mơi
+    create:
+      post_created: Thêm mới bài viết thành công
+      post_create_failed: Thêm mới bài viết thất bại
+    update:
+      post_updated: Cập nhật bài viết thành công
+      post_update_failed: Cập nhật bài viết thất bại
+    find_post:
+      not_found: Không tìm thấy
+    form:
+      title: Tiêu đề
+      topic: Chủ đề
+      tags: Gắn thẻ
+      content: Nội dung
+    edit:
+      edit_post: Cập nhật bài viết
+      posts: Bài viết
+      edit: Cập nhật
   dashboard:
     sidebar:
       title: "AdminLTE 3"
@@ -79,6 +117,7 @@ vi:
       email: "Email"
       password: "Mật khẩu"
   users:
+    please_login: Bạn chưa đăng nhập
     controller:
       signup_success: "Chào mừng đến với AdminLTE"
       signup_fail: "Đăng kí thất bại !!"
@@ -93,6 +132,15 @@ vi:
       count:
         one: "%{count} lỗi"
         other: "%{count} lỗi"
+    update:
+      success: Cập nhật người dùng thành công
+      fail: Cập nhật người dùng thất bại
+      profile_updated: Cập nhật người dùng thành công
+      failed_update_profile: Cập nhật người dùng thất bại
+    logged_in_user:
+      not_found: Không tìm thấy
+    find_user:
+      not_found: Không tìm thấy
     form:
       title: "Người dùng"
       name: "Họ và tên"
@@ -100,9 +148,6 @@ vi:
       password: "Mật khẩu"
       password_confirmation: "Xác nhận mật khẩu"
       update: "Cập nhật"
-    update:
-      success: "Cập nhật thành công"
-      fail: "Cập nhật thất bại"
     show:
       name: "Họ và tên"
       email: "Email"
@@ -118,6 +163,14 @@ vi:
       status: "Trạng thái"
       role: "Vai trò"
       action: "Hành động"
+    edit:
+      not_found: Không tìm thấy người dùng
+      edit_user: Cập nhật người dùng
+      edit_button: Cập nhật
+      name: Tên
+      email: Email
+      password: Mật khẩu
+      password_confirmation: Nhập lại mật khẩu
   registers:
     index:
       had_account: "Tôi đã có tài khoản !!"

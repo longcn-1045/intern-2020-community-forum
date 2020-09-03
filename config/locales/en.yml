@@ -7,10 +7,17 @@ en:
       logout: "Logout"
       require_login: "You are not logged in !!"
       form: "The form contains"
+      home: Home
+      user: Users
+      edit: Edit
+      not_found: Not Found User
+      please_login: Please Login
+      new: New
+      posts: Posts
     header:
       home: "Home"
       contact: "Contact"
-      help: Help
+      help: "Help"
       about: About Us
       signin: Sign In
       signup: Sign Up
@@ -28,8 +35,9 @@ en:
       tags: Tags
       users: Users
       favorite: Favorite
+      trend: Trend
     right_sidebar:
-      add_post: Add Post
+      new_post: New Post
       posts: Posts
       users: Users
       recent_post: Recent Post
@@ -42,6 +50,37 @@ en:
       to_fb: To Facebook Feed
       to_yt: To youtube Feed
       to_wt: To twitter Feed
+  application:
+    find_user:
+      not_found: Not found
+    logged_in_user:
+      please_login: Please Login
+  shared:
+    error_messages:
+      error: Error
+  posts:
+    new:
+      new_post: New Post
+      posts: Posts
+      new: New
+    create:
+      post_created: Post Created
+      post_create_failed: Post Create Failed
+    update:
+      post_updated: Post Updated
+      post_update_failed: Post Update Failed
+    find_post:
+      not_found: Not Found
+    form:
+      title: Title
+      topic: Topic
+      tags: Tags
+      content: Content
+      topic_default: '-- Type topic here --'
+    edit:
+      edit_post: Edit Post
+      posts: Posts
+      edit: Edit
   dashboard:
     sidebar:
       title: "AdminLTE 3"
@@ -79,6 +118,7 @@ en:
       email: "Email"
       password: "Password"
   users:
+    please_login: Please Login
     controller:
       signup_success: "Welcome to AdminLTE"
       signup_fail: "Sign up failed !!"
@@ -96,6 +136,12 @@ en:
     update:
       success: "Update Success"
       fail: "Update failed"
+      profile_updated: Profile updated
+      failed_update_profile: Failed to update profile
+    logged_in_user:
+      not_found: Not Found
+    find_user:
+      not_found: Not Found
     form:
       title: "Users"
       name: "Full name"
@@ -118,6 +164,14 @@ en:
       status: "Status"
       role: "Role"
       action: "Action"
+    edit:
+      not_found: Not Found User
+      edit_user: Edit User
+      edit_button: Update profile
+      name: Name
+      email: Email
+      password: Password
+      password_confirmation: Password Confirm
   registers:
     index:
       had_account: "I already have a membership"

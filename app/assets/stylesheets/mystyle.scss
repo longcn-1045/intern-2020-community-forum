@@ -15,6 +15,7 @@
       a {
         color: $main_color;
         font-weight: 700;
+        text-decoration: none;
 
         i {
           font-size: 18px;
@@ -41,5 +42,53 @@
     padding: 4px 12px;
     font-weight: 600;
     display: block;
+  }
+}
+
+.breadcrumb {
+  background-color: $main-bg;
+  padding-left: 0;
+
+  li {
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+#post_content {
+  min-height: 300px;
+  height: auto;
+}
+
+.edit-user-avatar {
+  width: 100%;
+  height: auto;
+  text-align: center;
+
+  input#user_avatar {
+    display: none !important;
+  }
+
+  label {
+    border: 1px solid $main_color;
+  }
+
+  #user_ava_preview {
+    width: 222px;
+    height: 222px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+}
+
+.required {
+  &::after {
+    content: "*";
+    color: red;
+    margin-left: 3px;
+    font-weight: bold
   }
 }
