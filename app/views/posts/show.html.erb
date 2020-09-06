@@ -24,9 +24,9 @@
       <span class="user-name">
         <%= link_to @post.user.name, @post.user %>
         </span>
-      <time>Asked: <strong><%= @post.created_at %></strong></time>
+      <time>Asked: <strong><%= time_ago_in_words @post.created_at %></strong></time>
       <span class="post-topic">
-        In: <strong><%= link_to @post.topic.name, "#" %></strong>
+        In: <strong><%= link_to @post.topic.name, @post.topic %></strong>
       </span>
     </p>
     <p class="post-title">
@@ -63,4 +63,22 @@
       </div>
     </div>
   </div>
+</div>
+<div class="list-comments">
+  <%= render @comments %>
+</div>
+<div class="add-comment">
+  <div class="user-ava">
+    <% if @post.user.avatar.url %>
+      <%= image_tag @post.user.avatar.url %>
+    <% else %>
+      <%= image_tag Settings.user.default_avatar %>
+    <% end %>
+  </div>
+  <%= form_for [@commentable, @comment] do |f| %>
+    <div class="form-group">
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-secondary btn-block" %>
+  <% end %>
 </div>

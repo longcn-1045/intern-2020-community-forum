@@ -18,6 +18,8 @@ class Post < ApplicationRecord
   has_many :post_likes, dependent: :destroy
   has_many :like_users, through: :post_likes, source: :user
 
+  has_many :post_comments, dependent: :destroy, as: :commentable
+
   accepts_nested_attributes_for :tags,
                                 allow_destroy: true,
                                 reject_if: :reject_tags

@@ -29,6 +29,8 @@
 
 /public/packs
 /public/packs-test
+/public/uploads
+/public/images
 /node_modules
 /yarn-error.log
 yarn-debug.log*
@@ -51,4 +53,7 @@ public/uploads/user/avatar/
 public/uploads/ckeditor/attachments/
 public/uploads/ckeditor/pictures/
 
-public/public
+ImageMagick-7.0.10-28/
+ImageMagick.tar.gz
+
+/public/public

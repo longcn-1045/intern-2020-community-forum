@@ -22,7 +22,7 @@
           <span class="user-name">
             <%= link_to post.user.name, post.user %>
             </span>
-          <time>Asked: <strong><%= post.created_at %></strong></time>
+          <time>Asked: <strong><%= time_ago_in_words post.created_at %></strong></time>
           <span class="post-topic">
             In: <strong><%= link_to post.topic.name, post.topic %></strong>
           </span>

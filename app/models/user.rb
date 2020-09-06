@@ -34,6 +34,8 @@ class User < ApplicationRecord
   foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_many :post_comments, dependent: :destroy
+
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true,

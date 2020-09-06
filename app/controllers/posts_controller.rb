@@ -4,7 +4,11 @@ class PostsController < ApplicationController
 
   def index; end
 
-  def show; end
+  def show
+    @commentable = @post
+    @comments = @commentable.post_comments
+    @comment = PostComment.new
+  end
 
   def new
     @post = Post.new

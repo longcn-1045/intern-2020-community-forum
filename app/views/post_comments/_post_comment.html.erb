@@ -1,0 +1,14 @@
+<div class="item">
+  <div class="user-ava">
+    <% if post_comment.user.avatar.url %>
+      <%= image_tag post_comment.user.avatar.url %>
+    <% else %>
+      <%= image_tag Settings.user.default_avatar %>
+    <% end %>
+  </div>
+  <div class="item-content">
+    <p class="user-name"><%= post_comment.user.name %></p>
+    <p class="item-time"><%= time_ago_in_words post_comment.created_at %></p>
+    <p class="item-comment"><%= post_comment.content %></p>
+  </div>
+</div>
