@@ -76,11 +76,13 @@ en:
       topic: Topic
       tags: Tags
       content: Content
-      topic_default: '-- Type topic here --'
+      topic_default: "-- Type topic here --"
+      new_tag: Add Tag
     edit:
       edit_post: Edit Post
       posts: Posts
       edit: Edit
+      not_found: Not Found
     breadcrumbs:
       post: "Posts"
       new: "New"
@@ -195,6 +197,7 @@ en:
       email: Email
       password: Password
       password_confirmation: Password Confirm
+      upload_avatar: Upload your avatar
     breadcrumbs:
       user: "Users"
       show: "Profile"

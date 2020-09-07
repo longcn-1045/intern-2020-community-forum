@@ -1,4 +1,4 @@
-import 'bootstrap'
+import 'bootstrap';
 
 require('@rails/ujs').start();
 require('turbolinks').start();
@@ -7,3 +7,5 @@ require('channels');
 require('jquery');
 
 require('packs/font_awesome');
+
+import 'cocoon';

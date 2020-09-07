@@ -27,6 +27,7 @@ ckeditor:
   thumb_size: 116
   content_size: 800
 post:
+  max_tags_size: 3
   validates:
     max_title: 500
     max_content: 6000

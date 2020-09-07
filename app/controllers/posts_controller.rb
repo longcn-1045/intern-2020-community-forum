@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.tags.build
   end
 
   def create
@@ -19,7 +20,9 @@ class PostsController < ApplicationController
     redirect_to root_url
   end
 
-  def edit; end
+  def edit
+    @post.tags.build
+  end
 
   def update
     if @post.update post_params
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit Post::PERMIT_ATTRIBUTES
+    params.require(:post).permit Post::POST_PARAMS
   end
 
   def find_post

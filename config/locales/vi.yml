@@ -76,10 +76,13 @@ vi:
       topic: Chủ đề
       tags: Gắn thẻ
       content: Nội dung
+      topic_default: "-- Nhập lựa chọn của bạn--"
+      new_tag: Thêm tag
     edit:
       edit_post: Cập nhật bài viết
       posts: Bài viết
       edit: Cập nhật
+      not_found: Không tìm thấy
     breadcrumbs:
       post: "Bài viết"
       new: "Thêm"
@@ -159,6 +162,8 @@ vi:
       password: "Mật khẩu"
       password_confirmation: "Xác nhận mật khẩu"
       update: "Cập nhật"
+      remove: "Xóa ảnh đại diện"
+      my_avatar: "Ảnh đại diện của tôi"
     show:
       name: "Họ và tên"
       email: "Email"
@@ -192,6 +197,7 @@ vi:
       email: Email
       password: Mật khẩu
       password_confirmation: Nhập lại mật khẩu
+      upload_avatar: Tải ảnh đại diện
     breadcrumbs:
       user: "Thành viên"
       show: "Thông tin cá nhân"

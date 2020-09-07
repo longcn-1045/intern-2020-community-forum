@@ -1,4 +1,4 @@
-<%= form_with model: @post, local: true do |f| %>
+<%= form_for @post do |f| %>
   <%= render "shared/error_messages", object: f.object %>
 
   <div class="form-group">
@@ -7,10 +7,22 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :topic_id, t(".topic") %>
+    <%= f.label :topic_id, t(".topic"), class: "required" %>
     <%= f.select :topic_id,
       options_for_select(list_topics), {:include_blank => t(".topic_default")},
       id: "event_topic_id", class: "form-control", :multiple => false %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t(".tags") %>
+    <%= f.fields_for :tags do |tag| %>
+      <%= render "tag_fields", f: tag %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association f, :tags, class: "button-add-tag" do %>
+        <%= button_tag t(".new_tag"), type: "button", class: "btn btn-success btn-block" %>
+      <% end %>
+    </div>
   </div>
 
   <div class="form-group">
