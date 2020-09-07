@@ -225,3 +225,25 @@ vi:
     edit:
       post_image: "Ảnh bài viết"
       remove_post: "Xóa ảnh"
+  block_mailer:
+    blocked_email:
+      block: "Khóa tài khoản"
+      unblock: "Mở tài khoản"
+  topic:
+    controller:
+      create_success: "Tạo danh mục thành công"
+      create_failed: "Tạo danh mục thất bại"
+      not_found: "Danh mục này không tồn tại"
+      deleted_success: "Xóa bài viết thành công"
+      deleted_error: "Xóa bài viết thất bại"
+      activate_success: "Kích hoạt thành công"
+      activate_error: "Kích hoạt thất bại"
+    index:
+      title: "Chủ đề"
+      name: "Tên"
+      created_at: "Ngày bắt đầu"
+      status: "Trạng thái"
+      action: "Hành động"
+      count:
+        one: "%{count} danh mục"
+        other: "%{count} danh mục"

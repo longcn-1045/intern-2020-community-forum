@@ -108,3 +108,30 @@
     color: $white;
   }
 }
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  padding: 20px 0px;
+
+  .page,
+  .next_page,
+  .last_next{
+    a{
+      padding: 10px 20px;
+    }
+  }
+
+  .active{
+    a{
+      background-color: blue;
+      color: white;
+    }
+  }
+}
+
+.register-page {
+  background-image: url("/images/picture_layout.jpg");
+  background-size: cover;
+}

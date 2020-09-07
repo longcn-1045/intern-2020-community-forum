@@ -1,0 +1,18 @@
+<%= form_for [:admin, @topic] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="row p-3">
+     <div class="form-group">
+      <%= f.label t "post.new.title" %>
+      <%= f.text_field :name, class: "form-control", placeholder: t("post.new.title"), required: true %>
+     </div>
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <%= f.label t "post.new.status" %>
+      <%= f.check_box :status, {checked: true}, :on, :off %>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= f.submit t("post.new.create"), class: "btn btn-primary" %>
+  </div>
+<% end %>

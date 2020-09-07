@@ -31,6 +31,16 @@ post:
     max_title: 500
     max_content: 6000
   page: 5
+  per_page: 4
+  role: "members"
+theme:
+  name_bootstrap: "twitter-bootstrap-3"
+post:
+  validates:
+    max_title: 150
+    max_content: 800
+  per_page: 5
+  page: 5
 store:
   avatar_dir: "public/myimages/avatar"
   size: [150, 150]
@@ -47,3 +57,7 @@ status:
   off_status: "off"
 config_image:
   image: ["jpeg", "gif", "png", "jpg"]
+  on_status: "ON"
+topic:
+  validates:
+    name_topic: 50

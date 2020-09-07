@@ -371,6 +371,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.4.1)
   bootstrap-select-rails
   bundle-audit
+  bootstrap-select-rails
   capybara (>= 2.15)
   carrierwave
   ckeditor

@@ -1,0 +1,28 @@
+<tr>
+  <td><%= topic.name %></td>
+  <td><%= topic.created_at %></td>
+  <td>
+    <div class="status <%= topic_status(topic.on?)[:css] %>">
+      <span>
+        <%= topic_status(topic.on?)[:status] %>
+      </span>
+    </div>
+  </td>
+  <td>
+    <%= link_to edit_admin_topic_path topic.id, class: "nav-link active d-inline" do %>
+      <i class="fas fa-edit nav-icon text-success"></i>
+    <% end %>
+    <%= link_to admin_topic_activate_path(topic.id), method: :patch, class: "nav-link active d-inline" do %>
+      <% if topic.on? %>
+        <i class="fas fa-lock-open nav-icon text-warning"></i>
+      <% else %>
+        <i class="fas fa-lock nav-icon text-warning"></i>
+      <% end %>
+    <% end %>
+    <%= link_to admin_topic_path(topic.id), method: :delete,
+      data: { confirm: t("users.index.confirm_delete") },
+      class: "nav-link active d-inline" do %>
+      <i class="fas fa-trash-alt nav-icon text-danger"></i>
+    <% end %>
+  </td>
+</tr>

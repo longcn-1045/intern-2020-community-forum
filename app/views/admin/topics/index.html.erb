@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"><%= t "topic.index.title" %></h3>
+  </div>
+  <div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <div class="input-group input-group-sm">
+        <label><%= t "post.index.post_numbers" %><%= t "topic.index.count", count: @topics.total_count %></label>
+      </div>
+      <thead>
+        <%= render "colums" %>
+      </thead>
+      <tbody>
+        <%= render @topics %>
+      </tbody>
+      <tfoot>
+        <%= render "colums" %>
+      </tfoot>
+    </table>
+  </div>
+</div>
+<%= paginate @topics, theme: Settings.theme.name_bootstrap %>

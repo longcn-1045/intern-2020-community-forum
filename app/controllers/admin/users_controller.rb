@@ -15,7 +15,7 @@ class Admin::UsersController < AdminController
   end
 
   def create
-    @user = User.new
+    @user = User.new user_params
     if @user.save
       log_in @user
       flash[:info] = t "users.controller.signup_success"

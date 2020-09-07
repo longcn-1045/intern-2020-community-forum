@@ -228,3 +228,27 @@ en:
     edit:
       post_image: "Post Image"
       remove_post: "Remove image"
+  block_mailer:
+    blocked_email:
+      block: "Block"
+      unblock: "Active"
+  topic:
+    controller:
+      create_success: "Create topic success"
+      create_failed: "Create topic failed"
+      not_found: "Topic Invalid"
+      deleted_success: "Delete success"
+      deleted_error: "Delete failed"
+      activate_success: "Activate success"
+      activate_error: "Activate failed"
+    index:
+      title: "Title"
+      name: "Name"
+      created_at: "Created_at"
+      status: "Status"
+      action: "Action"
+      count:
+        one: "%{count} topic"
+        other: "%{count} topics"
+    new:
+      title: "Topic"
