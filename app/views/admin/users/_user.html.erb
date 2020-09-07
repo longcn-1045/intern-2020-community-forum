@@ -22,6 +22,15 @@
            <i class="fas fa-lock nav-icon text-warning"></i>
         <% end %>
       <% end %>
+      <%= link_to admin_user_authorize_path(user.id), method: :patch,
+        data: { confirm: t("users.index.confirm_delete") },
+        class: "nav-link active d-inline" do %>
+        <% if user.admin? %>
+          <i class="fas fa-user-shield nav-icon text-danger"></i>
+        <% else %>
+           <i class="fas fa-user nav-icon text-danger"></i>
+        <% end %>
+      <% end %>
       <%= link_to admin_user_path(user.id), method: :delete,
         data: { confirm: t("users.index.confirm_delete") },
         class: "nav-link active d-inline" do %>

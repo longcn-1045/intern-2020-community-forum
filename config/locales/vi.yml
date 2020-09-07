@@ -272,3 +272,7 @@ vi:
       list: "Chủ đề"
       new: "Thêm"
       edit: "Sửa"
+  authorize_mailer:
+    authorize_email:
+      admin: "Admin"
+      member: "Thành viên"

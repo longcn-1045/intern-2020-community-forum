@@ -274,3 +274,7 @@ en:
       list: "Topics"
       new: "New"
       edit: "Edit"
+  authorize_mailer:
+    authorize_email:
+      admin: "Admin"
+      member: "Member"

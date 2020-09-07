@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       delete "/logout", to: "sessions#destroy"
       patch "users/activate/:id", to: "block#update", as: "user_activate"
       patch "topics/activate/:id", to: "topics#activate", as: "topic_activate"
+      patch "users/authorize/:id", to: "block#authorize", as: "user_authorize"
       resources :users
       resources :posts
       resources :topics
