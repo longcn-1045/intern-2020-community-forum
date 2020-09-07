@@ -1,0 +1,39 @@
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title"><%= t "post.new.post" %></h3>
+  </div>
+  <%= form_for [:admin, @post], html: { multipart: true } do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+      <div class="row p-3">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <%= f.label t "post.new.topic" %>
+              <%= f.select :topic_id, options_for_select(list_topics), {include_blank: @post.topic.name}, id: "event_topic_id",
+                class: "form-control", multiple: false, readonly: true %>
+          </div>
+           <div class="form-group">
+            <%= f.label t "post.new.title" %>
+            <%= f.text_field :title, class: "form-control", placeholder: t("post.new.title"), required: true, readonly: true %>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <p>
+              <label class="d-block"><%= t "post.edit.post_image" %></label>
+              <%= image_tag(@post.image_url) if @post.image? %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <%= f.label t "post.new.content" %>
+          <%= f.cktext_area :content, class: "form-control", placeholder: t("post.new.content"), required: true, readonly: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label t "post.new.status" %>
+          <%= f.check_box :status, {checked: true, disabled: true}, :on, :off %>
+        </div>
+      </div>
+  <% end %>
+</div>

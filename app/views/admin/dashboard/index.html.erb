@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3><%= @posts.size %></h3>
+
+        <p><%= t "dashboard.card.post" %></p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+      <%= link_to admin_posts_path, class: "small-box-footer" do %>
+        <%= t "dashboard.card.more_infor" %> <i class="fas fa-arrow-circle-right"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-warning">
+      <div class="inner">
+        <h3><%= @users.size %></h3>
+
+        <p><%= t "dashboard.card.user" %></p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+      <%= link_to admin_users_path, class: "small-box-footer" do %>
+        <%= t "dashboard.card.more_infor" %><i class="fas fa-arrow-circle-right"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3><%= @users.size %></h3>
+
+        <p><%= t "dashboard.card.user" %></p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+      <%= link_to admin_users_path, class: "small-box-footer" do %>
+        <%= t "dashboard.card.more_infor" %><i class="fas fa-arrow-circle-right"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h3><%= @users.size %></h3>
+
+        <p><%= t "dashboard.card.user" %></p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+      <%= link_to admin_users_path, class: "small-box-footer" do %>
+        <%= t "dashboard.card.more_infor" %><i class="fas fa-arrow-circle-right"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <% @posts.take(Settings.user.validates.time).each do |post| %>
+        <%= render partial: "card_post", locals: {post: post} %>
+      <% end %>
+    </div>
+    <div class="col-lg-6">
+      <% @users.take(Settings.user.validates.time).each do |user| %>
+        <%= render partial: "card_user", locals: {user: user} %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -6,19 +6,27 @@
   <div class="sidebar">
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <%= image_tag "/img/user2-160x160.jpg", class: "img-circle elevation-2", alt: "User Image" %>
+        <%= image_tag current_user.avatar_url, class: "img-circle elevation-2", alt: "User Image" %>
       </div>
       <div class="info">
-        <%= link_to t("dashboard.sidebar.name"), "#", class: "d-block" %>
+        <%= link_to current_user.name, admin_user_path(current_user.id), class: "d-block" %>
       </div>
     </div>
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
           <%= link_to root_path, class: "nav-link" do %>
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-home"></i>
             <p>
               <%= t "dashboard.sidebar.page" %>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to admin_root_path, class: "nav-link" do %>
+            <i class="nav-icon fab fa-instagram"></i>
+            <p>
+              <%= t "dashboard.sidebar.dashboard" %>
             </p>
           <% end %>
         </li>

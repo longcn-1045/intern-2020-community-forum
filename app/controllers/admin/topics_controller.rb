@@ -1,11 +1,14 @@
 class Admin::TopicsController < AdminController
   before_action :load_topic, except: %i(index new create)
 
+  add_breadcrumb I18n.t("topic.breadcrumbs.list"), :admin_topics_path
+
   def index
     @topics = Topic.order_created_at.page(params[:page]).per Settings.post.page
   end
 
   def new
+    add_breadcrumb I18n.t("topic.breadcrumbs.new")
     @topic = Topic.new
   end
 
@@ -22,7 +25,9 @@ class Admin::TopicsController < AdminController
     end
   end
 
-  def edit; end
+  def edit
+    add_breadcrumb I18n.t("topic.breadcrumbs.edit")
+  end
 
   def update
     if @topic.update topic_params

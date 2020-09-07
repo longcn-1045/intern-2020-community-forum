@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+     <i class="nav-icon fas fa-user"></i>
+     <p class="d-inline"><%= user.name %></p>
+  </div>
+  <%= link_to admin_user_path user.id do %>
+    <div class="row">
+      <div class="col-lg-1">
+        <div class="card-body">
+         <%= image_tag user.avatar_url, class: "img-size-50 mr-3 img-circle" %>
+        </div>
+      </div>
+      <div class="col-lg-11">
+        <div class="card-body">
+          <h6 class="card-title">
+            <div class="status <%= user_role(user.member?)[:css] %>">
+              <span>
+                <%= user_role(user.member?)[:status] %>
+              </span>
+            </div>
+          </h6>
+          <p class="card-text text-dark">Posts : <%= user.posts.size %></p>
+          <p class="card-text text-dark"> <%= user.created_at.strftime("%d %b. %Y") %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

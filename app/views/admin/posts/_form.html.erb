@@ -4,7 +4,7 @@
     <div class="col-lg-6">
       <div class="form-group">
         <%= f.label t "post.new.topic" %>
-          <%= f.select :topic_id, options_for_select(list_topics), {include_blank: true}, id: "event_topic_id",
+          <%= f.select :topic_id, options_for_select(list_topics, @post.topic_id), {include_blank: post_topic}, id: "event_topic_id",
             class: "form-control", multiple: false %>
       </div>
        <div class="form-group">

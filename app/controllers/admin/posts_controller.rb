@@ -4,11 +4,14 @@ class Admin::PostsController < AdminController
   before_action :load_post, except: %i(index new create)
   before_action :correct_writer, only: %i(edit update)
 
+  add_breadcrumb I18n.t("posts.breadcrumbs.post"), :admin_posts_path
+
   def index
     @posts = Post.order_created_at.page(params[:page]).per Settings.post.page
   end
 
   def new
+    add_breadcrumb I18n.t("posts.breadcrumbs.new")
     @post = current_user.posts.build
   end
 
@@ -25,7 +28,9 @@ class Admin::PostsController < AdminController
     end
   end
 
-  def edit; end
+  def edit
+    add_breadcrumb I18n.t("posts.breadcrumbs.edit")
+  end
 
   def update
     @post.image = params[:file]

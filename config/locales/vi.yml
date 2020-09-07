@@ -80,6 +80,10 @@ vi:
       edit_post: Cập nhật bài viết
       posts: Bài viết
       edit: Cập nhật
+    breadcrumbs:
+      post: "Bài viết"
+      new: "Thêm"
+      edit: "Sửa"
   dashboard:
     sidebar:
       title: "AdminLTE 3"
@@ -88,6 +92,7 @@ vi:
       user: "Người dùng"
       profile: "Thông tin cá nhân"
       change_password: "Đổi mật khẩu"
+      dashboard: "Dashboard"
       list: "Danh sách"
       post: "Bài viết"
       add : "Thêm"
@@ -103,6 +108,12 @@ vi:
     header:
       home: "Trang chủ"
       contact: "Liên lạc"
+    card:
+      post: "Số bài viết"
+      user: "Số thành viên"
+      more_infor : "Thông tin chi tiết"
+    breadcrumbs:
+      home: "Trang chủ"
   sessions:
     controller:
       inform_failed: "Người dùng không tồn tại!"
@@ -181,6 +192,10 @@ vi:
       email: Email
       password: Mật khẩu
       password_confirmation: Nhập lại mật khẩu
+    breadcrumbs:
+      user: "Thành viên"
+      show: "Thông tin cá nhân"
+      edit: "Sửa"
   registers:
     index:
       had_account: "Tôi đã có tài khoản !!"
@@ -247,3 +262,7 @@ vi:
       count:
         one: "%{count} danh mục"
         other: "%{count} danh mục"
+    breadcrumbs:
+      list: "Chủ đề"
+      new: "Thêm"
+      edit: "Sửa"

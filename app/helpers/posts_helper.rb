@@ -16,4 +16,8 @@ module PostsHelper
   def list_topics
     Topic.pluck :name, :id
   end
+
+  def post_topic
+    @post.topic.present? ? @post.topic.name : true
+  end
 end

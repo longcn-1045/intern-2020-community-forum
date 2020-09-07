@@ -4,11 +4,15 @@ class Admin::UsersController < AdminController
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, except: :create
 
+  add_breadcrumb I18n.t("users.breadcrumbs.user"), :admin_users_path
+
   def index
     @users = User.order_created_at.page(params[:page]).per Settings.user.page
   end
 
-  def show; end
+  def show
+    add_breadcrumb I18n.t("users.breadcrumbs.show")
+  end
 
   def new
     @user = User.new
@@ -26,7 +30,9 @@ class Admin::UsersController < AdminController
     end
   end
 
-  def edit; end
+  def edit
+    add_breadcrumb I18n.t("posts.breadcrumbs.edit")
+  end
 
   def update
     @user.avatar = params[:file]

@@ -81,6 +81,10 @@ en:
       edit_post: Edit Post
       posts: Posts
       edit: Edit
+    breadcrumbs:
+      post: "Posts"
+      new: "New"
+      edit: "Edit"
   dashboard:
     sidebar:
       title: "AdminLTE 3"
@@ -88,6 +92,7 @@ en:
       page: "Home Page"
       user: "Users"
       profile: "Profile"
+      dashboard: "Dashboard"
       change_password: "Change Password"
       list: "List"
       post: "Posts"
@@ -104,6 +109,12 @@ en:
     header:
       home: "Home"
       contact: "Contact"
+    card:
+      post: "Posts Number"
+      user: "Member Number"
+      more_infor : "More info"
+    breadcrumbs:
+      home: "Home"
   sessions:
     controller:
       inform_failed: "Invalid User"
@@ -184,6 +195,10 @@ en:
       email: Email
       password: Password
       password_confirmation: Password Confirm
+    breadcrumbs:
+      user: "Users"
+      show: "Profile"
+      edit: "Edit"
   registers:
     index:
       had_account: "I already have a membership"
@@ -252,3 +267,7 @@ en:
         other: "%{count} topics"
     new:
       title: "Topic"
+    breadcrumbs:
+      list: "Topics"
+      new: "New"
+      edit: "Edit"

@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header">
+     <i class="nav-icon far fa-edit"></i>
+     <p class="d-inline"><%= post.name %></p>
+  </div>
+  <%= link_to admin_post_path post.id do %>
+    <div class="row">
+      <div class="col-lg-1">
+        <div class="card-body">
+         <%= image_tag post.image_url,class: "img-size-50 mr-3" %>
+        </div>
+      </div>
+      <div class="col-lg-11">
+        <div class="card-body">
+          <h6 class="card-title text-dark"><%= post.title %></h6>
+          <p class="card-text text-dark"><%= post.created_at.strftime("%d %b. %Y") %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

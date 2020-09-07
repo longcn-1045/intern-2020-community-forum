@@ -5,6 +5,8 @@ class AdminController < ActionController::Base
 
   before_action :set_locale
 
+  add_breadcrumb I18n.t("dashboard.breadcrumbs.home"), :admin_root_path
+
   private
 
   def set_locale
