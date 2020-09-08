@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_140141) do
+ActiveRecord::Schema.define(version: 2020_09_08_031813) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_140141) do
     t.bigint "user_id", null: false
     t.text "content"
     t.bigint "topic_id", null: false
-    t.integer "view"
+    t.integer "view", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "image"

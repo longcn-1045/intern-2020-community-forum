@@ -17,6 +17,7 @@ user:
     image_size_limit: 500
     content: 6000
     title: 500
+  default_avatar: "/images/avatar.png"
   per_page: 8
   page: 4
   role: "member"

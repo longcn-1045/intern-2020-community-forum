@@ -1,0 +1,53 @@
+<% provide :title, t(".posts") %>
+<% provide :controller, t(".posts") %>
+<% provide :action, t(".show") %>
+
+<div id="post-show">
+  <div class="user-ava">
+    <% if @post.url %>
+      <%= image_tag @post.url %>
+    <% else %>
+      <%= image_tag Settings.user.default_avatar %>
+    <% end %>
+  </div>
+  <div class="post-info">
+    <p class="post-header">
+      <span class="user-name">
+        <%= link_to @post.name, @post.user %>
+        </span>
+      <time>
+        <%= t ".asked" %>
+        <strong><%= @post.created_at %></strong>
+      </time>
+      <span class="post-topic">
+        <%= t ".in" %>
+        <strong><%= link_to @post.topic_name, "#" %></strong>
+      </span>
+    </p>
+    <p class="post-title">
+      <%= link_to @post.title, @post %>
+    </p>
+    <div class="post-description">
+      <%= @post.content.html_safe %>
+    </div>
+    <div class="post-tags">
+      <% @post.tags.each do |tag| %>
+        <p class="tag-item">
+          <%= tag.name %>
+        </p>
+      <% end %>
+    </div>
+    <div class="post-footer">
+      <div class="post-comments"></div>
+      <div class="post-views">
+        <%= @post.view %>
+        <%= t ".views" %>
+      </div>
+      <div class="comment-post">
+        <button type="button" class="btn btn-primary">
+          <%= link_to t("answer"), @post %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

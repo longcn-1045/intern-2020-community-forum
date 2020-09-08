@@ -32,7 +32,9 @@ class Post < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  delegate :name, to: :user
+  delegate :name, :url, to: :user
+
+  delegate :name, to: :topic, prefix: true
 
   private
 

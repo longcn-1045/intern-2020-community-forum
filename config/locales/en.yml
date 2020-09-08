@@ -40,6 +40,8 @@ en:
       new_post: New Post
       posts: Posts
       users: Users
+      followers: Followers
+      followings: Followings
       recent_post: Recent Post
       celebrities: Celebrities
       categories: Categories
@@ -50,6 +52,7 @@ en:
       to_fb: To Facebook Feed
       to_yt: To youtube Feed
       to_wt: To twitter Feed
+      follow: Follow;
   application:
     find_user:
       not_found: Not found
@@ -87,6 +90,17 @@ en:
       post: "Posts"
       new: "New"
       edit: "Edit"
+    show:
+      posts: Posts
+      show: Show
+      asked: Asked
+      in: In
+      answer: Anwser
+    post:
+      asked: Asked
+      in: In
+      answer: Anwser
+      views: View
   dashboard:
     sidebar:
       title: "AdminLTE 3"
@@ -171,6 +185,8 @@ en:
       status: "Status"
       created_at: "Created_at"
       avatar: "Avatar"
+      dont_have: User doesn't have any followers yet.
+      dont_rela: User doesn't follow anyone.
     index:
       user_numbers: "Total Member: "
       title: "Users"
@@ -197,11 +213,26 @@ en:
       email: Email
       password: Password
       password_confirmation: Password Confirm
+      edit: Edit
+      users: Users
       upload_avatar: Upload your avatar
     breadcrumbs:
       user: "Users"
       show: "Profile"
       edit: "Edit"
+    show:
+      users: Users
+      show: Show
+      edit_user: Edit User
+      posts: Posts
+      comments: Comments
+      followers: Followers
+      followings: Followings
+    index:
+      users: Users
+      index: Index
+      follow: Follow
+      unfollow: Unfollow
   registers:
     index:
       had_account: "I already have a membership"
@@ -278,3 +309,31 @@ en:
     authorize_email:
       admin: "Admin"
       member: "Member"
+  topics:
+    index:
+      topics: Topics
+      index: Index
+      follow: Follow
+      unfollow: Unfollow
+      followers: Follower
+    show:
+      topics: Topics
+      show: Show
+      not_found: Not Found
+      no_post: This tag has no posts!
+      posts: posts
+  favorites:
+    index:
+      favorites: Favorites
+      index: Index
+      posts: posts
+  trends:
+    index:
+      trends: Trends
+      index: Index
+      discover_users: Discover Popular Users
+      discover_topics: Discover Popular Topics
+  static_pages:
+    home:
+      home: Home Page
+      index: Index

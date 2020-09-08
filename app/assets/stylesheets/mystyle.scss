@@ -46,7 +46,7 @@
 }
 
 .breadcrumb {
-  background-color: $main-bg;
+  background-color: $main_bg;
   padding-left: 0;
 
   li {
@@ -93,6 +93,7 @@
   }
 }
 
+
 .on, .member, .active{
   span{
     background-color: green;
@@ -131,6 +132,132 @@
   }
 }
 
+#post-show  {
+  background-color: white;
+  padding: 15px;
+  display: flex;
+
+  .user-ava {
+    img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+
+  .post-info {
+    width: 90%;
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .post-header {
+      .user-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 10px;
+
+        a {
+          color: $strong_line;
+          text-decoration: none;
+        }
+      }
+
+      time {
+        font-size: 14px;
+        margin-right: 10px;
+
+        strong {
+          color: $strong_line;
+        }
+      }
+
+      .post-topic {
+        font-size: 14px;
+        margin-right: 10px;
+
+        strong {
+          a {
+            color: $strong_line;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .post-title {
+      font-weight: bold;
+      font-size: 18px;
+
+      a {
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+        word-break: break-word;
+      }
+    }
+
+    .post-description {
+      color: $desc_line;
+      font-size: 15px;
+      font-weight: 400;
+      width: 100%;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      margin-bottom: 15px;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    .post-tags {
+      display: flex;
+      margin-bottom: 15px;
+      align-items: center;
+
+      .tag-item {
+        color: $rolling-stone;
+        border: 1px solid $main_border;
+        padding: 1px 6px;
+        border-radius: 2px;
+        font-size: 15px;
+        margin-right: 8px;
+      }
+    }
+
+    .post-footer {
+      background-color: $wild-sand;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+
+      .post-comments, .post-views, .post-likes, .post-shares {
+        padding: 6px 10px;
+        border: 1px solid $iron;
+        background-color: white;
+        font-size: 15px;
+        margin-right: 10px;
+      }
+
+      .comment-post {
+        margin-left: auto;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
 .register-page {
   background-image: url("/images/picture_layout.jpg");
   background-size: cover;
@@ -154,5 +281,334 @@
 .nested-fields {
   .form-group {
     margin-bottom: 10px;
+  }
+}
+
+#personal-page, .show-topic, .favorites-index, .homepage {
+  background-color: white;
+  padding-top: 16px;
+
+  .edit-user-path {
+    border: 1px solid gray;
+    color: gray;
+    padding: 8px 12px;
+    text-align: center;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+
+    .user-ava {
+      img {
+        width: 52px;
+        height: 52px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+
+    .user-name {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  hr {
+    width: 100%;
+    border: 2px solid $main_bg;
+    color: $main_bg;
+  }
+
+  .static-infor {
+    border: 1px solid $main_border;
+    background-color: $alabaster;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 16px;
+    margin: 0;
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  .relationship-infor {
+    border: 1px solid $main_border;
+    background-color: $alabaster;
+    padding: 8px 12px;
+    font-size: 16px;
+    padding: 20px 12px;
+
+    p {
+      margin: 0;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+
+    i {
+      margin-right: 10px;
+    }
+
+    .relationship-infor-content {
+      margin-top: 10px;
+    }
+  }
+
+  .post-list {
+    .post-item {
+      display: flex;
+      margin-bottom: 15px;
+
+      .user-ava {
+        img {
+          width: 48px;
+          height: 48px;
+          object-fit: cover;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+      }
+
+      .post-info {
+        width: 90%;
+        p {
+          margin-bottom: 10px;
+        }
+        .post-header {
+          .user-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 10px;
+
+            a {
+              color: $strong_line;
+              text-decoration: none;
+            }
+          }
+
+          time {
+            font-size: 14px;
+            margin-right: 10px;
+
+            strong {
+              color: $strong_line;
+            }
+          }
+
+          .post-topic {
+            font-size: 14px;
+            margin-right: 10px;
+
+            strong {
+              a {
+                color: $strong_line;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+
+        .post-title {
+          font-weight: bold;
+          font-size: 18px;
+
+          a {
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            word-break: break-word;
+          }
+        }
+
+        .post-description {
+          color: $desc_line;
+          font-size: 15px;
+          font-weight: 400;
+          width: 100%;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          margin-bottom: 15px;
+
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+
+        .post-tags {
+          display: flex;
+          margin-bottom: 15px;
+          align-items: center;
+
+          .tag-item {
+            color: $rolling-stone;
+            border: 1px solid $main_border;
+            padding: 1px 6px;
+            border-radius: 2px;
+            font-size: 15px;
+            margin-right: 8px;
+          }
+        }
+
+        .post-footer {
+          background-color: $wild-sand;
+          margin-bottom: 16px;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+
+          .post-comments, .post-views, .post-likes, .post-shares {
+            padding: 6px 10px;
+            border: 1px solid $iron;
+            background-color: white;
+            font-size: 15px;
+            margin-right: 10px;
+          }
+
+          .comment-post {
+            margin-left: auto;
+            a {
+              color: white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.topics-list, .trends-index {
+  background-color: white;
+  padding: 15px;
+
+  .item {
+    border: 1px solid $main_border;
+    margin-bottom: 15px;
+
+    .item-title {
+      font-weight: bold;
+      font-size: 16px;
+      padding: 10px 15px;
+
+      i {
+        margin-right: 10px;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    .item-info {
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+
+      p {
+        border: 1px solid $main_border;
+        padding: 3px 10px;
+        margin: 0;
+        font-size: 14px;
+        margin-right: 15px;
+      }
+
+      .follow {
+        border: 1px solid $rolling-stone;
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+
+      .unfollow {
+        border: 1px solid $strong_line;
+        a {
+          color: $strong_line;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.show-topic, .favorites-index {
+  h3 {
+    padding: 0 15px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .post-item {
+    padding: 0 15px;
+  }
+
+  h5 {
+    font-weight: normal;
+    padding: 0 15px;
+    font-size: 16px;
+    color: $desc_line;
+    font-style: italic;
+    padding-bottom: 15px;
+  }
+}
+
+.users-index, .trends-index {
+  background-color: white;
+  padding: 15px;
+
+  .item {
+    text-align: center;
+    border: 1px solid $main_border;
+    padding: 15px;
+    margin-bottom: 20px;
+
+    .item-ava {
+      margin-bottom: 10px;
+
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .item-name {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 15px;
+      a {
+        text-decoration: none;
+        color: $strong_line;
+      }
+    }
+
+    .follower {
+      padding: 3px 16px;
+      font-size: 14px;
+      background-color: $strong_line;
+      color: white;
+      font-weight: bold;
+    }
   }
 }

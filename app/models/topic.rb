@@ -5,7 +5,8 @@ class Topic < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   validates :name, presence: true,
-      length: {maximum: Settings.topic.validates.name_topic}
+    length: {maximum: Settings.topic.validates.name_topic},
+    uniqueness: true
 
   scope :order_created_at, ->{order created_at: :desc}
 end

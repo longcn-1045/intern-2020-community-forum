@@ -29,6 +29,8 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
+  delegate :url, to: :avatar
+
   class << self
     def digest string
       cost = if ActiveModel::SecurePassword.min_cost

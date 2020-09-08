@@ -1,0 +1,9 @@
+<% provide :title, t(".users") %>
+<% provide :controller, t(".users") %>
+<% provide :action, t(".index") %>
+
+<div class="users-index">
+  <div class="row">
+    <%= render @users %>
+  </div>
+</div>

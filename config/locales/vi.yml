@@ -37,7 +37,7 @@ vi:
       favorite: Bài viết đã lưu
       trend: Trào lưu
     right_sidebar:
-      add_post: Thêm bài viết
+      new_post: Thêm bài viết
       posts: Bài viết
       users: Người dùng
       recent_post: Bài viết mới nhất
@@ -197,11 +197,21 @@ vi:
       email: Email
       password: Mật khẩu
       password_confirmation: Nhập lại mật khẩu
+      edit: Cập nhật
+      users: Người dùng
       upload_avatar: Tải ảnh đại diện
     breadcrumbs:
       user: "Thành viên"
       show: "Thông tin cá nhân"
       edit: "Sửa"
+    show:
+      users: Người dùng
+      show: Trang cá nhân
+      edit_user: Edit User
+      posts: Posts
+      comments: Comments
+      followers: Followers
+      followings: Followings
   registers:
     index:
       had_account: "Tôi đã có tài khoản !!"
