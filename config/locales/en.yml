@@ -25,6 +25,9 @@ en:
       profile: Profile
       edit_profile: Edit Profile
       signout: Sign Out
+      vietnam: "Vietnamese"
+      english: "English"
+      language: Languages
     footer:
       title: "YAM Forum"
       copy: "@Copyright 2020."
@@ -52,7 +55,10 @@ en:
       to_fb: To Facebook Feed
       to_yt: To youtube Feed
       to_wt: To twitter Feed
-      follow: Follow;
+      follow: Follow
+      no_post: There is no post
+      no_celeb: There is no celebrity
+      no_topic: There is no topic
   application:
     find_user:
       not_found: Not found
@@ -96,11 +102,13 @@ en:
       asked: Asked
       in: In
       answer: Anwser
+      comments: Comments
     post:
       asked: Asked
       in: In
       answer: Anwser
       views: View
+      comments: Comments
   dashboard:
     sidebar:
       title: "AdminLTE 3"
@@ -185,8 +193,6 @@ en:
       status: "Status"
       created_at: "Created_at"
       avatar: "Avatar"
-      dont_have: User doesn't have any followers yet.
-      dont_rela: User doesn't follow anyone.
     index:
       user_numbers: "Total Member: "
       title: "Users"
@@ -228,11 +234,15 @@ en:
       comments: Comments
       followers: Followers
       followings: Followings
+      dont_have: User doesn't have any followers yet.
+      dont_rela: User doesn't follow anyone.
+      no_post: You have no post!
     index:
       users: Users
       index: Index
       follow: Follow
       unfollow: Unfollow
+      no_user: There is no user to show!
   registers:
     index:
       had_account: "I already have a membership"
@@ -316,6 +326,7 @@ en:
       follow: Follow
       unfollow: Unfollow
       followers: Follower
+      no_topic: You have no topic!
     show:
       topics: Topics
       show: Show
@@ -327,13 +338,23 @@ en:
       favorites: Favorites
       index: Index
       posts: posts
+      no_post: You haven't saved any post
   trends:
     index:
       trends: Trends
       index: Index
       discover_users: Discover Popular Users
       discover_topics: Discover Popular Topics
+      no_user: There is no popular users
+      no_topic: There is no popular topics
   static_pages:
     home:
       home: Home Page
       index: Index
+      no_post: You have no post!
+    help:
+      help: Help
+    about:
+      about: About
+    contact:
+      contact: Contact

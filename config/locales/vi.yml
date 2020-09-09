@@ -25,6 +25,9 @@ vi:
       profile: Tài khoản
       edit_profile: Chỉnh sửa
       signout: Đăng xuất
+      vietnam: "Tiếng Việt"
+      english: "Tiếng Anh"
+      language: Ngôn ngữ
     footer:
       title: "YAM Forum"
       copy: "@Copyright 2020."
@@ -40,6 +43,8 @@ vi:
       new_post: Thêm bài viết
       posts: Bài viết
       users: Người dùng
+      followers: Người theo dõi
+      followings: Người đang theo dõi
       recent_post: Bài viết mới nhất
       celebrities: Người nổi tiếng
       categories: Chủ đề
@@ -50,6 +55,10 @@ vi:
       to_fb: Facebook
       to_yt: Youtube
       to_wt: Twitter
+      follow: Theo dõi
+      no_post: Không có bài viết
+      no_celeb: Không có người nổi tiếng
+      no_topic: Không có chủ đề
   application:
     find_user:
       not_found: Không tìm thấy
@@ -87,6 +96,19 @@ vi:
       post: "Bài viết"
       new: "Thêm"
       edit: "Sửa"
+    show:
+      posts: Bài viết
+      show: Xem
+      asked: ngày tạo
+      in: với
+      answer: Bình luận
+      comments: Bình luận
+    post:
+      asked: ngày tạo
+      in: với
+      answer: Bình luận
+      views: Lượt xem
+      comments: Bình luận
   dashboard:
     sidebar:
       title: "AdminLTE 3"
@@ -207,11 +229,20 @@ vi:
     show:
       users: Người dùng
       show: Trang cá nhân
-      edit_user: Edit User
-      posts: Posts
-      comments: Comments
-      followers: Followers
-      followings: Followings
+      edit_user: Chỉnh sửa
+      posts: Bài viết
+      comments: Bình luận
+      followers: Người theo dỗi
+      followings: Người đang theo dõi
+      dont_have: Bạn chưa có ai theo dõi
+      dont_rela: Bạn chưa theo dõi ai
+      no_post : Bạn chưa có bài viết nào
+    index:
+      users: Người dùng
+      index: Danh Sách
+      follow: Theo dõi
+      unfollow: Bỏ theo dõi
+      no_user: Không có người dùng nào để hiển thị!
   registers:
     index:
       had_account: "Tôi đã có tài khoản !!"
@@ -278,6 +309,8 @@ vi:
       count:
         one: "%{count} danh mục"
         other: "%{count} danh mục"
+    new:
+      title: "Chủ đề"
     breadcrumbs:
       list: "Chủ đề"
       new: "Thêm"
@@ -286,3 +319,42 @@ vi:
     authorize_email:
       admin: "Admin"
       member: "Thành viên"
+  topics:
+    index:
+      topics: Chủ đề
+      index: Danh Sách
+      follow: Theo dõi
+      unfollow: Bỏ theo dõi
+      followers: Người theo dõi
+      no_topic: Bạn không có chủ đề nào để hiển thị
+    show:
+      topics: Chủ đề
+      show: Xem
+      not_found: Không tìm thấy
+      no_post: Tag này không có bài viết nào
+      posts: Bài viết
+  favorites:
+    index:
+      favorites: Bài viết yêu thích
+      index: Danh Sách
+      posts: Bài viết
+      no_post: Bạn chưa lưu bài viết nào
+  trends:
+    index:
+      trends: Trào lưu
+      index: Danh Sách
+      discover_users: Khám phá người nổi tiếng
+      discover_topics: Khám phá chủ đề nổi bật
+      no_user: Không có người nổi tiếng nào
+      no_topic: Không có chủ đề nổi bật nào
+  static_pages:
+    home:
+      home: Trang chủ
+      index: Danh Sách
+      no_post: Bạn không có bài viết nào để hiển thị
+    help:
+      help: Giúp đỡ
+    about:
+      about: Về chúng tôi
+    contact:
+      contact: Liên hệ

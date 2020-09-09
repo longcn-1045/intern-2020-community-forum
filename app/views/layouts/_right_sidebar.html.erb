@@ -6,28 +6,84 @@
       </i>
     <% end %>
   </div>
+<!--   TODO
   <div class="status-part3821">
     <%= link_to "#" do %>
       <i class="fas fa-newspaper" aria-hidden="true">
         <%= t ".followers" %>
+        <%= celebrities.size if celebrities.present? %>
       </i>
     <% end %>
     <%= link_to "#" do %>
       <i class="fas fa-users" aria-hidden="true">
         <%= t ".followings" %>
+        <%= celebrities.size if celebrities.present? %>
       </i>
     <% end %>
-  </div>
+  </div> -->
   <div class="recent-post3290">
     <h4><%= t ".recent_post" %></h4>
+    <% if posts.present? %>
+      <% posts.each do |post|%>
+        <div class="post-details021">
+          <div class="post-details021-user">
+            <%= link_to post do %>
+              <%= load_user_avatar post.url %>
+            <% end %>
+            <%= link_to post do %>
+              <h5><%= post.title %></h5>
+            <% end %>
+          </div>
+          <p><%= post.content.html_safe %></p>
+          <small><%= post.created_at %></small>
+        </div>
+        <hr>
+      <% end %>
+    <% else %>
+      <h3 class="empty-data">
+        <%= t ".no_post" %>
+      </h3>
+    <% end %>
   </div>
   <div class="highest-part302">
     <h4><%= t ".celebrities" %></h4>
+    <% if celebrities.present? %>
+      <% celebrities.each do |celeb|%>
+        <div class="pints-wrapper">
+          <div class="left-user3898">
+            <%= link_to celeb do %>
+              <%= load_user_avatar celeb.url %>
+            <% end %>
+          </div> <span class="points-details938">
+            <%= link_to celeb do %>
+              <h5><%= celeb.name %></h5>
+            <% end %>
+            <%= link_to t("follow"), "#", class: "designetion439" %>
+          </span>
+        </div>
+        <hr>
+      <% end %>
+    <% else %>
+      <h3 class="empty-data">
+        <%= t ".no_celeb" %>
+      </h3>
+    <% end %>
   </div>
   <div class="categori-part329">
     <h4><%= t ".categories" %></h4>
-    <ul>
-    </ul>
+    <% if topics.present? %>
+      <ul>
+        <% topics.each do |topic|%>
+          <li>
+            <%= link_to topic.name, topic %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h3 class="empty-data">
+        <%= t ".no_topic" %>
+      </h3>
+    <% end %>
   </div>
   <div class="social-part2189 mb-4">
     <h4><%= t ".follow_us" %></h4>

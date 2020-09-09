@@ -6,11 +6,7 @@
   <div class="col-md-9">
     <div class="user-info">
       <div class="user-ava">
-        <% if @user.url %>
-          <%= image_tag @user.url %>
-        <% else %>
-          <%= image_tag Settings.user.default_avatar %>
-        <% end %>
+        <%= load_user_avatar @user.url %>
       </div>
       <p class="user-name"><%= @user.name %></p>
     </div>
@@ -74,8 +70,14 @@
   </div>
   <hr>
   <div class="col-md-12">
-    <div class="post-list">
-      <%= render @user.posts %>
-    </div>
+    <% if @user.posts.present? %>
+      <div class="post-list">
+        <%= render @user.posts.order_created_at %>
+      </div>
+    <% else %>
+      <h3 class="empty-data">
+        <%= t ".no_post" %>
+      </h3>
+    <% end %>
   </div>
 </div>

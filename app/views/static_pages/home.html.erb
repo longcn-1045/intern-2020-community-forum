@@ -1,9 +1,14 @@
 <% provide :title, t(".home") %>
 <% provide :controller, t(".home") %>
-<% provide :action, t(".index") %>
 
 <div class="homepage">
-  <div class="post-list">
-    <%= render @posts %>
-  </div>
+  <% if @posts.present? %>
+    <div class="post-list">
+      <%= render @posts.order_created_at %>
+    </div>
+  <% else %>
+    <h3 class="empty-data">
+      <%= t ".no_post" %>
+    </h3>
+  <% end %>
 </div>

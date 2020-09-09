@@ -42,6 +42,19 @@
           <li>
             <%= link_to t(".contact"), contact_path %>
           </li>
+          <li class="dropdown">
+            <%= link_to "#", class: "dropdown-toggle",
+              data: {toggle: "dropdown"} do %>
+              <%= t ".language" %>
+              <span class="caret"></span>
+            <% end %>
+            <div class="dropdown-menu">
+              <%= link_to t(".english"), {locale: :en},
+                {class: "dropdown-item"} %>
+              <%= link_to t(".vietnam"), {locale: :vi},
+                {class: "dropdown-item"} %>
+            </div>
+          </li>
           <% if logged_in? %>
             <li class="dropdown">
               <%= link_to "#", class: "dropdown-toggle",

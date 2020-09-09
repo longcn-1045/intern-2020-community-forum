@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-  before_action :set_locale
+  before_action :set_locale, :load_right_sidebar
 
   def find_user
     @user = User.find_by id: params[:user_id]
@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
 
     flash[:danger] = t ".not_found"
     redirect_to root_url
+  end
+
+  def load_right_sidebar
+    @post_sidebar = Post.order_created_at.last Settings.right_bar.new_feeds
+    @topics_sidebar = Topic.all
   end
 
   private

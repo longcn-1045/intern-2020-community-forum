@@ -63,3 +63,8 @@ config_image:
 topic:
   validates:
     name_topic: 50
+right_bar:
+  new_feeds: 3
+  celebrities: 3
+topics:
+  per_page: 10

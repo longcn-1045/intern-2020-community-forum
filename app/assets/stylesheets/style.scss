@@ -764,14 +764,16 @@ hr {
 
 .status-part3821 i {
   background-color: #fff;
-  border: 1px solid gray;
   padding: 15px 10px;
-  font-size: 16px;
+  font-size: 17px;
   color: black;
-  font-weight: bold;
   margin-top: 10px;
   width: 100%;
   text-align: center;
+}
+
+.status-part3821 i.fa-newspaper {
+  border-bottom: 1px solid $gray;
 }
 
 .social-part2189 {

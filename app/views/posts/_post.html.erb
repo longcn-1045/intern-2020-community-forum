@@ -1,10 +1,6 @@
 <div class="post-item">
   <div class="user-ava">
-    <% if post.url %>
-      <%= image_tag post.url %>
-    <% else %>
-      <%= image_tag Settings.user.default_avatar %>
-    <% end %>
+    <%= load_user_avatar post.url %>
   </div>
   <div class="post-info">
     <p class="post-header">
@@ -13,11 +9,11 @@
         </span>
       <time>
         <%= t ".asked" %>
-        <strong><%= post.created_at %></strong>
+        <strong><%= time_ago_in_words post.created_at %></strong>
       </time>
       <span class="post-topic">
         <%= t ".in" %>
-        <strong><%= link_to post.topic_name, "#" %></strong>
+        <strong><%= link_to post.topic_name, post.topic %></strong>
       </span>
     </p>
     <p class="post-title">
@@ -34,14 +30,18 @@
       <% end %>
     </div>
     <div class="post-footer">
-      <div class="post-comments"></div>
+      <div class="post-comments">
+        <%= link_to post do %>
+          <%= t ".comments" %>
+        <% end %>
+      </div>
       <div class="post-views">
         <%= post.view %>
         <%= t ".views" %>
       </div>
       <div class="comment-post">
         <button type="button" class="btn btn-primary">
-          <%= link_to t("answer"), post %>
+          <%= link_to t(".answer"), post %>
         </button>
       </div>
     </div>

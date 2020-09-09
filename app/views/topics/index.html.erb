@@ -1,0 +1,20 @@
+<% provide :title, t(".topics") %>
+<% provide :controller, t(".topics") %>
+<% provide :action, t(".index") %>
+
+<div class="topics-list">
+  <h3>
+    <%= @topics.total_count %>
+    <%= t ".topics" %>
+  </h3>
+  <% if @topics.present? %>
+    <div class="row">
+      <%= render @topics %>
+    </div>
+    <%= paginate @topics %>
+  <% else %>
+    <h3 class="empty-data">
+      <%= t ".no_topic" %>
+    </h3>
+  <% end %>
+</div>

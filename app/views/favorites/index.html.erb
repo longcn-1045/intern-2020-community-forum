@@ -1,0 +1,20 @@
+<% provide :title, t(".favorites") %>
+<% provide :controller, t(".favorites") %>
+<% provide :action, t(".index") %>
+
+<div class="favorites-index">
+  <% if @posts.present? %>
+    <h3>
+      <%= t ".favorites" %>:
+      <%= @posts.size %>
+      <%= t ".posts" %>
+    </h3>
+    <div class="post-list">
+      <%= render @posts.order_created_at  %>
+    </div>
+  <% else %>
+    <h3 class="empty-data pb-2 font-weight-normal">
+      <%= t ".no_post" %>
+    </h3>
+  <% end %>
+</div>

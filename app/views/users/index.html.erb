@@ -3,7 +3,14 @@
 <% provide :action, t(".index") %>
 
 <div class="users-index">
-  <div class="row">
-    <%= render @users %>
-  </div>
+  <% if @users.present? %>
+    <div class="row">
+      <%= render @users %>
+    </div>
+    <%= paginate @users %>
+  <% else %>
+    <h3 class="empty-data">
+      <%= t ".no_user" %>
+    </h3>
+  <% end %>
 </div>

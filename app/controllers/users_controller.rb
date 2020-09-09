@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i(edit update)
 
   def index
-    @users = User.all
+    @users = User.all_except(current_user)
+                 .page(params[:page])
+                 .per Settings.topics.per_page
   end
 
   def show; end

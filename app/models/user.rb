@@ -14,18 +14,19 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :posts
 
   validates :name, presence: true,
-      length: {maximum: Settings.user.validates.max_name}
+    length: {maximum: Settings.user.validates.max_name}
   validates :email, presence: true,
-      length: {maximum: Settings.user.validates.max_email},
-      format: {with: Settings.user.validates.string},
-      uniqueness: {case_sensitive: false}
+    length: {maximum: Settings.user.validates.max_email},
+    format: {with: Settings.user.validates.string},
+    uniqueness: {case_sensitive: false}
   validates :password, presence: true,
-      length: {minimum: Settings.user.validates.min_pass},
-      allow_nil: true
+    length: {minimum: Settings.user.validates.min_pass},
+    allow_nil: true
 
   has_secure_password
 
   scope :order_created_at, ->{order created_at: :desc}
+  scope :all_except, ->(user){where.not(id: user)}
 
   before_save :downcase_email
 

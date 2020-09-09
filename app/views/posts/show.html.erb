@@ -4,11 +4,7 @@
 
 <div id="post-show">
   <div class="user-ava">
-    <% if @post.url %>
-      <%= image_tag @post.url %>
-    <% else %>
-      <%= image_tag Settings.user.default_avatar %>
-    <% end %>
+    <%= load_user_avatar @post.url %>
   </div>
   <div class="post-info">
     <p class="post-header">
@@ -21,7 +17,7 @@
       </time>
       <span class="post-topic">
         <%= t ".in" %>
-        <strong><%= link_to @post.topic_name, "#" %></strong>
+        <strong><%= link_to @post.topic_name, @post.topic %></strong>
       </span>
     </p>
     <p class="post-title">
@@ -38,7 +34,9 @@
       <% end %>
     </div>
     <div class="post-footer">
-      <div class="post-comments"></div>
+      <div class="post-comments">
+        <%= t ".comments" %>
+      </div>
       <div class="post-views">
         <%= @post.view %>
         <%= t ".views" %>

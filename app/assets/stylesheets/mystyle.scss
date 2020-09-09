@@ -54,6 +54,8 @@
     a {
       text-decoration: none;
       color: black;
+      font-size: 17px;
+      font-weight: 550;
     }
   }
 }
@@ -245,6 +247,11 @@
         background-color: white;
         font-size: 15px;
         margin-right: 10px;
+
+        a {
+          color: $black;
+          text-decoration: none;
+        }
       }
 
       .comment-post {
@@ -282,6 +289,10 @@
   .form-group {
     margin-bottom: 10px;
   }
+}
+
+.homepage {
+  padding: 0 16px;
 }
 
 #personal-page, .show-topic, .favorites-index, .homepage {
@@ -471,6 +482,11 @@
             background-color: white;
             font-size: 15px;
             margin-right: 10px;
+
+            a {
+              color: $black;
+              text-decoration: none;
+            }
           }
 
           .comment-post {
@@ -489,6 +505,10 @@
 .topics-list, .trends-index {
   background-color: white;
   padding: 15px;
+
+  h3 {
+    font-size: 18px;
+  }
 
   .item {
     border: 1px solid $main_border;
@@ -611,4 +631,12 @@
       font-weight: bold;
     }
   }
+}
+
+.empty-data {
+  color: $gray;
+  font-size: 18px;
+  font-style: italic;
+  padding-bottom: 16px;
+  margin: 0;
 }

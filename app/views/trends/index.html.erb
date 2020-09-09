@@ -1,0 +1,29 @@
+<% provide :title, t(".trends") %>
+<% provide :controller, t(".trends") %>
+<% provide :action, t(".index") %>
+
+<div class="trends-index">
+  <div class="row">
+    <div class="col-md-12">
+      <h3><%= t ".discover_users" %></h3>
+    </div>
+    <% if @users.present? %>
+      <%= render @users %>
+    <% else %>
+      <h3 class="empty-data pl-3">
+        <%= t ".no_user" %>
+      </h3>
+    <% end %>
+    <hr>
+    <div class="col-md-12">
+      <h3><%= t ".discover_topics" %></h3>
+    </div>
+    <% if @topics.present? %>
+      <%= render @topics %>
+    <% else %>
+      <h3 class="empty-data pl-3">
+        <%= t ".no_topic" %>
+      </h3>
+    <% end %>
+  </div>
+</div>
