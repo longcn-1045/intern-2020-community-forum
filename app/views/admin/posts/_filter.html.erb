@@ -1,0 +1,29 @@
+<%= form_with url: admin_posts_path, method: :get, local: true do |f|%>
+  <div class="row w-100">
+    <div class="col-3">
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: t("posts.filter.title"), class: "form-control", value: params[:title] %>
+    </div>
+    <div class="col-3">
+      <%= f.label :writer %>
+      <%= f.collection_select :user_id, @users, :id, :name, {prompt: true, selected: params[:user_id]}, {class: "form-control"} %>
+    </div>
+    <div class="col-1">
+      <%= f.label :status %>
+      <%= f.select :status, options_for_select(Post.statuses, params[:status]), {prompt:true}, {class: "form-control"} %>
+    </div>
+    <div class="col-3">
+      <%= f.label :topic %>
+      <%= f.collection_select :topic_id, @topics, :id, :name, {prompt: true, selected: params[:topic_id]}, {class: "form-control"} %>
+    </div>
+    <div class="col-1">
+      <%= f.label :button, class: "text-light" %>
+      <%= f.submit class: "btn btn-success", value: t("posts.breadcrumbs.search") %>
+    </div>
+    <div class="col-1">
+      <%= link_to admin_posts_path, class: "nav-link active d-inline" do %>
+        <i class="fas fa-redo nav-icon text-success"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>

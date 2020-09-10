@@ -26,9 +26,18 @@ class Post < ApplicationRecord
       length: {maximum: Settings.post.validates.max_content}
   validates :topic_id, presence: true
 
+  scope :order_updated_at, ->{order updated_at: :desc}
   scope :order_created_at, ->{order created_at: :desc}
+  scope :by_title, (lambda do |title|
+    where("title like ?", "#{title}%") if title.present?
+  end)
+  scope :by_status, ->(status){where status: status if status.present?}
+  scope :by_user_id, ->(user_id){where user_id: user_id if user_id.present?}
+  scope :by_topic_id, (lambda do |topic_id|
+    where topic_id: topic_id if topic_id.present?
+  end)
 
-  enum status: {off: 0, on: 1}
+  enum status: {off: 0, on: 1, pending: 2}
 
   mount_uploader :image, ImageUploader
 

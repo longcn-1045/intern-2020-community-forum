@@ -1,13 +1,19 @@
 class Admin::PostsController < AdminController
   before_action :logged_in_user
-  before_action :admin_user
   before_action :load_post, except: %i(index new create)
-  before_action :correct_writer, only: %i(edit update)
+  before_action :load_element, only: :index
+
+  include PostsHelper
 
   add_breadcrumb I18n.t("posts.breadcrumbs.post"), :admin_posts_path
 
   def index
-    @posts = Post.order_created_at.page(params[:page]).per Settings.post.page
+    @posts = Post.order_updated_at
+                 .by_title(params[:title])
+                 .by_status(params[:status])
+                 .by_user_id(params[:user_id])
+                 .by_topic_id(params[:topic_id])
+                 .page(params[:page]).per Settings.post.page
   end
 
   def new
@@ -33,7 +39,6 @@ class Admin::PostsController < AdminController
   end
 
   def update
-    @post.image = params[:file]
     if @post.update post_params
       flash[:success] = t "users.update.success"
       redirect_to admin_posts_path
@@ -71,5 +76,10 @@ class Admin::PostsController < AdminController
 
     flash[:danger] = t "post.controller.not_allow"
     redirect_to admin_posts_path
+  end
+
+  def load_element
+    @users = User.all
+    @topics = Topic.all
   end
 end

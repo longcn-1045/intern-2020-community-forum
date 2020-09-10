@@ -5,6 +5,9 @@
   <div class="card-body">
     <table id="example1" class="table table-bordered table-striped">
       <div class="input-group input-group-sm">
+        <%= render "filter" %>
+      </div>
+      <div class="input-group input-group-sm">
         <label><%= t "post.index.post_numbers" %><%= t "post.index.count", count: @posts.total_count %></label>
       </div>
       <thead>

@@ -1,7 +1,6 @@
 class Admin::UsersController < AdminController
   before_action :logged_in_user, except: %i(show new create)
   before_action :load_user, except: %i(index new create)
-  before_action :correct_user, only: %i(edit update)
   before_action :admin_user, except: :create
 
   add_breadcrumb I18n.t("users.breadcrumbs.user"), :admin_users_path
@@ -35,7 +34,6 @@ class Admin::UsersController < AdminController
   end
 
   def update
-    @user.avatar = params[:file]
     if @user.update user_params
       flash[:success] = t "users.update.success"
       redirect_to admin_users_path

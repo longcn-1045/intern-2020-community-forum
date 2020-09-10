@@ -68,6 +68,8 @@ vi:
     error_messages:
       error: Lỗi
   posts:
+    filter:
+      title: "Tiêu đề..."
     new:
       new_post: Thêm mới bài viết
       posts: Bài viết
@@ -96,6 +98,7 @@ vi:
       post: "Bài viết"
       new: "Thêm"
       edit: "Sửa"
+      search: "Tìm kiếm"
     show:
       posts: Bài viết
       show: Xem
@@ -281,6 +284,7 @@ vi:
       action: "Hành động"
       on_status: "ON"
       off_status: "OFF"
+      pending_status: "PENDING"
       count:
         one: "%{count} bài viết"
         other: "%{count} bài viết"

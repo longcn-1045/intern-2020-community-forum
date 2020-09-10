@@ -1,14 +1,19 @@
 module PostsHelper
-  def post_status status
-    if status
+  def post_status post
+    if post.on?
       {
         css: Settings.status.on_status,
         status: t("post.index.on_status")
       }
-    else
+    elsif post.off?
       {
         css: Settings.status.off_status,
         status: t("post.index.off_status")
+      }
+    else
+      {
+        css: Settings.status.pending_status,
+        status: t("post.index.pending_status")
       }
     end
   end

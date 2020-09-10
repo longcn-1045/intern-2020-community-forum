@@ -19,7 +19,7 @@
         <% if user.active? %>
           <i class="fas fa-lock-open nav-icon text-warning"></i>
         <% else %>
-           <i class="fas fa-lock nav-icon text-warning"></i>
+          <i class="fas fa-lock nav-icon text-warning"></i>
         <% end %>
       <% end %>
       <%= link_to admin_user_authorize_path(user.id), method: :patch,

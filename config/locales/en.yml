@@ -68,6 +68,8 @@ en:
     error_messages:
       error: Error
   posts:
+    filter:
+      title: "Title..."
     new:
       new_post: New Post
       posts: Posts
@@ -96,6 +98,7 @@ en:
       post: "Posts"
       new: "New"
       edit: "Edit"
+      search: "Search"
     show:
       posts: Posts
       show: Show
@@ -281,6 +284,7 @@ en:
       action: "Action"
       on_status: "ON"
       off_status: "OFF"
+      pending_status: "PENDING"
       count:
         one: "%{count} post"
         other: "%{count} posts"

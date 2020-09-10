@@ -17,6 +17,7 @@ user:
     image_size_limit: 500
     content: 6000
     title: 500
+    dashboard: 8
   default_avatar: "/images/avatar.png"
   per_page: 8
   page: 4
@@ -57,6 +58,7 @@ status:
   admin: "admin"
   on_status: "on"
   off_status: "off"
+  pending_status: "pending"
 config_image:
   image: ["jpeg", "gif", "png", "jpg"]
   on_status: "ON"

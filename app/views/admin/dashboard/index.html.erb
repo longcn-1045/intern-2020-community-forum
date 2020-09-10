@@ -31,7 +31,6 @@
     <div class="small-box bg-success">
       <div class="inner">
         <h3><%= @users.size %></h3>
-
         <p><%= t "dashboard.card.user" %></p>
       </div>
       <div class="icon">
@@ -60,14 +59,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-6">
-      <% @posts.take(Settings.user.validates.time).each do |post| %>
-        <%= render partial: "card_post", locals: {post: post} %>
-      <% end %>
+      <%= render partial: "card_post", collection: @posts.take(Settings.user.validates.time), as: :post %>
     </div>
     <div class="col-lg-6">
-      <% @users.take(Settings.user.validates.time).each do |user| %>
-        <%= render partial: "card_user", locals: {user: user} %>
-      <% end %>
+      <div class="card">
+        <div class="card-header">
+          <i class="nav-icon fas fa-user"></i>
+          <p class="d-inline">user</p>
+        </div>
+        <div class="card-body d-flex user-card">
+          <%= render partial: "card_user", collection: @users.take(Settings.user.validates.dashboard), as: :user %>
+      </div>
+      </div>
     </div>
   </div>
 </div>
