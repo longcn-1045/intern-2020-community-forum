@@ -3,8 +3,16 @@
 <% provide :action, t(".show") %>
 
 <div id="post-show">
-  <div class="user-ava">
-    <%= load_user_avatar @post.url %>
+  <div class="post-sidebar">
+    <div class="user-ava">
+      <%= load_user_avatar @post.url %>
+    </div>
+<!--     TODO
+    <div class="post-like">
+      <a href="#"><i class="fas fa-sort-up"></i></a>
+      <p></p>
+      <a href="#"><i class="fas fa-sort-down"></i></a>
+    </div> -->
   </div>
   <div class="post-info">
     <p class="post-header">
@@ -40,6 +48,13 @@
       <div class="post-views">
         <%= @post.view %>
         <%= t ".views" %>
+      </div>
+      <div id="saving-post-<%= @post.id %>">
+        <% if current_user.save_post? @post %>
+          <%= render "posts/unsave", post: @post %>
+        <% else %>
+          <%= render "posts/save", post: @post %>
+        <% end %>
       </div>
       <div class="comment-post">
         <button type="button" class="btn btn-primary">

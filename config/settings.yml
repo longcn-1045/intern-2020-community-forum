@@ -70,3 +70,5 @@ right_bar:
   celebrities: 3
 topics:
   per_page: 10
+posts:
+  per_page: 8

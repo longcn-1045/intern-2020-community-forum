@@ -19,6 +19,9 @@ class Post < ApplicationRecord
                                 allow_destroy: true,
                                 reject_if: :reject_tags
 
+  has_many :post_marks, dependent: :destroy
+  has_many :mark_users, through: :post_marks, source: :user
+
   validates :user_id, presence: true
   validates :title, presence: true,
       length: {maximum: Settings.post.validates.max_title}
@@ -36,6 +39,8 @@ class Post < ApplicationRecord
   scope :by_topic_id, (lambda do |topic_id|
     where topic_id: topic_id if topic_id.present?
   end)
+  scope :order_mark_posts,
+        ->{includes(:post_marks).order("post_marks.created_at desc")}
 
   enum status: {off: 0, on: 1, pending: 2}
 
