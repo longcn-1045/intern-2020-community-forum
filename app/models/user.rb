@@ -29,7 +29,16 @@ class User < ApplicationRecord
   has_secure_password
 
   scope :order_created_at, ->{order created_at: :desc}
+  scope :order_updated_at, ->{order updated_at: :desc}
   scope :all_except, ->(user){where.not(id: user)}
+  scope :by_user_name, (lambda do |opt|
+    where("name like ? OR email like ?", "#{opt}%", "#{opt}%") if opt.present?
+  end)
+  scope :by_status, ->(status){where status: status if status.present?}
+  scope :by_role, ->(role){where role: role if role.present?}
+  scope :order_by_post_count, (lambda do |opt|
+    order posts_count: opt if opt.present?
+  end)
 
   before_save :downcase_email
 

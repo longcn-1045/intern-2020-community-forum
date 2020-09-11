@@ -191,6 +191,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_013004) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role", default: 0
     t.string "avatar"
+    t.integer "posts_count", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

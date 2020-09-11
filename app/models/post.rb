@@ -9,7 +9,7 @@ class Post < ApplicationRecord
     tags_attributes: [:id, :name, :_destroy].freeze
   ].freeze
 
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   belongs_to :topic
 
   has_many :post_tags, dependent: :destroy

@@ -56,6 +56,16 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-6">
+    <h4><%= t "dashboard.char.post" %></h4>
+    <%= line_chart admin_chart_post_path %>
+  </div>
+  <div class="col-lg-6">
+    <h4><%= t "dashboard.char.user" %></h4>
+    <%= column_chart admin_chart_user_path %>
+  </div>
+</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-6">

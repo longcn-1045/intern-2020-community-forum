@@ -6,7 +6,12 @@ class Admin::UsersController < AdminController
   add_breadcrumb I18n.t("users.breadcrumbs.user"), :admin_users_path
 
   def index
-    @users = User.order_created_at.page(params[:page]).per Settings.user.page
+    @users = User.by_user_name(params[:name])
+                 .by_status(params[:status])
+                 .by_role(params[:role])
+                 .order_by_post_count(params[:order_by])
+                 .order_created_at
+                 .page(params[:page]).per Settings.user.page
   end
 
   def show

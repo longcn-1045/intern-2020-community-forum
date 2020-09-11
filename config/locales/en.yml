@@ -99,6 +99,7 @@ en:
       new: "New"
       edit: "Edit"
       search: "Search"
+      search: "Search"
     show:
       posts: Posts
       show: Show
@@ -113,6 +114,9 @@ en:
       views: View
       comments: Comments
   dashboard:
+    char:
+      post: "Post Chart"
+      user: "User Chart"
     sidebar:
       title: "AdminLTE 3"
       name: "Minh Thong"
@@ -196,6 +200,17 @@ en:
       status: "Status"
       created_at: "Created_at"
       avatar: "Avatar"
+      post_number: "Posts"
+      users: Users
+      show: Show
+      edit_user: Edit User
+      posts: Posts
+      comments: Comments
+      followers: Followers
+      followings: Followings
+      dont_have: User doesn't have any followers yet.
+      dont_rela: User doesn't follow anyone.
+      no_post: You have no post!
     index:
       user_numbers: "Total Member: "
       title: "Users"
@@ -211,9 +226,15 @@ en:
       admin: "ADMIN"
       active: "ACTIVE"
       block: "BLOCK"
+      post_number: "Posts"
       count:
         one: "%{count} member"
         other: "%{count} members"
+      users: Users
+      index: Index
+      follow: Follow
+      unfollow: Unfollow
+      no_user: There is no user to show!
     edit:
       not_found: Not Found User
       edit_user: Edit User
@@ -229,23 +250,6 @@ en:
       user: "Users"
       show: "Profile"
       edit: "Edit"
-    show:
-      users: Users
-      show: Show
-      edit_user: Edit User
-      posts: Posts
-      comments: Comments
-      followers: Followers
-      followings: Followings
-      dont_have: User doesn't have any followers yet.
-      dont_rela: User doesn't follow anyone.
-      no_post: You have no post!
-    index:
-      users: Users
-      index: Index
-      follow: Follow
-      unfollow: Unfollow
-      no_user: There is no user to show!
   registers:
     index:
       had_account: "I already have a membership"

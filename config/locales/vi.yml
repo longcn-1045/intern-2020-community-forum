@@ -113,6 +113,9 @@ vi:
       views: Lượt xem
       comments: Bình luận
   dashboard:
+    char:
+      post: "Biểu đồ bài viết"
+      user: "Biểu đồ người dùng"
     sidebar:
       title: "AdminLTE 3"
       name: "Minh Thong"
@@ -196,6 +199,17 @@ vi:
       status: "Trạng thái"
       created_at: "Bắt đầu từ "
       avatar: "Ảnh đại diện"
+      post_number: "Số bài viết"
+      users: Người dùng
+      show: Trang cá nhân
+      edit_user: Chỉnh sửa
+      posts: Bài viết
+      comments: Bình luận
+      followers: Người theo dỗi
+      followings: Người đang theo dõi
+      dont_have: Bạn chưa có ai theo dõi
+      dont_rela: Bạn chưa theo dõi ai
+      no_post : Bạn chưa có bài viết nào
     index:
       user_numbers: "Tổng số thành viên: "
       title: "Danh sách thành viên"
@@ -211,9 +225,15 @@ vi:
       admin: "ADMIN"
       active: "Hoạt động"
       block: "Khóa"
+      post_number: "Số bài viết"
       count:
         one: "%{count} thành viên"
         other: "%{count} thành viên"
+      users: Người dùng
+      index: Danh Sách
+      follow: Theo dõi
+      unfollow: Bỏ theo dõi
+      no_user: Không có người dùng nào để hiển thị!
     edit:
       not_found: Không tìm thấy người dùng
       edit_user: Cập nhật người dùng
@@ -229,23 +249,6 @@ vi:
       user: "Thành viên"
       show: "Thông tin cá nhân"
       edit: "Sửa"
-    show:
-      users: Người dùng
-      show: Trang cá nhân
-      edit_user: Chỉnh sửa
-      posts: Bài viết
-      comments: Bình luận
-      followers: Người theo dỗi
-      followings: Người đang theo dõi
-      dont_have: Bạn chưa có ai theo dõi
-      dont_rela: Bạn chưa theo dõi ai
-      no_post : Bạn chưa có bài viết nào
-    index:
-      users: Người dùng
-      index: Danh Sách
-      follow: Theo dõi
-      unfollow: Bỏ theo dõi
-      no_user: Không có người dùng nào để hiển thị!
   registers:
     index:
       had_account: "Tôi đã có tài khoản !!"

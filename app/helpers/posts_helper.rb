@@ -25,4 +25,11 @@ module PostsHelper
   def post_topic
     @post.topic.present? ? @post.topic.name : true
   end
+
+  def post_order
+    {
+      max_post: :desc,
+      min_post: :asc
+    }
+  end
 end

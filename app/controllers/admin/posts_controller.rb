@@ -1,19 +1,19 @@
 class Admin::PostsController < AdminController
   before_action :logged_in_user
   before_action :load_post, except: %i(index new create)
-  before_action :load_element, only: :index
+  before_action :load_element, :post_include, only: :index
 
   include PostsHelper
 
   add_breadcrumb I18n.t("posts.breadcrumbs.post"), :admin_posts_path
 
   def index
-    @posts = Post.order_updated_at
-                 .by_title(params[:title])
-                 .by_status(params[:status])
-                 .by_user_id(params[:user_id])
-                 .by_topic_id(params[:topic_id])
-                 .page(params[:page]).per Settings.post.page
+    @posts = @posts.order_updated_at
+                   .by_title(params[:title])
+                   .by_status(params[:status])
+                   .by_user_id(params[:user_id])
+                   .by_topic_id(params[:topic_id])
+                   .page(params[:page]).per Settings.post.page
   end
 
   def new
@@ -81,5 +81,9 @@ class Admin::PostsController < AdminController
   def load_element
     @users = User.all
     @topics = Topic.all
+  end
+
+  def post_include
+    @posts = Post.includes :user, :topic
   end
 end

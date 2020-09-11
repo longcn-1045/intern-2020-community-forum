@@ -26,7 +26,6 @@ class PostsController < ApplicationController
 
   def update
     if @post.update post_params
-      @post.pending!
       flash[:success] = t ".post_updated"
     else
       flash[:danger] = t ".post_update_failed"

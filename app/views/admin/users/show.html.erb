@@ -4,30 +4,39 @@
   </div>
     <div class="card-body">
       <%= form_for @user, url: admin_user_path(@user.id) do |f| %>
-        <div class="form-group">
-          <%= f.label t "users.show.avatar" %>
-          <%= image_tag @user.avatar_url.to_s %>
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-center justify-content-center">
+            <div class="form-group">
+              <%= image_tag @user.avatar_url, class: "rounded rounded-circle img-size-100" %>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="form-group">
+              <%= f.label t "users.show.name" %>
+              <p class="bg-light p-3"><%= @user.name %></p>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.show.email" %>
+              <p class="bg-light p-3"><%= @user.email %></p>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.show.role" %>
+              <p class="bg-light p-3"><%= @user.role %></p>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.show.status" %>
+              <p class="bg-light p-3"><%= @user.status %></p>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.show.post_number" %>
+              <p class="bg-light p-3"><%= @user.posts_count %></p>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.show.created_at" %>
+              <p class="bg-light p-3"><%= @user.created_at %></p>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <%= f.label t "users.show.name" %>
-          <%= f.text_field :name, class: "form-control", readonly: true %>
-        </div>
-        <div class="form-group">
-          <%= f.label t "users.show.email" %>
-          <%= f.text_field :email, class: "form-control", readonly: true %>
-        </div>
-        <div class="form-group">
-          <%= f.label t "users.show.role" %>
-          <%= f.text_field :role, class: "form-control", readonly: true %>
-        </div>
-        <div class="form-group">
-          <%= f.label t "users.show.status" %>
-          <%= f.text_field :status, class: "form-control", readonly: true %>
-        </div>
-        <div class="form-group">
-          <%= f.label t "users.show.created_at" %>
-          <%= f.text_field :created_at, class: "form-control", readonly: true %>
-        </div>
-      <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>

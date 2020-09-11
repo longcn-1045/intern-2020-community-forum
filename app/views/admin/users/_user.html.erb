@@ -1,12 +1,19 @@
 <tr>
   <td><%= image_tag user.avatar_url.to_s, size: "150x150" %></td>
-  <td><%= user.name %></td>
-  <td><%= user.email %></td>
+  <td>
+    <%= link_to user.name, admin_user_path(user.id) %>
+  </td>
+  <td>
+    <%= link_to user.email, admin_user_path(user.id) %>
+  </td>
   <td>
     <%= content_tag(:div, content_tag(:span, user_status(user.active?)[:status]), class: "status #{user_status(user.active?)[:css]}") %>
   </td>
   <td>
     <%= content_tag(:div, content_tag(:span, user_role(user.member?)[:status]), class: "status #{user_role(user.member?)[:css]}") %>
+  </td>
+  <td>
+    <%= user.posts_count %>
   </td>
   <td>
     <%= link_to edit_admin_user_path user.id, class: "nav-link active d-inline" do %>
