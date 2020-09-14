@@ -8,7 +8,11 @@ class UsersController < ApplicationController
                  .per Settings.topics.per_page
   end
 
-  def show; end
+  def show
+    @posts = @user.posts
+                  .includes(:topic, :tags)
+                  .order_created_at
+  end
 
   def edit; end
 

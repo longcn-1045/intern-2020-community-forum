@@ -19,7 +19,7 @@ class Post < ApplicationRecord
                                 allow_destroy: true,
                                 reject_if: :reject_tags
 
-  has_many :post_marks, dependent: :destroy
+  has_many :post_marks, dependent: :destroy, counter_cache: true
   has_many :mark_users, through: :post_marks, source: :user
 
   validates :user_id, presence: true
