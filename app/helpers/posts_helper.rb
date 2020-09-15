@@ -32,4 +32,8 @@ module PostsHelper
       min_post: :asc
     }
   end
+
+  def load_notification notify
+    notify.checked
+  end
 end

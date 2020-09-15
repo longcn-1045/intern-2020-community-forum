@@ -21,7 +21,9 @@ class Admin::PostsController < AdminController
     @post = current_user.posts.build
   end
 
-  def show; end
+  def show
+    load_notification if params[:notification_id].present?
+  end
 
   def create
     @post = current_user.posts.build post_params
@@ -85,5 +87,15 @@ class Admin::PostsController < AdminController
 
   def post_include
     @posts = Post.includes :user, :topic
+  end
+
+  def load_notification
+    @notify = Notification.find_by id: params[:notification_id]
+    if @notify.present?
+      @notify.checked!
+    else
+      flash[:danger] = t "users.controller.not_found"
+      redirect_to admin_posts_path
+    end
   end
 end
