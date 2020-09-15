@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_right_sidebar
-    @post_sidebar = Post.order_created_at.last Settings.right_bar.new_feeds
+    @post_sidebar = Post.includes(:user)
+                        .order_created_at.last Settings.right_bar.new_feeds
     @topics_sidebar = Topic.all
   end
 

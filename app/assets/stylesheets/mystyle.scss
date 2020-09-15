@@ -133,7 +133,7 @@
   }
 }
 
-#post-show  {
+#post-show {
   display: flex;
   margin-bottom: 15px;
   background-color: $white;
@@ -158,6 +158,19 @@
       color: $desc_line;
       font-size: 20px;
       font-weight: 400;
+    }
+
+    button {
+      color: $desc_line;
+      font-size: 20px;
+      font-weight: 400;
+      border: none;
+      background: $white;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
 
       i {
         font-size: 40px;
@@ -440,6 +453,19 @@
           color: $desc_line;
           font-size: 20px;
           font-weight: 400;
+        }
+
+        button {
+          color: $desc_line;
+          font-size: 20px;
+          font-weight: 400;
+          border: none;
+          background: $white;
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+          }
 
           i {
             font-size: 40px;

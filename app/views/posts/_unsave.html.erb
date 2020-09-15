@@ -1,8 +1,9 @@
-<%= form_for unsave(post),
+<%= form_for find_post_marks(post),
   html: {method: :delete}, remote: true do |f| %>
-  <%= button_tag :class => "post-unsaved" do %>
-    <%= hidden_field_tag :post_id, post.id %>
+  <%= hidden_field_tag :post_id, post.id %>
+
+  <%= button_tag class: "post-unsaved" do %>
     <i class="fas fa-bookmark"></i>
-    <span><%= post.post_marks.size %></span>
+    <span><%= post.post_marks.count %></span>
   <% end %>
 <% end %>

@@ -1,5 +1,5 @@
 <% if @error.present? %>
-  alert('<%= @error %>');
+  alert("<%= @error %>");
 <% else %>
-  $("#saving-post-<%= @post.id %>").html("<%= j render partial: 'posts/unsave', locals: {post: @post} %>");
+  $("#saving-post-<%= @post.id %>").html("<%= j render "posts/unsave", post: @post %>");
 <% end %>

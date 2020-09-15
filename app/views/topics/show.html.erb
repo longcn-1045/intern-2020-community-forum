@@ -11,7 +11,7 @@
       <%= t ".posts" %>
     </h3>
     <div class="post-list">
-      <%= render @topic.posts.order_created_at  %>
+      <%= render @posts if @posts.present? %>
     </div>
   <% else %>
     <h3>

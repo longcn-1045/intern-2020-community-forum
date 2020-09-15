@@ -3,27 +3,15 @@ class PostMarksController < ApplicationController
   before_action :find_post, only: %i(create destroy)
 
   def create
-    if @post.present?
-      if current_user.save_post? @post
-        @error = t ".saved_post"
-      else
-        current_user.save_post @post
-        @error = t ".unsaved_post" unless current_user.save_post? @post
-      end
-    end
+    current_user.save_post @post
+    check_saved_post
 
     respond_to :js
   end
 
   def destroy
-    if @post.present?
-      if current_user.save_post? @post
-        current_user.unsave_post @post
-        @error = t ".saved_post" if current_user.save_post? @post
-      else
-        @error = t ".unsaved_post"
-      end
-    end
+    current_user.unsave_post @post
+    check_unsaved_post
 
     respond_to :js
   end
@@ -35,5 +23,13 @@ class PostMarksController < ApplicationController
     return if @post
 
     @error = t ".not_found"
+  end
+
+  def check_saved_post
+    @error = t ".unsaved_post" unless current_user.save_post? @post
+  end
+
+  def check_unsaved_post
+    @error = t ".saved_post" if current_user.save_post? @post
   end
 end
