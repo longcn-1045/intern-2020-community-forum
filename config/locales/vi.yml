@@ -366,3 +366,29 @@ vi:
       about: Về chúng tôi
     contact:
       contact: Liên hệ
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        name: Tên
+      post:
+        topic_id: Chủ đề
+        title: Tiêu đề
+        content: Nội dung
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "chưa được nhập"
+            name:
+              blank: "chưa được nhập"
+        post:
+          attributes:
+            title:
+              blank: "chưa được nhập"
+            topic:
+              blank: "chưa được nhập"
+              required: "chưa được chọn"
+            content:
+              blank: "chưa được nhập"

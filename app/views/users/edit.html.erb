@@ -8,22 +8,23 @@
 <h3><%= t ".edit_user" %></h3>
 
 <%= form_for @user do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
   <div class="row">
     <div class="col-md-7">
       <div class="form-group">
         <%= f.label :name, t(".name"), class: "required" %>
-        <%= f.text_field :name, class: "form-control", required: true %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= display_error f.object, :name %>
       </div>
 
       <div class="form-group">
         <%= f.label :email, t(".email"), class: "required" %>
-        <%= f.email_field :email, class: "form-control", required: true %>
+        <%= f.email_field :email, class: "form-control" %>
+        <%= display_error f.object, :email %>
       </div>
 
       <div class="form-group">
         <%= f.label :password, t(".password") %>
-        <%= f.password_field :password, class: "form-control"  %>
+        <%= f.password_field :password, class: "form-control" %>
       </div>
 
       <div class="form-group">

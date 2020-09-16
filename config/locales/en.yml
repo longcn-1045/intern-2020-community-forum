@@ -100,7 +100,6 @@ en:
       new: "New"
       edit: "Edit"
       search: "Search"
-      search: "Search"
     show:
       posts: Posts
       show: Show
@@ -367,3 +366,29 @@ en:
       about: About
     contact:
       contact: Contact
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        name: Name
+      post:
+        topic_id: Topic
+        title: Title
+        content: Content
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "is required"
+            name:
+              blank: "is required"
+        post:
+          attributes:
+            title:
+              blank: "is required"
+            topic:
+              blank: "is required"
+              required: "required"
+            content:
+              blank: "is required"

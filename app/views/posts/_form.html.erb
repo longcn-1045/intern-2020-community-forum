@@ -1,9 +1,8 @@
 <%= form_for @post do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
-
   <div class="form-group">
     <%= f.label :title, t(".title"), class: "required" %>
-    <%= f.text_field :title, class: "form-control", required: true %>
+    <%= f.text_field :title, class: "form-control" %>
+    <%= display_error f.object, :title %>
   </div>
 
   <div class="form-group">
@@ -11,6 +10,7 @@
     <%= f.select :topic_id,
       options_for_select(list_topics), {:include_blank => t(".topic_default")},
       id: "event_topic_id", class: "form-control", :multiple => false %>
+    <%= display_error f.object, :topic %>
   </div>
 
   <div class="form-group">
@@ -27,6 +27,7 @@
 
   <div class="form-group">
     <%= f.label :content, t(".content"), class: "required" %>
+    <%= display_error f.object, :content %>
     <%= f.cktext_area :content, class: "form-control" %>
   </div>
 

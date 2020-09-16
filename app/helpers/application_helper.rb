@@ -11,4 +11,13 @@ module ApplicationHelper
       image_tag Settings.user.default_avatar
     end
   end
+
+  def display_error object, object_attr
+    return unless object&.errors.present? && object.errors.key?(object_attr)
+
+    error = object.errors
+                  .full_messages[object.errors
+                                       .messages.keys.index object_attr].to_s
+    content_tag :div, error, class: Settings.default_user.error_class
+  end
 end

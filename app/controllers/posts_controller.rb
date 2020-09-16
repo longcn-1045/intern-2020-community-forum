@@ -15,10 +15,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.build post_params
     if @post.save
       flash[:success] = t ".post_created"
+      redirect_to root_url
     else
       flash[:danger] = t ".post_create_failed"
+      render :new
     end
-    redirect_to root_url
   end
 
   def edit
@@ -28,10 +29,11 @@ class PostsController < ApplicationController
   def update
     if @post.update post_params
       flash[:success] = t ".post_updated"
+      redirect_to root_url
     else
       flash[:danger] = t ".post_update_failed"
+      render :edit
     end
-    redirect_to root_url
   end
 
   def destroy; end
