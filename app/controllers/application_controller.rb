@@ -14,10 +14,13 @@ class ApplicationController < ActionController::Base
   end
 
   def load_right_sidebar
-    @post_sidebar = Post.includes(:user, :topic, :tags)
+    @post_sidebar = Post.includes(:user)
                         .order_created_at
                         .first Settings.right_bar.new_feeds
     @topics_sidebar = Topic.all
+    @celebrities_sidebar = User.all_except(current_user)
+                               .count_celeb
+                               .first Settings.right_bar.celebrities
   end
 
   private

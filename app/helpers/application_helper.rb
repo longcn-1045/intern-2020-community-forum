@@ -20,4 +20,20 @@ module ApplicationHelper
                                        .messages.keys.index object_attr].to_s
     content_tag :div, error, class: Settings.default_user.error_class
   end
+
+  def load_follow_user_partial celeb
+    if current_user.following? celeb
+      render "users/unfollow", user: celeb
+    else
+      render "users/follow", user: celeb
+    end
+  end
+
+  def load_follow_topic_partial topic
+    if current_user.follow_topic? topic
+      render "topics/unfollow", topic: topic
+    else
+      render "topics/follow", topic: topic
+    end
+  end
 end

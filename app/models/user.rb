@@ -17,6 +17,17 @@ class User < ApplicationRecord
   has_many :post_likes, dependent: :destroy
   has_many :like_posts, through: :post_likes, source: :post
 
+  has_many :user_topics, dependent: :destroy
+  has_many :topics, through: :user_topics
+
+  has_many :active_relationships, class_name: Relationship.name,
+  foreign_key: :follower_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+
+  has_many :passive_relationships, class_name: Relationship.name,
+  foreign_key: :followed_id, dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
+
   validates :name, presence: true,
     length: {maximum: Settings.user.validates.max_name}
   validates :email, presence: true,
@@ -39,6 +50,15 @@ class User < ApplicationRecord
   scope :by_role, ->(role){where role: role if role.present?}
   scope :order_by_post_count, (lambda do |opt|
     order posts_count: opt if opt.present?
+  end)
+  scope :count_celeb, (lambda do
+    follower_count = Relationship
+      .group(:followed_id)
+      .select(:followed_id, "count(follower_id) as num")
+
+    joins("LEFT JOIN (#{follower_count.to_sql}) as follower ON
+      follower.followed_id = id")
+    .order("follower.num desc")
   end)
 
   before_save :downcase_email
@@ -82,6 +102,30 @@ class User < ApplicationRecord
 
   def like_post? post
     like_posts.include? post
+  end
+
+  def follow_topic topic
+    topics << topic
+  end
+
+  def unfollow_topic topic
+    topics.delete topic
+  end
+
+  def follow_topic? topic
+    topics.include? topic
+  end
+
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   def remember

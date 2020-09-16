@@ -4,7 +4,7 @@ default_user:
     message: 3
     notification: 15
 client:
-  logo: "/images/logo.png"
+  logo: "/img/logo.png"
 user:
   validates:
     max_name: 50
@@ -20,7 +20,7 @@ user:
     title: 500
     dashboard: 8
     page: 4
-  default_avatar: "/images/avatar.png"
+  default_avatar: "/img/avatar.png"
   per_page: 8
   page: 4
   role: "member"
@@ -70,9 +70,14 @@ topic:
 right_bar:
   new_feeds: 3
   celebrities: 3
+trends:
+  topics: 6
+  celebrities: 6
 topics:
   per_page: 10
 posts:
   per_page: 8
 default_user:
   error_class: error-feedback
+project_start_time: 1598515200
+load_post_time: 45000

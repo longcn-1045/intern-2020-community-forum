@@ -366,6 +366,13 @@ en:
       about: About
     contact:
       contact: Contact
+  relationships:
+    check_follow_user:
+      unfollowed: Unfollowed
+    check_unfollow_user:
+      followed: Followed
+    find_user:
+      not_found: Not Found
   activerecord:
     attributes:
       user:

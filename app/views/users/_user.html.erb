@@ -4,6 +4,8 @@
       <%= load_user_avatar user.url %>
     </div>
     <p class="item-name"><%= link_to user.name, user %></p>
-    <p class="follower"><%= t ".follow" %></p>
+    <div class="follow-user-<%= user.id %>" >
+      <%= load_follow_user_partial user %>
+    </div>
   </div>
 </div>

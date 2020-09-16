@@ -22,7 +22,7 @@
         </span>
       <time>
         <%= t ".asked" %>
-        <strong><%= @post.created_at %></strong>
+        <strong><%= time_ago_in_words @post.created_at %></strong>
       </time>
       <span class="post-topic">
         <%= t ".in" %>

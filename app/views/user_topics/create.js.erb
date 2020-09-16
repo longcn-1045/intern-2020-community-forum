@@ -1,0 +1,5 @@
+<% if @error.present? %>
+  alert("<%= @error %>");
+<% else %>
+  $("#user-topic-<%= @topic.id %>").html("<%= j render "topics/unfollow", topic: @topic %>");
+<% end %>

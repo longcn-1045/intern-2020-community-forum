@@ -4,7 +4,7 @@
 <div class="homepage">
   <% if @posts.present? %>
     <div class="post-list">
-      <%= render @posts.order_created_at %>
+      <%= render @posts %>
     </div>
   <% else %>
     <h3 class="empty-data">

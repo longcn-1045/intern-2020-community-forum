@@ -7,11 +7,8 @@
       <% end %>
     </div>
     <hr>
-    <div class="item-info">
-      <p><%= t ".followers" %></p>
-      <p class="unfollow">
-        <%= link_to t(".unfollow"), "#" %>
-      </p>
+    <div class="item-info" id="user-topic-<%= topic.id %>">
+      <%= load_follow_topic_partial topic %>
     </div>
   </div>
 </div>

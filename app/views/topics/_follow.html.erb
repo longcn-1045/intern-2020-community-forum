@@ -1,0 +1,10 @@
+<%= form_for build_user_topic, remote: true do |f| %>
+  <%= hidden_field_tag :topic_id, topic.id %>
+
+  <p>
+    <%= topic.user_topics.count %>
+    <%= t ".followers" %>
+  </p>
+
+  <%= button_tag t(".follow"), class: "follow" %>
+<% end %>

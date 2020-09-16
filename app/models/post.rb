@@ -24,16 +24,16 @@ class Post < ApplicationRecord
   has_many :post_likes, dependent: :destroy, counter_cache: true
   has_many :like_users, through: :post_likes, source: :user
 
-  accepts_nested_attributes_for :tags,
-                                allow_destroy: true,
-                                reject_if: :reject_tags
-
   validates :user_id, presence: true
   validates :title, presence: true,
       length: {maximum: Settings.post.validates.max_title}
   validates :content, presence: true,
       length: {maximum: Settings.post.validates.max_content}
   validates :topic_id, presence: true
+
+  accepts_nested_attributes_for :tags,
+                                allow_destroy: true,
+                                reject_if: :reject_tags
 
   scope :order_updated_at, ->{order updated_at: :desc}
   scope :order_created_at, ->{order created_at: :desc}
@@ -45,8 +45,17 @@ class Post < ApplicationRecord
   scope :by_topic_id, (lambda do |topic_id|
     where topic_id: topic_id if topic_id.present?
   end)
-  scope :order_mark_posts,
-        ->{includes(:post_marks).order("post_marks.created_at desc")}
+  scope :order_mark_posts, (lambda do
+    includes(:post_marks).order("post_marks.created_at desc")
+  end)
+
+  scope :by_topics, (lambda do |topic_ids|
+    where topic_id: topic_ids if topic_ids.present?
+  end)
+
+  scope :by_users, (lambda do |user_ids|
+    where user_id: user_ids if user_ids.present?
+  end)
 
   enum status: {off: 0, on: 1, pending: 2}
 
@@ -55,6 +64,12 @@ class Post < ApplicationRecord
   delegate :name, :url, to: :user
 
   delegate :name, to: :topic, prefix: true
+
+  def post_score
+    @post_score = post_likes.count +
+                  (created_at.to_i - Settings.project_start_time) /
+                  Settings.load_post_time
+  end
 
   private
 

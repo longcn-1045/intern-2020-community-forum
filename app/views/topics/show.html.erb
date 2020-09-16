@@ -3,21 +3,21 @@
 <% provide :action, t(".show") %>
 
 <div class="show-topic">
-  <% if @topic.posts.present? %>
+  <div class="show-topic-info">
     <h3>
       <%= t ".topics" %>
-      <%= @topic.name %>:
-      <%= @topic.posts.size %>
-      <%= t ".posts" %>
+      <%= @topic.name %>
+      <%= @topic.posts.size.to_s + " " + t(".posts") if @posts.present? %>
     </h3>
+    <div class="item-info" id="user-topic-<%= @topic.id %>">
+      <%= load_follow_topic_partial @topic %>
+    </div>
+  </div>
+  <% if @topic.posts.present? %>
     <div class="post-list">
       <%= render @posts if @posts.present? %>
     </div>
   <% else %>
-    <h3>
-      <%= t ".topics" %>
-      <%= @topic.name %>
-    </h3>
     <h5><%= t ".no_post" %></h5>
   <% end %>
 </div>
