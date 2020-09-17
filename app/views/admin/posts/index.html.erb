@@ -9,6 +9,9 @@
       </div>
       <div class="input-group input-group-sm">
         <label><%= t "post.index.post_numbers" %><%= t "post.index.count", count: @posts.total_count %></label>
+        <%= link_to new_admin_post_path, class: "nav-link active d-inline" do %>
+          <i class="fas fa-plus nav-icon text-success"></i>
+        <% end %>
       </div>
       <thead>
         <%= render "colums" %>

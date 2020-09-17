@@ -1,7 +1,7 @@
 class Admin::UsersController < AdminController
-  before_action :logged_in_user, except: %i(show new create)
-  before_action :load_user, except: %i(index new create)
-  before_action :admin_user, except: :create
+  before_action :logged_in_user, except: :show
+  before_action :load_user, except: :index
+  before_action :admin_user
 
   add_breadcrumb I18n.t("users.breadcrumbs.user"), :admin_users_path
 
@@ -16,22 +16,6 @@ class Admin::UsersController < AdminController
 
   def show
     add_breadcrumb I18n.t("users.breadcrumbs.show")
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      log_in @user
-      flash[:info] = t "users.controller.signup_success"
-      redirect_to admin_root_path
-    else
-      flash.now[:danger] = t "users.controller.signup_fail"
-      redirect_to admin_signup_path
-    end
   end
 
   def edit

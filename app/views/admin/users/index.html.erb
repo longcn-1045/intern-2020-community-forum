@@ -7,8 +7,13 @@
       <div class="input-group input-group-sm">
         <%= render "filter" %>
       </div>
-      <div class="input-group input-group-sm">
-        <label><%= t "users.index.user_numbers" %><%= t "users.index.count", count: @users.total_count %></label>
+      <div class="row">
+        <div class="col-6">
+          <label><%= t "users.index.user_numbers" %><%= t "users.index.count", count: @users.total_count %></label>
+        </div>
+        <div class="col-6">
+          <label class="text-success"><%= link_to t("layouts.application.download"), admin_export_excel_path(format: :xlsx) %></label>
+        </div>
       </div>
       <thead>
         <%= render "colums" %>

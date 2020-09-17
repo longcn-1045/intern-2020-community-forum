@@ -1,9 +1,9 @@
 <%= form_for [:admin, @topic] do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
   <div class="row p-3">
      <div class="form-group">
       <%= f.label t "post.new.title" %>
-      <%= f.text_field :name, class: "form-control", placeholder: t("post.new.title"), required: true %>
+      <%= f.text_field :name, class: "form-control", placeholder: t("post.new.title") %>
+      <%= display_error f.object, :name %>
      </div>
   </div>
   <div class="card-body">

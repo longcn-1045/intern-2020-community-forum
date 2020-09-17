@@ -1,0 +1,17 @@
+wb = xlsx_package.workbook
+wb.styles do |s|
+  title_style = s.add_style :sz => 20, :alignment => { :horizontal=> :center }, :border => { :style => :thick, :color => "000000", :edges => [:left, :right, :top, :bottom] }
+  wrap_text = s.add_style({:alignment => {:horizontal => :center, :vertical => :center, :wrap_text => true}})
+  border_text = s.add_style(:border => { :style => :thin, :color => "000000", :edges => [:left, :right, :top, :bottom] })
+
+  wb.add_worksheet(name: t("users.index.title")) do |sheet|
+    style1 = sheet.styles.add_style(:bg_color => "EFC376", :border => { :style => :thin, :color => "000000", :edges => [:left, :right, :top, :bottom] })
+    sheet.add_row ["Users"]
+    sheet.add_row t("users.excel").values, style: style1
+    @users.each do |user|
+      sheet.add_row [user.name, user.email, user.posts_count, user.role, user.status, user.created_at], style: [wrap_text, border_text]
+    end
+    sheet.add_row ["Total User:  #{@users.size}"], style: [style1]
+    sheet.rows[0].cells[0].style = title_style
+  end
+end

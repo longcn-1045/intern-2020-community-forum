@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     namespace :admin do
       root "dashboard#index"
 
-      get "/signup", to: "registers#index"
+      get "/signup", to: "registers#new"
+      post "/signup", to: "registers#create"
       get "/login", to: "sessions#new"
       post "/login", to: "sessions#create"
       delete "/logout", to: "sessions#destroy"
@@ -23,7 +24,9 @@ Rails.application.routes.draw do
       patch "users/authorize/:id", to: "block#authorize", as: "user_authorize"
       get "posts/chart", to: "charts#post_new", as: "chart_post"
       get "users/chart", to: "charts#user_new", as: "chart_user"
+      get "users/posts/chart", to: "charts#user_post", as: "chart_user_post"
       get "posts/:id/notify/:notification_id", to: "posts#show", as: "post_show_notify"
+      get "users/export", to: "excels#index", as: "export_excel"
       resources :users
       resources :posts
       resources :topics

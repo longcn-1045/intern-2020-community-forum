@@ -1,6 +1,7 @@
 vi:
   layouts:
     application:
+      download: "Tải danh sách"
       title: "Intern2020CommunityForum"
       vietnam: "Tiếng việt"
       english: "Tiếng anh"
@@ -117,6 +118,8 @@ vi:
     char:
       post: "Biểu đồ bài viết"
       user: "Biểu đồ người dùng"
+      user_post: "User-Post"
+      member: "Thành viên"
     sidebar:
       title: "AdminLTE 3"
       name: "Minh Thong"
@@ -250,6 +253,13 @@ vi:
       user: "Thành viên"
       show: "Thông tin cá nhân"
       edit: "Sửa"
+    excel:
+      name: "Tên"
+      email: "Email"
+      post_number: "Số bài đăng"
+      role: "Vai trò"
+      status: "Trạng thái"
+      created_at: "Được tạo từ"
   registers:
     index:
       had_account: "Tôi đã có tài khoản !!"

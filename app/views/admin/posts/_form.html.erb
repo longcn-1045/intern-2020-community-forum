@@ -1,15 +1,16 @@
 <%= form_for [:admin, @post], html: { multipart: true } do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
   <div class="row p-3">
     <div class="col-lg-6">
       <div class="form-group">
         <%= f.label t "post.new.topic" %>
           <%= f.select :topic_id, options_for_select(list_topics, @post.topic_id), {include_blank: post_topic}, id: "event_topic_id",
             class: "form-control", multiple: false %>
+          <%= display_error f.object, :topic %>
       </div>
        <div class="form-group">
         <%= f.label t "post.new.title" %>
-        <%= f.text_field :title, class: "form-control", placeholder: t("post.new.title"), required: true %>
+        <%= f.text_field :title, class: "form-control", placeholder: t("post.new.title") %>
+        <%= display_error f.object, :title %>
       </div>
     </div>
     <div class="col-lg-6">
@@ -32,7 +33,8 @@
   <div class="card-body">
     <div class="form-group">
       <%= f.label t "post.new.content" %>
-      <%= f.cktext_area :content, class: "form-control", placeholder: t("post.new.content"), required: true %>
+      <%= display_error f.object, :content %>
+      <%= f.cktext_area :content, class: "form-control", placeholder: t("post.new.content") %>
     </div>
     <div class="form-group">
       <%= f.label t "post.new.status" %>

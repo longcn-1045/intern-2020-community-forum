@@ -58,29 +58,37 @@
 </div>
 <div class="row">
   <div class="col-lg-6">
-    <h4><%= t "dashboard.char.post" %></h4>
-    <%= line_chart admin_chart_post_path %>
+    <%= render partial: "card_post", collection: @posts.take(Settings.user.validates.time), as: :post %>
+    <div class="card">
+      <div class="card-header">
+        <i class="nav-icon fas fa-user"></i>
+        <p class="d-inline"><%= t "dashboard.char.member" %></p>
+      </div>
+      <div class="card-body d-flex user-card">
+        <%= render partial: "card_user", collection: @users.take(Settings.user.validates.dashboard), as: :user %>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-6">
-    <h4><%= t "dashboard.char.user" %></h4>
-    <%= column_chart admin_chart_user_path %>
+  <div class="col-lg-6 card">
+    <div class="card-header">
+        <h4><%= t "dashboard.char.user_post" %></h4>
+      </div>
+      <%= pie_chart admin_chart_user_post_path %>
   </div>
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-6">
-      <%= render partial: "card_post", collection: @posts.take(Settings.user.validates.time), as: :post %>
+    <div class="col-lg-6 card">
+      <div class="card-header">
+        <h4><%= t "dashboard.char.post" %></h4>
+      </div>
+      <%= line_chart admin_chart_post_path %>
     </div>
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-header">
-          <i class="nav-icon fas fa-user"></i>
-          <p class="d-inline">user</p>
-        </div>
-        <div class="card-body d-flex user-card">
-          <%= render partial: "card_user", collection: @users.take(Settings.user.validates.dashboard), as: :user %>
+    <div class="col-lg-6 card">
+      <div class="card-header">
+        <h4><%= t "dashboard.char.user" %></h4>
       </div>
-      </div>
+      <%= column_chart admin_chart_user_path %>
     </div>
   </div>
 </div>

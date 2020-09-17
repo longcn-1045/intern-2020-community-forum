@@ -6,8 +6,8 @@
     <div class="card-body register-card-body">
       <p class="login-box-msg"><%= t "registers.index.title" %></p>
 
-      <%= form_for @user, url: admin_users_path do |f| %>
-        <%= render "shared/error_messages", object: f.object %>
+      <%= form_for @user, url: admin_signup_path do |f| %>
+       <%= render "shared/error_messages", object: f.object %>
         <div class="input-group mb-3">
           <%= f.text_field :name, class: "form-control", placeholder: t("registers.index.name") %>
           <div class="input-group-append">

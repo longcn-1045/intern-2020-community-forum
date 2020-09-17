@@ -1,6 +1,7 @@
 en:
   layouts:
     application:
+      download: "Download List"
       title: "Intern2020CommunityForum"
       vietnam: "Vietnamese"
       english: "English"
@@ -120,6 +121,8 @@ en:
     char:
       post: "Post Chart"
       user: "User Chart"
+      user_post: "User-Post"
+      member: "Member"
     sidebar:
       title: "AdminLTE 3"
       name: "Minh Thong"
@@ -253,6 +256,13 @@ en:
       user: "Users"
       show: "Profile"
       edit: "Edit"
+    excel:
+      name: "Name"
+      email: "Email"
+      post_number: "Post Number"
+      role: "Role"
+      status: "Status"
+      created_at: "Created_at"
   registers:
     index:
       had_account: "I already have a membership"

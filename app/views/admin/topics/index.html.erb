@@ -9,6 +9,9 @@
       </div>
       <thead>
         <%= render "colums" %>
+        <%= link_to new_admin_topic_path, class: "nav-link active d-inline" do %>
+          <i class="fas fa-plus nav-icon text-success"></i>
+        <% end %>
       </thead>
       <tbody>
         <%= render @topics %>
