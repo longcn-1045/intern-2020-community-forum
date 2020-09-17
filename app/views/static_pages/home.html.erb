@@ -1,0 +1,9 @@
+<% provide :title, t(".home") %>
+<% provide :controller, t(".home") %>
+<% provide :action, t(".index") %>
+
+<div class="homepage">
+  <div class="post-list">
+    <%= render @posts %>
+  </div>
+</div>

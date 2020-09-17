@@ -14,7 +14,17 @@ user:
     time: 2
     max_content: 140
     string: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+    image_size_limit: 500
+    content: 6000
+    title: 500
+  default_avatar: "/images/avatar.png"
   per_page: 8
   role: "member"
+post:
+  max_tags_size: 3
 theme:
   name_bootstrap: "twitter-bootstrap-3"
+posts:
+  per_page: 8
+logs:
+  max_content: 500

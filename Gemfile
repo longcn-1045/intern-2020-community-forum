@@ -3,16 +3,24 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
 ruby "2.7.0"
 
+gem "active_storage_validations", "0.8.2"
+gem "activerecord-import", "~> 1.0", ">= 1.0.6"
 gem "bcrypt", "3.1.13"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.5", ">= 4.5.2"
 gem "bootstrap-kaminari-views"
 gem "bootstrap-sass", "3.4.1"
+gem "carrierwave"
+gem "ckeditor"
+gem "cocoon"
 gem "config"
+gem "faker", "~> 2.13"
 gem "figaro"
+gem "image_processing", "1.9.3"
 gem "jbuilder", "~> 2.7"
 gem "jquery-rails", "~> 4.4"
 gem "kaminari"
+gem "mini_magick", "4.9.5"
 gem "mysql2"
 gem "popper_js", "~> 1.16"
 gem "pry-rails", group: :development
@@ -20,6 +28,7 @@ gem "puma", "~> 4.1"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
 gem "rails-i18n"
 gem "sass-rails", ">= 6"
+gem "select2-rails"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 

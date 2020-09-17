@@ -1,0 +1,29 @@
+<% provide :title, t(".search") %>
+<% provide :controller, t(".search") %>
+<% provide :action, t(".index") %>
+
+<div class="searchs-index">
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_with url: searchs_path, method: :get, local: true do |form| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.text_field :query, class: "form-control",
+          placeholder: "Search somethings..." %>
+        </div>
+        <div class="col-md-6">
+          <select class="form-control" name="query_type">
+            <option selected value="User">Choose...</option>
+            <option value="Post">Posts</option>
+            <option value="User">Users</option>
+            <option value="Topic">Topics</option>
+          </select>
+        </div>
+      </div>
+      <%= button_tag "Search", class: "btn btn-primary btn-block" %>
+      <% end %>
+      <hr>
+    </div>
+    <%= render @datas %>
+  </div>
+</div>

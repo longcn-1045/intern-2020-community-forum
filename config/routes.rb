@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => "/ckeditor"
+
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
@@ -6,6 +8,10 @@ Rails.application.routes.draw do
     get "static_pages/help", as: "help"
     get "static_pages/about", as: "about"
     get "static_pages/contact", as: "contact"
+
+    get "favorites/index", as: "favorites"
+    get "trends/index", as: "trends"
+    get "/searchs", to: "searchs#index", as: "searchs"
 
     namespace :admin do
       root "dashboard#index"
@@ -16,5 +22,12 @@ Rails.application.routes.draw do
       delete "/logout", to: "sessions#destroy"
       resources :users
     end
+
+    resources :users, except: %i(new create destroy)
+    resources :posts
+    resources :topics, only: %i(index show)
+    resources :logs, only: :index
+    resources :post_marks, :post_likes,
+      :user_topics, :relationships, only: %i(create destroy)
   end
 end

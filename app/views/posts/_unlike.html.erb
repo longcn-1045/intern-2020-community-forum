@@ -1,0 +1,15 @@
+<%= form_for unlike(post),
+  html: {method: :delete}, remote: true do |f| %>
+  <%= hidden_field_tag :post_id, post.id %>
+
+  <%= button_tag :class => "post-liked-#{post.id}", :type => "button",
+    :disable => true do %>
+    <i class="fas fa-sort-up" style="color: #218838;"></i>
+  <% end %>
+
+  <p><%= post.post_likes.size %></p>
+
+  <%= button_tag do %>
+    <i class="fas fa-sort-down"></i>
+  <% end %>
+<% end %>

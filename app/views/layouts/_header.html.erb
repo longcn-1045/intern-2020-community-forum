@@ -3,28 +3,29 @@
     <div class="row">
       <div class="col-md-12">
         <div class="navbar-serch-right-side">
-          <!-- TODO -->
-          <!-- <form class="navbar-form" role="search">
+          <%= form_with url: searchs_path, method: :get,
+            class: "navbar-form", local: true do |form| %>
             <div class="input-group add-on">
-              <input class="form-control form-control222" placeholder="Search" name="srch-term" id="srch-term" type="text">
+              <%= form.text_field :query,
+                class: "form-control form-control222",id: "srch-term",
+                style: "color: black;" %>
               <div class="input-group-btn">
-                <button class="btn btn-default btn-default2913" type="submit">
+                <%= button_tag class: "btn btn-default btn-default2913" do %>
                   <i class="fas fa-search"></i>
-                </button>
+                <% end %>
               </div>
             </div>
-          </form> -->
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <div class="top-menu-bottom932">
   <nav class="navbar navbar-default">
     <div class="container d-flex">
       <div class="navbar-header">
-        <%= link_to "#", class: "navbar-brand" do %>
+        <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag Settings.client.logo %>
         <% end %>
       </div>
@@ -42,24 +43,29 @@
           <li>
             <%= link_to t(".contact"), contact_path %>
           </li>
-          <li>
-            <%= link_to t(".signin"), "#" %>
-          </li>
-          <li>
-            <%= link_to t(".signup"), "#" %>
-          </li>
-          <li class="dropdown">
-            <%= link_to "#", class: "dropdown-toggle",
-              data: {toggle: "dropdown"} do %>
-              <%= t ".user" %>
-              <span class="caret"></span>
-            <% end %>
-            <div class="dropdown-menu">
-              <%= link_to t(".profile"), "#", class: "dropdown-item" %>
-              <%= link_to t(".edit_profile"), "#", class: "dropdown-item" %>
-              <%= link_to t(".signout"), "#", class: "dropdown-item" %>
-            </div>
-          </li>
+          <% if logged_in? %>
+            <li class="dropdown">
+              <%= link_to "#", class: "dropdown-toggle",
+                data: {toggle: "dropdown"} do %>
+                <%= t ".user" %>
+                <span class="caret"></span>
+              <% end %>
+              <div class="dropdown-menu">
+                <%= link_to t(".profile"), current_user,
+                  class: "dropdown-item" %>
+                <%= link_to t(".edit_profile"),
+                  edit_user_path(current_user), class: "dropdown-item" %>
+                <%= link_to t(".signout"), admin_logout_path, method: :delete,  class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to t(".signin"), admin_login_path %>
+            </li>
+            <li>
+              <%= link_to t(".signup"), admin_signup_path %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

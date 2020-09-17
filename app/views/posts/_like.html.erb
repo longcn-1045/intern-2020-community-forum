@@ -1,0 +1,13 @@
+<%= form_for like, remote: true do |f| %>
+  <%= hidden_field_tag :post_id, post.id %>
+
+  <%= button_tag class: "post-liked-#{post.id}" do %>
+    <i class="fas fa-sort-up"></i>
+  <% end %>
+
+  <p><%= post.post_likes.size %></p>
+
+  <%= button_tag type: "button", disabled: true do %>
+    <i class="fas fa-sort-down"></i>
+  <% end %>
+<% end %>

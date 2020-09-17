@@ -44,3 +44,11 @@ config/environments/*.local.yml
 
 /config/application.yml
 /config/credentials.yml.enc
+
+/storage
+
+public/uploads/user/avatar/
+public/uploads/ckeditor/attachments/
+public/uploads/ckeditor/pictures/
+
+public/public

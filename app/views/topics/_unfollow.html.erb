@@ -1,0 +1,11 @@
+<%= form_for unfollow_topic(topic),
+  html: {method: :delete}, remote: true do |f| %>
+  <%= hidden_field_tag :topic_id, topic.id %>
+
+  <p>
+    <%= topic.user_topics.size %>
+    <%= t ".followers" %>
+  </p>
+
+  <%= button_tag t(".unfollow"), class: "unfollow" %>
+<% end %>

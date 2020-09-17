@@ -1,0 +1,10 @@
+<% provide :title, t(".new_post") %>
+<% provide :button_text, t(".new_post") %>
+<% provide :controller, t(".posts") %>
+<% provide :action, t(".new") %>
+<% content_for :javascript_includes do %>
+  <%= javascript_pack_tag "form_post", "data-turbolinks-track": "reload" %>
+<% end %>
+<h3><%= t ".new_post" %></h3>
+
+<%= render "form" %>

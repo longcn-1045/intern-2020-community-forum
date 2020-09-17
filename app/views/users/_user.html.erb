@@ -1,0 +1,19 @@
+<div class="col-md-4">
+  <div class="item">
+    <div class="item-ava">
+      <% if user.avatar.present? %>
+        <%= image_tag user.avatar.url %>
+      <% else %>
+        <%= image_tag Settings.client.logo %>
+      <% end %>
+    </div>
+    <p class="item-name"><%= link_to user.name, user %></p>
+    <div class="follow-user-<%= user.id %>" >
+      <% if current_user.following? user %>
+        <%= render partial: "users/unfollow", locals: {user: user} %>
+      <% else %>
+        <%= render partial: "users/follow", locals: {user: user} %>
+      <% end %>
+    </div>
+  </div>
+</div>

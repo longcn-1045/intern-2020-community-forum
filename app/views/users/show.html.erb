@@ -1,0 +1,77 @@
+<% provide :title, t(".users") %>
+<% provide :controller, t(".users") %>
+<% provide :action, t(".show") %>
+
+<div class="row" id="personal-page">
+  <div class="col-md-9">
+    <div class="user-info">
+      <div class="user-ava">
+        <% if @user.avatar.url %>
+          <%= image_tag @user.avatar.url %>
+        <% else %>
+          <%= image_tag Settings.user.default_avatar %>
+        <% end %>
+      </div>
+      <p class="user-name"><%= @user.name %></p>
+    </div>
+  </div>
+  <div class="col-md-3 text-right">
+    <%= link_to edit_user_path, class: "edit-user-path" do %>
+      <i class="fas fa-edit" aria-hidden="true">
+        <%= t ".edit_user" %>
+      </i>
+    <% end %>
+  </div>
+  <hr>
+  <div class="col-md-6">
+    <p class="static-infor">
+      <i class="fas fa-book"></i>
+      <span>
+        <strong><%= @user.posts.size %></strong>
+        <%= t ".posts" %>
+      </span>
+    </p>
+  </div>
+  <div class="col-md-6">
+     <p class="static-infor">
+      <i class="fas fa-book"></i>
+      <span>
+        <strong>0</strong>
+        <%= t ".comments" %>
+      </span>
+    </p>
+  </div>
+  <hr>
+  <div class="col-md-6">
+    <div class="relationship-infor">
+      <p class="relationship-infor-title">
+        <i class="fas fa-users"></i>
+        <span>
+          <strong>
+            <%= link_to t(".followers"), "#" %>
+          </strong>
+        </span>
+      </p>
+      <p class="relationship-infor-content">
+        <span>User doesn't have any followers yet.</span>
+      </p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="relationship-infor">
+      <p class="relationship-infor-title">
+        <i class="fas fa-users"></i>
+        <span>
+          <strong>
+            <%= link_to t(".followings"), "#" %>
+          </strong>
+        </span>
+      </p>
+      <p class="relationship-infor-content">
+        <span>User doesn't follow anyone.</span>
+      </p>
+    </div>
+  </div>
+  <hr>
+  <%= render @user.posts %>
+</div>

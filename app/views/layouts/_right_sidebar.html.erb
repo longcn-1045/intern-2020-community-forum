@@ -1,103 +1,84 @@
 <aside class="sidebar97239">
   <div class="status-part3821">
-    <%= link_to "#" do %>
+    <%= link_to new_post_path do %>
       <i class="fas fa-feather" aria-hidden="true">
-        <%= t ".add_post" %>
+        <%= t ".new_post" %>
       </i>
     <% end %>
   </div>
   <div class="status-part3821">
     <%= link_to "#" do %>
       <i class="fas fa-newspaper" aria-hidden="true">
-        <%= t ".posts" %>
+        <%= t ".followers" %> <%= current_user.followers.size %>
       </i>
     <% end %>
     <%= link_to "#" do %>
       <i class="fas fa-users" aria-hidden="true">
-        <%= t ".users" %>
+        <%= t ".followings" %> <%= current_user.following.size %>
       </i>
     <% end %>
   </div>
   <div class="recent-post3290">
     <h4><%= t ".recent_post" %></h4>
-    <div class="post-details021">
-      <div class="post-details021-user">
-        <%= link_to "#" do %>
-          <%= image_tag "/images/logo.png" %>
-        <% end %>
-        <%= link_to "#" do %>
-          <h5>How much do web developers</h5>
-        <% end %>
+    <% posts.each do |post|%>
+      <div class="post-details021">
+        <div class="post-details021-user">
+          <%= link_to post do %>
+            <%= image_tag post.user.avatar.url %>
+          <% end %>
+          <%= link_to post do %>
+            <h5><%= post.title %></h5>
+          <% end %>
+        </div>
+        <p>Description here</p>
+        <small><%= post.created_at %></small>
       </div>
-      <p>I am thinking of pursuing web developing as a career & was ...</p>
-      <small>July 16, 2017</small>
+      <hr>
+    <% end %>
+  </div>
+  <div class="categori-part329">
+    <h4><%= t ".lasted_activities" %></h4>
+    <div class="logs-index">
+      <%= render Log.all %>
     </div>
-    <hr>
-    <div class="post-details021">
-      <div class="post-details021-user">
-        <%= link_to "#" do %>
-          <%= image_tag "/images/logo.png" %>
-        <% end %>
-        <%= link_to "#" do %>
-          <h5>How much do web developers</h5>
-        <% end %>
-      </div>
-      <p>I am thinking of pursuing web developing as a career & was ...</p>
-      <small>July 16, 2017</small>
-    </div>
+    <%= link_to "Show all activities.", logs_path %>
   </div>
   <div class="highest-part302">
     <h4><%= t ".celebrities" %></h4>
-    <div class="pints-wrapper">
-      <div class="left-user3898">
-        <%= link_to "#" do %>
-          <%= image_tag "/images/logo.png" %>
-        <% end %>
-        <div class="imag-overlay39">
-          <%= link_to "#" do %>
-            <i class="fa fa-plus" aria-hidden="true"></i>
+    <% celebrities.each do |celeb|%>
+      <div class="pints-wrapper">
+        <div class="left-user3898">
+          <%= link_to celeb do %>
+            <% if celeb.avatar.present? %>
+              <%= image_tag celeb.avatar.url %>
+            <% else %>
+              <%= image_tag Settings.user.default_avatar %>
+            <% end %>
           <% end %>
-        </div>
-      </div> <span class="points-details938">
-        <%= link_to "#" do %>
-          <h5>Ahmed Hasan</h5>
-        <% end %>
-        <%= link_to "Pundit", "#", class: "designetion439" %>
-      </span>
-    </div>
-    <hr>
-    <div class="pints-wrapper">
-      <div class="left-user3898">
-        <%= link_to "#" do %>
-          <%= image_tag "/images/logo.png" %>
-        <% end %>
-        <div class="imag-overlay39">
-          <%= link_to "#" do %>
-            <i class="fa fa-plus" aria-hidden="true"></i>
+        </div> <span class="points-details938">
+          <%= link_to celeb do %>
+            <h5><%= celeb.name %></h5>
           <% end %>
-        </div>
-      </div> <span class="points-details938">
-        <%= link_to "#" do %>
-          <h5>Ahmed Hasan</h5>
-        <% end %>
-        <%= link_to "Pundit", "#", class: "designetion439" %>
-      </span>
-    </div>
+          <div class="follow-user-<%= celeb.id %>" >
+            <% if current_user.following? celeb %>
+              <%= render partial: "users/unfollow", locals: {user: celeb} %>
+            <% else %>
+              <%= render partial: "users/follow", locals: {user: celeb} %>
+            <% end %>
+          </div>
+        </span>
+      </div>
+      <hr>
+    <% end %>
   </div>
   <div class="categori-part329">
     <h4><%= t ".categories" %></h4>
     <ul>
-      <li>
-        <%= link_to "Cookings", "#" %>
-      </li>
-    </ul>
-  </div>
-  <div class="tags-part2398">
-    <h4><%= t ".tags" %></h4>
-    <ul>
-      <li>
-        <%= link_to "Soup", "#" %>
-      </li>
+      <% topics.each do |topic|%>
+        <li>
+          <%= link_to topic.name, topic %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="social-part2189 mb-4">

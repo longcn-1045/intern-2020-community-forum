@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><%= full_title yield :title %></title>
   <%= render "layouts/rails_default" %>
-  <script src="https://kit.fontawesome.com/5d3f9f4ac6.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 </head>
 <body>
   <%= render "layouts/header" %>
@@ -19,6 +20,19 @@
           <%= link_to t(".english"), locale: :en %>
           <%= link_to t(".vietnam"), locale: :vi %>
         </div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <%= link_to t(".home"), root_path%>
+              </li>
+            <li class="breadcrumb-item">
+              <%= link_to yield(:controller), "#"%>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <%= yield :action %>
+            </li>
+          </ol>
+        </nav>
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>">
             <%= message %>
@@ -27,7 +41,8 @@
         <%= yield %>
       </div>
       <div class="col-md-3">
-        <%= render "layouts/right_sidebar" %>
+        <%= render "layouts/right_sidebar", posts: Post.first(3),
+          celebrities: User.first(3), topics: Topic.all %>
       </div>
     </div>
   </div>

@@ -1,0 +1,6 @@
+<%= form_for unfollow(user),
+  html: {method: :delete}, remote: true do |f| %>
+  <%= hidden_field_tag :user_id, user.id %>
+
+  <%= button_tag t(".unfollow"), class: "follower" %>
+<% end %>

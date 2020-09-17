@@ -1,0 +1,9 @@
+<% provide :title, t(".topics") %>
+<% provide :controller, t(".topics") %>
+<% provide :action, t(".index") %>
+
+<div class="topics-list">
+  <div class="row">
+    <%= render @topics %>
+  </div>
+</div>
