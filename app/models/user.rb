@@ -128,6 +128,10 @@ class User < ApplicationRecord
     following.include? other_user
   end
 
+  def author? post
+    posts.include? post
+  end
+
   def remember
     self.remember_token = User.new_token
     update remember_digest: User.digest(remember_token)

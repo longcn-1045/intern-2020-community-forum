@@ -1,0 +1,10 @@
+<% if current_user.author? post %>
+  <div class="dropdown ml-auto">
+    <%= link_to ". . .", "#", data: {toggle: "dropdown"} %>
+    <div class="dropdown-menu dropdown-menu-right">
+      <%= link_to t(".edit"),edit_post_path(post), class: "dropdown-item" %>
+      <%= link_to t(".destroy"), post_path(post), method: :delete,
+        class: "dropdown-item" %>
+    </div>
+  </div>
+<% end %>

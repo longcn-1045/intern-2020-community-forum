@@ -9,19 +9,19 @@ class Post < ApplicationRecord
     tags_attributes: [:id, :name, :_destroy].freeze
   ].freeze
 
-  belongs_to :user, counter_cache: true
+  belongs_to :user
   belongs_to :topic
 
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
   has_many :notifications, dependent: :destroy
 
-  after_commit :notify
+  after_commit :notify, on: %i(create update)
 
-  has_many :post_marks, dependent: :destroy, counter_cache: true
+  has_many :post_marks, dependent: :destroy
   has_many :mark_users, through: :post_marks, source: :user
 
-  has_many :post_likes, dependent: :destroy, counter_cache: true
+  has_many :post_likes, dependent: :destroy
   has_many :like_users, through: :post_likes, source: :user
 
   validates :user_id, presence: true

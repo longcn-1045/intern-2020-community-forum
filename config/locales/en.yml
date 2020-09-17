@@ -113,6 +113,9 @@ en:
       answer: Anwser
       views: View
       comments: Comments
+    destroy:
+      post_destroyed: Destroy Success
+      post_destroy_failed: Destroy Failed
   dashboard:
     char:
       post: "Post Chart"

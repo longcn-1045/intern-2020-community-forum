@@ -16,19 +16,23 @@
     </div>
   </div>
   <div class="post-info">
-    <p class="post-header">
-      <span class="user-name">
-        <%= link_to @post.name, @post.user %>
+    <div class="d-flex align-items-center">
+      <p class="post-header">
+        <span class="user-name">
+          <%= link_to @post.name, @post.user %>
         </span>
-      <time>
-        <%= t ".asked" %>
-        <strong><%= time_ago_in_words @post.created_at %></strong>
-      </time>
-      <span class="post-topic">
-        <%= t ".in" %>
-        <strong><%= link_to @post.topic_name, @post.topic %></strong>
-      </span>
-    </p>
+        <time>
+          <%= t ".asked" %>
+          <strong><%= time_ago_in_words @post.created_at %></strong>
+        </time>
+        <span class="post-topic">
+          <%= t ".in" %>
+          <strong><%= link_to @post.topic_name, @post.topic %></strong>
+        </span>
+      </p>
+      <%= load_edit_destroy_post_partial @post %>
+      <%= render "posts/update_destroy_post", post: @post %>
+    </div>
     <p class="post-title">
       <%= link_to @post.title, @post %>
     </p>
