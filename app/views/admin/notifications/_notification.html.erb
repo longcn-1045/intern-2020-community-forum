@@ -5,9 +5,13 @@
       <h3 class="dropdown-item-title">
         <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
       </h3>
-      <p class="text-sm">
-        <%= notification.name %> <%= t "layouts.application.just" %> <%= notification.action %> <%= notification.title %>
-      </p>
+        <p class="text-sm">
+          <span class="<%= check_notification notification.user.admin? %>">
+            <%= notification.name %>
+          </span>
+          <span>
+            <%= notification.action %> <%= notification.title %>
+          </span>
       <p class="text-sm text-muted">
         <i class="far fa-clock mr-1"></i>
         <%= time_ago_in_words notification.created_at %>

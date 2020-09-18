@@ -14,7 +14,7 @@
   </td>
   <td>
     <%= link_to admin_user_get_posts_path(user), remote: true, class: "btn btn-info", "data-toggle": :modal, "data-target": "#modal-user" do %>
-      <%= user.posts.count %>
+      <%= user.posts_count %>
     <% end %>
   </td>
   <td>

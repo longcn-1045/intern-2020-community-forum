@@ -2,6 +2,7 @@ class Admin::PostsController < AdminController
   before_action :logged_in_user
   before_action :load_post, except: %i(index new create)
   before_action :load_element, :post_include, only: :index
+  before_action :check_user, only: %i(update post_process)
 
   include PostsHelper
 
@@ -67,6 +68,12 @@ class Admin::PostsController < AdminController
   end
 
   private
+
+  def check_user
+    return unless current_user.admin?
+
+    @post.editor_id = current_user.id
+  end
 
   def post_params
     params.require(:post).permit Post::POST_PARAMS

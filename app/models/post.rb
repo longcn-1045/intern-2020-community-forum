@@ -9,7 +9,9 @@ class Post < ApplicationRecord
     tags_attributes: [:id, :name, :_destroy].freeze
   ].freeze
 
-  belongs_to :user
+  attr_accessor :editor_id
+
+  belongs_to :user, counter_cache: :posts_count
   belongs_to :topic
 
   has_many :post_tags, dependent: :destroy
@@ -88,8 +90,9 @@ class Post < ApplicationRecord
   end
 
   def notify
-    @notify = Notification.create(post_id: id, user_id: user_id)
-    get_action @notify
+    notify_id = editor_id.presence || user_id
+    notify = Notification.create(post_id: id, user_id: notify_id)
+    get_action notify
     User.admin.each do |user|
       ActionCable.server.broadcast "notification_channel_#{user.id}", content:
         {notification_html: notification_html, count: Notification.uncheck.size}

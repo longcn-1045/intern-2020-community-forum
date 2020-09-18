@@ -48,3 +48,8 @@
 .notification-true {
   background-color: $silver;
 }
+
+#notification{
+  max-height: 400px;
+  overflow-Y: auto;
+}

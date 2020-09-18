@@ -81,3 +81,5 @@ default_user:
   error_class: error-feedback
 project_start_time: 1598515200
 load_post_time: 45000
+notifications:
+  page: 30

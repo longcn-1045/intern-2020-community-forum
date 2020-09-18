@@ -2,6 +2,7 @@ class AdminController < ActionController::Base
   layout "admin"
 
   include SessionsHelper
+  include NotificationsHelper
 
   before_action :set_locale
   before_action :load_notify
@@ -17,7 +18,7 @@ class AdminController < ActionController::Base
   end
 
   def get_all_notification
-    @notifications.order_created_at.take Settings.user.page
+    @notifications.order_created_at.take Settings.notifications.page
   end
 
   def set_locale
