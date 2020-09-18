@@ -108,6 +108,9 @@ vi:
       in: với
       answer: Bình luận
       comments: Bình luận
+      on_post: "Mở"
+      pending_post: "Đang chờ"
+      off_post: "Tắt"
     post:
       asked: ngày tạo
       in: với
@@ -238,6 +241,8 @@ vi:
       follow: Theo dõi
       unfollow: Bỏ theo dõi
       no_user: Không có người dùng nào để hiển thị!
+      user_post_list: "Danh sách bài viết"
+      close: "Đóng"
     edit:
       not_found: Không tìm thấy người dùng
       edit_user: Cập nhật người dùng

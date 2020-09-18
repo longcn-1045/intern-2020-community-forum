@@ -108,6 +108,9 @@ en:
       in: In
       answer: Anwser
       comments: Comments
+      on_post: "ON"
+      pending_post: "PENDING"
+      off_post: "OFF"
     post:
       asked: Asked
       in: In
@@ -241,6 +244,8 @@ en:
       follow: Follow
       unfollow: Unfollow
       no_user: There is no user to show!
+      user_post_list: "Posts"
+      close: "Close"
     edit:
       not_found: Not Found User
       edit_user: Edit User

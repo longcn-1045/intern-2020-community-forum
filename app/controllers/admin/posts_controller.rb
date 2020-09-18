@@ -59,6 +59,13 @@ class Admin::PostsController < AdminController
     redirect_to admin_posts_path
   end
 
+  def post_process
+    @post.status = params[:option]
+    @post.save
+    flash[:success] = t "users.update.success"
+    redirect_to admin_posts_path
+  end
+
   private
 
   def post_params

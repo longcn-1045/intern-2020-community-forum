@@ -27,7 +27,10 @@ Rails.application.routes.draw do
       get "users/posts/chart", to: "charts#user_post", as: "chart_user_post"
       get "posts/:id/notify/:notification_id", to: "posts#show", as: "post_show_notify"
       get "users/export", to: "excels#index", as: "export_excel"
-      resources :users
+      get "posts/process/:id/:option", to: "posts#post_process", as: "posts_process"
+      resources :users do
+        resources :get_posts, only: :index
+      end
       resources :posts
       resources :topics
     end

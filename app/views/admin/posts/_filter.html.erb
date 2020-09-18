@@ -17,13 +17,19 @@
       <%= f.collection_select :topic_id, @topics, :id, :name, {prompt: true, selected: params[:topic_id]}, {class: "form-control"} %>
     </div>
     <div class="col-1">
-      <%= f.label :button, class: "text-light" %>
+      <%= f.label :button, class: "text-white" %>
       <%= f.submit class: "btn btn-success", value: t("posts.breadcrumbs.search") %>
     </div>
     <div class="col-1">
-      <%= link_to admin_posts_path, class: "nav-link active d-inline" do %>
-        <i class="fas fa-redo nav-icon text-success"></i>
-      <% end %>
+      <%= f.label :button, class: "text-white" %>
+      <div class="d-flex">
+        <%= link_to admin_posts_path, class: "nav-link active d-block" do %>
+          <i class="fas fa-redo nav-icon text-success"></i>
+        <% end %>
+        <%= link_to new_admin_post_path, class: "nav-link active d-inline" do %>
+          <i class="fas fa-plus nav-icon text-success"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

@@ -1,0 +1,16 @@
+<div class="d-flex algin-items-center">
+  <%= link_to admin_post_path(post.id), class: "nav-link active d-inline text-dark p-0 pr-3" do %>
+    <%= image_tag post.image_url, class: "img-size-50 img-circle" %>
+  <% end %>
+  <%= link_to admin_post_path(post.id), class: "text-dark" do %>
+    <%= post.title %>
+    <p class="text-sm text-muted mb-0">
+      <i class="far fa-clock mr-1"></i>
+      <%= time_ago_in_words post.updated_at %>
+    </p>
+  <% end %>
+  <%= link_to edit_admin_post_path(post.id), class: "nav-link active d-inline ml-auto" do %>
+    <i class="fas fa-edit nav-icon text-success"></i>
+  <% end %>
+</div>
+<hr>
