@@ -1,0 +1,14 @@
+<% provide :title, t(".activities") %>
+<% provide :controller, t(".activities") %>
+<% provide :action, t(".index") %>
+
+<div class="logs-index">
+  <% if @activities.present? %>
+    <%= render @activities %>
+    <%= paginate @activities %>
+  <% else %>
+    <h3 class="empty-data">
+      <%= t ".no_activities" %>
+    </h3>
+  <% end %>
+</div>

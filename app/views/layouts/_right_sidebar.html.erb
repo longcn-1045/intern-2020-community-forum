@@ -48,6 +48,19 @@
       </h3>
     <% end %>
   </div>
+  <div class="categori-part329">
+    <h4><%= t ".lasted_activities" %></h4>
+    <% if activities.present? %>
+      <div class="logs-index">
+        <%= render activities %>
+      </div>
+    <% else %>
+      <h3 class="empty-data">
+        <%= t ".no_activities" %>
+      </h3>
+    <% end %>
+    <%= link_to t(".show_all"), user_activities_path(current_user) %>
+  </div>
   <div class="highest-part302">
     <h4><%= t ".celebrities" %></h4>
     <% if celebrities.present? %>

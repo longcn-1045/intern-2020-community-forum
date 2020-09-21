@@ -38,14 +38,7 @@ post:
   page: 5
   per_page: 4
   role: "members"
-theme:
-  name_bootstrap: "twitter-bootstrap-3"
-post:
-  validates:
-    max_title: 150
-    max_content: 800
-  per_page: 5
-  page: 5
+  inc_per_view: 1
 store:
   avatar_dir: "public/myimages/avatar"
   size: [150, 150]
@@ -83,3 +76,7 @@ project_start_time: 1598515200
 load_post_time: 45000
 notifications:
   page: 30
+activities:
+  per_page: 8
+acts:
+  per_page_sidebar: 4

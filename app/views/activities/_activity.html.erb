@@ -1,0 +1,14 @@
+<div class="item">
+  <div class="item-ava">
+      <%= load_user_avatar activity.owner.url %>
+  </div>
+  <div class="item-info">
+    <p class="item-content">
+      <%= activity.content %>
+    </p>
+    <p class="item-time">
+      <%= t ".activity_time", time: time_ago_in_words(activity.created_at) %>
+    </p>
+  </div>
+</div>
+<hr>

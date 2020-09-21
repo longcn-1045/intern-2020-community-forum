@@ -30,7 +30,6 @@
           <strong><%= link_to @post.topic_name, @post.topic %></strong>
         </span>
       </p>
-      <%= load_edit_destroy_post_partial @post %>
       <%= render "posts/update_destroy_post", post: @post %>
     </div>
     <p class="post-title">

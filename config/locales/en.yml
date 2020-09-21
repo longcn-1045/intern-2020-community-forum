@@ -61,6 +61,8 @@ en:
       no_post: There is no post
       no_celeb: There is no celebrity
       no_topic: There is no topic
+      show_all: Show all activities
+      no_activities: There is no activities
   application:
     find_user:
       not_found: Not found
@@ -417,3 +419,13 @@ en:
               required: "required"
             content:
               blank: "is required"
+  activities:
+    you_have_just: You just have
+    not_exist: which does not exist anymore!
+
+    activity:
+      activity_time: "%{time} ago"
+    index:
+      no_activities: There is no activity now!
+      activities: Activities
+      index: Index

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  include PublicActivity::StoreController
   include SessionsHelper
 
   before_action :set_locale, :load_right_sidebar
@@ -21,6 +22,14 @@ class ApplicationController < ActionController::Base
     @celebrities_sidebar = User.all_except(current_user)
                                .count_celeb
                                .first Settings.right_bar.celebrities
+    @activities_sidebar = current_user.activities
+                                      .includes(:trackable)
+                                      .order_created_at
+                                      .limit Settings.acts.per_page_sidebar
+  end
+
+  def correct_user
+    redirect_to root_url unless current_user? @user
   end
 
   private

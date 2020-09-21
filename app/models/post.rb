@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  include PublicActivity::Model
+  tracked owner: ->(_controller, model){model && model.user}
+
   POST_PARAMS = [
     :title,
     :content,
