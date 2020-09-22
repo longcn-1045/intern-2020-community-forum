@@ -54,14 +54,10 @@ class User < ApplicationRecord
   scope :order_by_post_count, (lambda do |opt|
     order posts_count: opt if opt.present?
   end)
-  scope :count_celeb, (lambda do
-    follower_count = Relationship
-      .group(:followed_id)
-      .select(:followed_id, "count(follower_id) as num")
-
-    joins("LEFT JOIN (#{follower_count.to_sql}) as follower ON
-      follower.followed_id = id")
-    .order("follower.num desc")
+  scope :order_by_name, ->{order name: :asc}
+  scope :order_followers_count, ->{order follower_users_count: :desc}
+  scope :not_followers, (lambda do |user|
+    where.not(id: user.following_ids)
   end)
 
   before_save :downcase_email
@@ -80,6 +76,28 @@ class User < ApplicationRecord
 
     def new_token
       SecureRandom.urlsafe_base64
+    end
+
+    def sort_type sort
+      if sort.eql? "created_at"
+        order_created_at
+      elsif sort.eql? "alphabet"
+        order_by_name
+      elsif sort.eql? "followers"
+        order_followers_count
+      else
+        all
+      end
+    end
+
+    def by_follow_status status, user
+      if status.eql? "on"
+        user.following
+      elsif status.eql? "off"
+        not_followers(user)
+      else
+        all
+      end
     end
   end
 

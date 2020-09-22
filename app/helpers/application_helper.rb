@@ -36,4 +36,14 @@ module ApplicationHelper
       render "topics/follow", topic: topic
     end
   end
+
+  def load_select_search_sort_by
+    [[t(".created_time"), :created_at],
+     [t(".alphabet"), :alphabet],
+     [t(".followers"), :followers]]
+  end
+
+  def load_select_search_status
+    [[t(".follow"), :on], [t(".unfollow"), :off]]
+  end
 end

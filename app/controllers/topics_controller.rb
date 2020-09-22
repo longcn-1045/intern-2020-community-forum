@@ -2,7 +2,11 @@ class TopicsController < ApplicationController
   before_action :find_topic, only: :show
 
   def index
-    @topics = Topic.page(params[:page]).per Settings.topics.per_page
+    @topics = Topic.by_topic_name(params[:name])
+                   .sort_type(params[:select_type])
+                   .by_follow_status(params[:status], current_user)
+                   .page(params[:page])
+                   .per Settings.topics.per_page
   end
 
   def show

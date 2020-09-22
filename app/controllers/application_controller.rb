@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
                         .first Settings.right_bar.new_feeds
     @topics_sidebar = Topic.all
     @celebrities_sidebar = User.all_except(current_user)
-                               .count_celeb
+                               .order_followers_count
                                .first Settings.right_bar.celebrities
     @activities_sidebar = current_user.activities
                                       .includes(:trackable)

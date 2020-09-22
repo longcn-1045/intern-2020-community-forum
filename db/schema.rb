@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_010106) do
+ActiveRecord::Schema.define(version: 2020_09_21_070945) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_09_13_010106) do
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "album_id"
+    t.string "image"
   end
 
   create_table "post_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -118,9 +119,9 @@ ActiveRecord::Schema.define(version: 2020_09_13_010106) do
 
   create_table "post_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.index ["post_id"], name: "index_post_likes_on_post_id"
     t.index ["user_id"], name: "index_post_likes_on_user_id"
   end
@@ -195,6 +196,7 @@ ActiveRecord::Schema.define(version: 2020_09_13_010106) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0
+    t.integer "user_topics_count", default: 0, null: false
   end
 
   create_table "user_topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -222,6 +224,7 @@ ActiveRecord::Schema.define(version: 2020_09_13_010106) do
     t.integer "role", default: 0
     t.string "avatar"
     t.integer "posts_count", default: 0, null: false
+    t.integer "follower_users_count", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
@@ -231,6 +234,7 @@ ActiveRecord::Schema.define(version: 2020_09_13_010106) do
   add_foreign_key "notifications", "users"
   add_foreign_key "post_comments", "users"
   add_foreign_key "post_likes", "posts"
+  add_foreign_key "post_likes", "users"
   add_foreign_key "post_marks", "posts"
   add_foreign_key "post_marks", "users"
   add_foreign_key "post_reports", "posts"

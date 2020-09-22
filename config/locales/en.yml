@@ -71,6 +71,10 @@ en:
   shared:
     error_messages:
       error: Error
+    search_bar:
+      name: Name
+      status: Status
+      type_sth: Type something here
   posts:
     filter:
       title: "Title..."
@@ -222,6 +226,7 @@ en:
       dont_have: User doesn't have any followers yet.
       dont_rela: User doesn't follow anyone.
       no_post: You have no post!
+      topic: Topic
     index:
       user_numbers: "Total Member: "
       title: "Users"
@@ -248,6 +253,11 @@ en:
       no_user: There is no user to show!
       user_post_list: "Posts"
       close: "Close"
+      no_topic: You have no topic!
+      created_time: Created Time
+      alphabet: Alphabet
+      followers: Followers
+      sort: Sort By
     edit:
       not_found: Not Found User
       edit_user: Edit User
@@ -353,8 +363,11 @@ en:
       index: Index
       follow: Follow
       unfollow: Unfollow
-      followers: Follower
       no_topic: You have no topic!
+      created_time: Created Time
+      alphabet: Alphabet
+      followers: Followers
+      sort: Sort By
     show:
       topics: Topics
       show: Show

@@ -3,6 +3,12 @@
 <% provide :action, t(".index") %>
 
 <div class="users-index">
+  <h3>
+    <%= @users.total_count %>
+    <%= t ".users" %>
+  </h3>
+  <%= render "shared/search_bar", path: users_path,
+    select_type_label: t(".sort")  %>
   <% if @users.present? %>
     <div class="row">
       <%= render @users %>

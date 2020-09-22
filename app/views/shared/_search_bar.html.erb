@@ -1,0 +1,26 @@
+<div class="search-bar mb-3">
+  <%= form_with url: path, class: "form-row", method: :get, local: true do |f|%>
+    <div class="col-md-6">
+    <%= f.label :name, t(".name") %>
+      <%= f.text_field :name, placeholder: t(".type_sth"), class: "form-control", value: params[:name] %>
+    </div>
+    <div class="col-md-3">
+    <%= f.label :select_type, select_type_label %>
+      <%= f.select :select_type, options_for_select(load_select_search_sort_by,
+        params[:select_type]), {:include_blank => select_type_label},
+        class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+    <%= f.label :status, t(".status") %>
+      <%= f.select :status, options_for_select(load_select_search_status,
+        params[:status]), {:include_blank => t(".status")},
+        class: "form-control" %>
+    </div>
+    <div class="col-md-1">
+      <%= f.label :button, class: "text-white" %>
+      <%= button_tag class: "btn btn-secondary" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
