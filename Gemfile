@@ -19,6 +19,7 @@ gem "chartkick"
 gem "ckeditor"
 gem "cocoon"
 gem "config"
+gem "factory_bot_rails"
 gem "faker", "~> 2.13"
 gem "figaro"
 gem "groupdate"
@@ -59,7 +60,10 @@ end
 
 group :test do
   gem "capybara", ">= 2.15"
+  gem "database_cleaner-active_record"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
   gem "webdrivers"
 end
 
