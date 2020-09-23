@@ -8,7 +8,7 @@
     <%= t ".users" %>
   </h3>
   <%= render "shared/search_bar", path: users_path,
-    select_type_label: t(".sort")  %>
+    select_type_label: t(".sort"), name_type: t(".name") %>
   <% if @users.present? %>
     <div class="row">
       <%= render @users %>

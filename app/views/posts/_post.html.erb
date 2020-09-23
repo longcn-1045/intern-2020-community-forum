@@ -34,6 +34,7 @@
     <div class="post-description">
       <%= post.content.html_safe %>
     </div>
+    <%= display_post_pending_status post.status %>
     <div class="post-tags">
       <% post.tags.each do |tag| %>
         <p class="tag-item">

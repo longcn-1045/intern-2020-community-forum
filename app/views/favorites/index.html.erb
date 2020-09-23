@@ -2,7 +2,9 @@
 <% provide :controller, t(".favorites") %>
 <% provide :action, t(".index") %>
 
-<div class="favorites-index">
+<div class="favorites-index p-3">
+  <%= render "shared/search_bar", path: user_favorites_path,
+      select_type_label: t(".topics"), name_type: t(".title") %>
   <% if @posts.present? %>
     <h3>
       <%= t ".favorites" %>:

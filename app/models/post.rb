@@ -55,11 +55,16 @@ class Post < ApplicationRecord
   end)
 
   scope :by_topics, (lambda do |topic_ids|
-    where topic_id: topic_ids if topic_ids.present?
+    where topic_id: topic_ids
   end)
 
   scope :by_users, (lambda do |user_ids|
-    where user_id: user_ids if user_ids.present?
+    where user_id: user_ids
+  end)
+
+  scope :in_homepage, (lambda do |topic_ids, user_ids|
+    by_topics(topic_ids).or(by_users(user_ids))
+                        .on
   end)
 
   enum status: {off: 0, on: 1, pending: 2}

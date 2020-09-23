@@ -123,6 +123,7 @@ en:
       answer: Anwser
       views: View
       comments: Comments
+      pending: Pending
     destroy:
       post_destroyed: Destroy Success
       post_destroy_failed: Destroy Failed
@@ -227,6 +228,10 @@ en:
       dont_rela: User doesn't follow anyone.
       no_post: You have no post!
       topic: Topic
+      topics: Topics
+      title: Title
+      public: Public
+      pending: Pending
     index:
       user_numbers: "Total Member: "
       title: "Users"
@@ -380,6 +385,8 @@ en:
       index: Index
       posts: posts
       no_post: You haven't saved any post
+      public: Public
+      pending: Pending
   trends:
     index:
       trends: Trends

@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
 
   def show
     @posts = @topic.posts
+                   .on
                    .includes(:user, :tags, :post_marks)
                    .order_created_at
   end

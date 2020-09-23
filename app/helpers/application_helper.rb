@@ -37,13 +37,31 @@ module ApplicationHelper
     end
   end
 
-  def load_select_search_sort_by
-    [[t(".created_time"), :created_at],
-     [t(".alphabet"), :alphabet],
-     [t(".followers"), :followers]]
+  def load_select_search_type
+    if action_name.eql?("show") || controller_name.eql?("favorites")
+      Topic.pluck :name, :id
+    elsif action_name.eql? "index"
+      [
+        [t(".created_time"), :created_at],
+        [t(".alphabet"), :alphabet],
+        [t(".followers"), :followers]
+      ]
+    end
   end
 
   def load_select_search_status
-    [[t(".follow"), :on], [t(".unfollow"), :off]]
+    if action_name.eql?("show") || controller_name.eql?("favorites")
+      Post.statuses.keys.map do |key|
+        [t(key.to_s), key]
+      end
+    elsif action_name.eql? "index"
+      [[t(".follow"), :on], [t(".unfollow"), :off]]
+    end
+  end
+
+  def display_post_pending_status post_status
+    return unless post_status == "pending"
+
+    button_tag t(".pending"), type: "button", class: "btn btn-warning mb-3"
   end
 end

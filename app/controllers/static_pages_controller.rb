@@ -4,13 +4,13 @@ class StaticPagesController < ApplicationController
   def home
     user_ids = current_user.following_ids << current_user.id
     topic_ids = current_user.topic_ids
-
-    @posts = Post.includes(:topic, :tags, :user, :post_likes, :post_marks)
-                 .by_topics(topic_ids)
-                 .or Post.includes(:topic, :tags, :user,
-                                   :post_likes, :post_marks)
-                         .by_users(user_ids)
-    @posts = @posts.sort_by(&:post_score).reverse!
+    if topic_ids.present? || current_user.following_ids.present?
+      @posts = Post.includes(:topic, :tags, :user, :post_likes, :post_marks)
+                   .in_homepage topic_ids, user_ids
+      @posts = @posts.sort_by(&:post_score).reverse!
+    else
+      @posts = current_user.posts.on
+    end
   end
 
   def help; end

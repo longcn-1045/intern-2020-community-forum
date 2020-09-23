@@ -11,7 +11,7 @@
       <i class="fas fa-newspaper" aria-hidden="true">
         <%= t ".followers" %>
         <span id="followers_count">
-          <%= current_user.followers.size %>
+          <%= current_user.followers.count %>
         </span>
       </i>
     <% end %>
@@ -19,7 +19,7 @@
       <i class="fas fa-users" aria-hidden="true">
         <%= t ".followings" %>
         <span id="followings_count">
-          <%= current_user.following.size %>
+          <%= current_user.following.count %>
         </span>
       </i>
     <% end %>

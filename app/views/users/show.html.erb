@@ -70,7 +70,9 @@
   </div>
   <hr>
   <div class="col-md-12">
-    <% if @user.posts.present? %>
+    <%= render "shared/search_bar", path: user_path,
+      select_type_label: t(".topics"), name_type: t(".title") %>
+    <% if @posts.present? %>
       <div class="post-list">
         <%= render @posts if @posts.present? %>
       </div>

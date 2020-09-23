@@ -15,6 +15,9 @@ class UsersController < ApplicationController
     @posts = @user.posts
                   .includes(:topic, :tags)
                   .order_created_at
+                  .by_title(params[:name])
+                  .by_topic_id(params[:select_type])
+                  .by_status params[:status]
   end
 
   def edit; end
