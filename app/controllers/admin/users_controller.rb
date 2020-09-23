@@ -1,17 +1,15 @@
 class Admin::UsersController < AdminController
   before_action :logged_in_user, except: :show
   before_action :load_user, except: :index
+  before_action :get_users, only: :index
   before_action :admin_user
+
+  include UsersHelper
 
   add_breadcrumb I18n.t("users.breadcrumbs.user"), :admin_users_path
 
   def index
-    @users = User.by_user_name(params[:name])
-                 .by_status(params[:status])
-                 .by_role(params[:role])
-                 .order_by_post_count(params[:order_by])
-                 .order_created_at
-                 .page(params[:page]).per Settings.user.page
+    session[:user_filtered] = @users.ids
   end
 
   def show
@@ -46,5 +44,14 @@ class Admin::UsersController < AdminController
 
   def user_params
     params.require(:user).permit User::PERMIT_ATTRIBUTES
+  end
+
+  def get_users
+    @users = User.by_user_name(params[:name])
+                 .by_status(params[:status])
+                 .by_role(params[:role])
+                 .order_by_post_count(params[:order_by])
+                 .order_created_at
+                 .page(params[:page]).per Settings.user.page
   end
 end

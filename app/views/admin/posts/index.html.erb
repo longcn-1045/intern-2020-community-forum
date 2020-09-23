@@ -14,7 +14,20 @@
         <%= render "colums" %>
       </thead>
       <tbody>
-        <%= render @posts %>
+        <%= form_with url: admin_check_posts_path, local: true, method: :patch do |f| %>
+          <div id="post-status" class="sticky-top d-flex justify-content-end">
+            <div class="card-footer">
+              <%= f.submit t("posts.show.on_post"), class: "btn btn-success" %>
+            </div>
+            <div class="card-footer">
+              <%= f.submit t("posts.show.pending_post"), class: "btn btn-warning text-white" %>
+            </div>
+            <div class="card-footer">
+              <%= f.submit t("posts.show.off_post"), class: "btn btn-danger" %>
+            </div>
+          </div>
+          <%= render @posts %>
+        <% end %>
       </tbody>
       <tfoot>
         <%= render "colums" %>

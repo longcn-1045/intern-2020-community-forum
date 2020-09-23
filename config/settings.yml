@@ -80,3 +80,7 @@ activities:
   per_page: 8
 acts:
   per_page_sidebar: 4
+paginate:
+  ten: 10
+  thirty: 30
+  fifty: 50

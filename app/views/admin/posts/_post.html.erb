@@ -1,4 +1,7 @@
 <tr>
+  <td>
+    <%= check_box_tag "post_ids[]", post.id -%>
+  </td>
   <td><%= image_tag post.image_url.to_s %></td>
     <td>
       <%= link_to admin_post_path post.id, class: "nav-link active d-inline text-dark" do %>

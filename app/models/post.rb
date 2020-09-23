@@ -58,6 +58,10 @@ class Post < ApplicationRecord
     where topic_id: topic_ids
   end)
 
+  scope :by_ids, (lambda do |post_ids|
+    where(id: post_ids) if post_ids.present?
+  end)
+
   scope :by_users, (lambda do |user_ids|
     where user_id: user_ids
   end)

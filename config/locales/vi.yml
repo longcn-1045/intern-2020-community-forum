@@ -1,6 +1,9 @@
 vi:
   layouts:
     application:
+      accept: "accept"
+      apply: "Áp dụng"
+      per_page: "Per Page"
       download: "Tải danh sách"
       title: "Intern2020CommunityForum"
       vietnam: "Tiếng việt"

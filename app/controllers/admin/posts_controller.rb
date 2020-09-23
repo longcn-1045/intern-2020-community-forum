@@ -14,7 +14,7 @@ class Admin::PostsController < AdminController
                    .by_status(params[:status])
                    .by_user_id(params[:user_id])
                    .by_topic_id(params[:topic_id])
-                   .page(params[:page]).per Settings.post.page
+                   .page(params[:page]).per params[:per_page]
   end
 
   def new

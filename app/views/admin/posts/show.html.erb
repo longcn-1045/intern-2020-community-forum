@@ -3,6 +3,23 @@
     <h3 class="card-title"><%= t "post.new.post" %></h3>
   </div>
   <%= form_for [:admin, @post], html: { multipart: true } do |f| %>
+    <div id="post-status" class="sticky-top d-flex justify-content-end">
+      <div class="card-footer">
+        <%= link_to admin_posts_process_path(@post.id, :on), {class: "btn btn-success"} do %>
+          <%= t "posts.show.on_post" %>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <%= link_to admin_posts_process_path(@post.id, :pending), {class: "btn btn-warning text-white"} do %>
+          <%= t "posts.show.pending_post" %>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <%= link_to admin_posts_process_path(@post.id, :off), {class: "btn btn-danger"} do %>
+          <%= t "posts.show.off_post" %>
+        <% end %>
+      </div>
+    </div>
     <%= render "shared/error_messages", object: f.object %>
       <div class="row p-3">
         <div class="col-lg-4">
@@ -36,23 +53,6 @@
         <div class="form-group">
           <%= f.label t "post.new.status" %>
           <%= f.check_box :status, {checked: true, disabled: true}, :on, :off %>
-        </div>
-        <div class="row">
-          <div class="pr-2">
-            <%= link_to admin_posts_process_path(@post.id, :on), {class: "btn btn-success"} do %>
-              <%= t "posts.show.on_post" %>
-            <% end %>
-          </div>
-          <div class="pr-2">
-            <%= link_to admin_posts_process_path(@post.id, :pending), {class: "btn btn-warning text-white"} do %>
-              <%= t "posts.show.pending_post" %>
-            <% end %>
-          </div>
-          <div class="pr-2">
-            <%= link_to admin_posts_process_path(@post.id, :off), {class: "btn btn-danger"} do %>
-              <%= t "posts.show.off_post" %>
-            <% end %>
-          </div>
         </div>
       </div>
   <% end %>

@@ -9,8 +9,10 @@
   </head>
   <body>
     <div class="wrapper">
-      <%= render "layouts/admin/header" %>
-      <%= render "layouts/admin/sidebar" %>
+      <div class="fixed-top">
+        <%= render "layouts/admin/header" %>
+        <%= render "layouts/admin/sidebar" %>
+      </div>
       <div class="content-wrapper">
         <%= render "layouts/admin/content_header" %>
         <div class="content">

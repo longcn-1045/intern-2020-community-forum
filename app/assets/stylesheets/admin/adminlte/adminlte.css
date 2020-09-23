@@ -11456,7 +11456,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 }
 
 :not(.layout-fixed) .main-sidebar {
-  height: inherit;
+  height: 100vh !important;
   min-height: 100%;
   position: absolute;
   top: 0;

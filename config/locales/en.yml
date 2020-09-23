@@ -1,6 +1,9 @@
 en:
   layouts:
     application:
+      accept: "accept"
+      apply: "Apply"
+      per_page: "Per Page"
       download: "Download List"
       title: "Intern2020CommunityForum"
       vietnam: "Vietnamese"

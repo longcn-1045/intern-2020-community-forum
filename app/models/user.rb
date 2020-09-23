@@ -60,6 +60,10 @@ class User < ApplicationRecord
     where.not(id: user.following_ids)
   end)
 
+  scope :user_ids, (lambda do |user_filtered|
+    where(id: user_filtered) if user_filtered.present?
+  end)
+
   before_save :downcase_email
 
   delegate :url, to: :avatar

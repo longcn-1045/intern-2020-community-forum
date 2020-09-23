@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       resources :users do
         resources :get_posts, only: :index
       end
+      resource :check_posts, only: :update
       resources :posts
       resources :topics
     end
