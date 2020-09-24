@@ -304,6 +304,10 @@ GEM
     redis (4.2.2)
     regexp_parser (1.8.0)
     require_all (3.0.0)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -442,6 +446,7 @@ DEPENDENCIES
   rails-i18n
   rails_best_practices
   redis
+  rspec
   rspec-rails (~> 4.0.1)
   rubocop (~> 0.74.0)
   rubocop-checkstyle_formatter

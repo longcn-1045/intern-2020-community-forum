@@ -59,3 +59,4 @@ ImageMagick.tar.gz
 /public/public
 
 coverage/
+spec/support/fixture
