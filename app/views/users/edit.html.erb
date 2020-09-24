@@ -33,12 +33,8 @@
       </div>
     </div>
     <div class="col-md-5">
-      <div class="edit-user-avatar">
-        <% if @user.avatar.present? %>
-          <%= image_tag @user.avatar.url, id: "user_ava_preview" %>
-        <% else %>
-          <%= image_tag Settings.client.logo, id: "user_ava_preview" %>
-        <% end %>
+      <div class="edit-user-avatar" id="user_ava_preview">
+        <%= load_user_avatar @user.url %>
         <%= f.label :avatar, t(".upload_avatar"), class: "btn btn-light btn-block" %>
         <%= f.file_field :avatar, accept: Settings.user.image_type_accept %>
       </div>

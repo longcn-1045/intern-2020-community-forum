@@ -12,16 +12,6 @@
       <%= link_to t("dashboard.header.contact"), "#", class: "nav-link" %>
     </li>
   </ul>
-  <%= form_with class: "form-inline ml-3" do %>
-    <div class="input-group input-group-sm">
-      <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-      <div class="input-group-append">
-        <%= button_tag type: :submit, class: "btn btn-navbar" do %>
-          <i class="fas fa-search"></i>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
   <ul class="navbar-nav ml-auto">
     <li class="nav-item dropdown">
       <%= link_to "#", class: "nav-link", "data-toggle" => "dropdown" do %>

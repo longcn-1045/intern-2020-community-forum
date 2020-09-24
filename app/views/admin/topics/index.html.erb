@@ -6,12 +6,13 @@
     <table id="example1" class="table table-bordered table-striped">
       <div class="input-group input-group-sm">
         <label><%= t "post.index.post_numbers" %><%= t "topic.index.count", count: @topics.total_count %></label>
+        <%= link_to new_admin_topic_path,
+          class: "nav-link active d-inline mb-3 p-0 pl-3" do %>
+          <i class="fas fa-plus nav-icon text-success"></i>
+        <% end %>
       </div>
       <thead>
         <%= render "colums" %>
-        <%= link_to new_admin_topic_path, class: "nav-link active d-inline" do %>
-          <i class="fas fa-plus nav-icon text-success"></i>
-        <% end %>
       </thead>
       <tbody>
         <%= render @topics %>

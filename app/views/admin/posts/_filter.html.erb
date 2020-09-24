@@ -8,11 +8,11 @@
       <%= f.label :writer %>
       <%= f.collection_select :user_id, @users, :id, :name, {prompt: true, selected: params[:user_id]}, {class: "form-control"} %>
     </div>
-    <div class="col-1">
+    <div class="col-2">
       <%= f.label :status %>
       <%= f.select :status, options_for_select(Post.statuses, params[:status]), {prompt:true}, {class: "form-control"} %>
     </div>
-    <div class="col-3">
+    <div class="col-2">
       <%= f.label :topic %>
       <%= f.collection_select :topic_id, @topics, :id, :name, {prompt: true, selected: params[:topic_id]}, {class: "form-control"} %>
     </div>
@@ -25,9 +25,6 @@
       <div class="d-flex">
         <%= link_to admin_posts_path, class: "nav-link active d-block" do %>
           <i class="fas fa-redo nav-icon text-success"></i>
-        <% end %>
-        <%= link_to new_admin_post_path, class: "nav-link active d-inline" do %>
-          <i class="fas fa-plus nav-icon text-success"></i>
         <% end %>
       </div>
     </div>

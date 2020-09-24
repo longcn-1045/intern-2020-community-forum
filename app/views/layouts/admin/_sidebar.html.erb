@@ -32,21 +32,20 @@
           <% end %>
         </li>
         <li class="nav-item has-treeview">
-          <%= link_to "#", class: "nav-link", "data-toggle": "collapse", "data-target": "#hello" do %>
+          <%= link_to "#", class: "nav-link" do %>
             <i class="nav-icon fas fa-user"></i>
             <p>
               <%= t "dashboard.sidebar.user" %>
               <i class="right fas fa-angle-left"></i>
             </p>
           <% end %>
-          <ul id="hello" class="collapse show p-0">
-            <li class="nav-item d-block active">
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
               <%= link_to admin_user_path(session[:user_id]), class: "nav-link" do %>
                 <i class="fas fa-address-card nav-icon"></i>
                 <p><%= t "dashboard.sidebar.profile" %></p>
-              <% end %>
-            </li>
-            <li class="nav-item d-block">
+              <% end %>            </li>
+            <li class="nav-item">
               <%= link_to admin_users_path, class: "nav-link" do %>
                 <i class="fas fa-users nav-icon"></i>
                 <p><%= t "dashboard.sidebar.list" %></p>

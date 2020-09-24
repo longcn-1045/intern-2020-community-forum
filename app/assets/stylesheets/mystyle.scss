@@ -78,7 +78,7 @@
     border: 1px solid $main_color;
   }
 
-  #user_ava_preview {
+  img {
     width: 222px;
     height: 222px;
     object-fit: cover;
@@ -831,6 +831,15 @@
         text-decoration: none;
         color: $strong_line;
       }
+    }
+
+    .followers-count {
+      border: 1px solid $gray;
+      padding: 3px 6px;
+      margin-bottom: 8px;
+      display: inline-block;
+      color: $gray;
+      font-size: 14px;
     }
 
     .follower {

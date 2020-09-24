@@ -12,10 +12,12 @@
     </div>
   </div>
   <div class="col-md-3 text-right">
-    <%= link_to edit_user_path, class: "edit-user-path" do %>
-      <i class="fas fa-edit" aria-hidden="true">
-        <%= t ".edit_user" %>
-      </i>
+    <% if current_user? @user %>
+      <%= link_to edit_user_path, class: "edit-user-path" do %>
+        <i class="fas fa-edit" aria-hidden="true">
+          <%= t ".edit_user" %>
+        </i>
+      <% end %>
     <% end %>
   </div>
   <hr>

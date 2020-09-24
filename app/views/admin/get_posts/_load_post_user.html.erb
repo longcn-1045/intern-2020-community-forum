@@ -1,6 +1,6 @@
 <div class="d-flex algin-items-center">
   <%= link_to admin_post_path(post.id), class: "nav-link active d-inline text-dark p-0 pr-3" do %>
-    <%= image_tag post.image_url, class: "img-size-50 img-circle" %>
+    <%= image_tag post.url, class: "img-size-50 img-circle" %>
   <% end %>
   <%= link_to admin_post_path(post.id), class: "text-dark" do %>
     <%= post.title %>

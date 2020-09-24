@@ -8,11 +8,11 @@
       <%= f.label :role %>
       <%= f.select :role, options_for_select(User.roles, params[:role]), {prompt: true}, {class: "form-control"} %>
     </div>
-    <div class="col-1">
+    <div class="col-2">
       <%= f.label :status %>
       <%= f.select :status, options_for_select(User.statuses, params[:status]), {prompt: true}, {class: "form-control"} %>
     </div>
-    <div class="col-3">
+    <div class="col-2">
       <%= f.label :order_by %>
       <%= f.select :order_by, options_for_select(post_order, params[:order_by]), {prompt: true}, {class: "form-control"} %>
     </div>
@@ -21,7 +21,8 @@
       <%= f.submit class: "btn btn-success", value: t("posts.breadcrumbs.search") %>
     </div>
     <div class="col-1">
-      <%= link_to admin_users_path, class: "nav-link active d-inline" do %>
+      <%= f.label :redo, class: "text-light" %>
+      <%= link_to admin_users_path, class: "nav-link active d-block" do %>
         <i class="fas fa-redo nav-icon text-success"></i>
       <% end %>
     </div>

@@ -37,21 +37,104 @@
   height: 300px;
   width: 300px;
 }
-
-.post-contents{
-  display: block;
-  padding: 10px 10px;
-  border-radius: 4px;
-  background-color: $gray;
+.edit_post {
+  .card-body {
+    p {
+      display: block;
+      padding: 10px 10px;
+      border-radius: 4px;
+      background-color: $gray;
+    }
+  }
 }
 
 .notification-true {
-  background-color: $silver;
+  background: $cornflower_blue;
 }
 
 #notification{
   max-height: 400px;
   overflow-Y: auto;
+
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px $white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $silver;
+    outline: 1px solid $gray;
+  }
+}
+
+.user-panel {
+  img {
+    width: 2.1rem;
+    height: 2.1rem;
+    object-fit: cover;
+  }
+}
+
+.img-size-50 {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.mr-3 {
+  text-align: center;
+}
+
+.img-size-100 {
+  width: 480px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.table {
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit:cover;
+    border-radius: 50%;
+  }
+}
+
+#modal-user {
+  .modal-content {
+    height: 680px;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      width: 1em;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px $white;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $silver;
+      outline: 1px solid $gray;
+    }
+  }
+}
+
+
+input#post_image {
+  display: none !important;
+}
+
+#post_img_preview img {
+  width: 222px;
+  height: 222px;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
 #post-status {

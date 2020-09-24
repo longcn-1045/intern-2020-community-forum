@@ -18,7 +18,7 @@ user:
     image_size_limit: 500
     content: 6000
     title: 500
-    dashboard: 8
+    dashboard: 6
     page: 4
   default_avatar: "/img/avatar.png"
   per_page: 8
@@ -84,3 +84,5 @@ paginate:
   ten: 10
   thirty: 30
   fifty: 50
+users:
+  per_page: 6

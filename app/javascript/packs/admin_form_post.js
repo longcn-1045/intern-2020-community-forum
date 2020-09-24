@@ -4,12 +4,12 @@ $(document).on('turbolinks:load', function(){
       var reader = new FileReader();
 
       reader.onload = function(e) {
-        $('#user_ava_preview img').attr('src', e.target.result);
+        $('#post_img_preview img').attr('src', e.target.result);
       }
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $('#user_avatar').change(function() {
+  $('#post_image').change(function() {
     readURL(this);
   });
 });

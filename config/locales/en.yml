@@ -179,6 +179,8 @@ en:
       email: "Email"
       password: "Password"
   users:
+    user:
+      followers_count: "%{count} followers"
     please_login: Please Login
     controller:
       signup_success: "Welcome to AdminLTE"
@@ -382,6 +384,7 @@ en:
       not_found: Not Found
       no_post: This tag has no posts!
       posts: posts
+      posts_count: "%{count} posts"
   favorites:
     index:
       favorites: Favorites
@@ -403,6 +406,7 @@ en:
       home: Home Page
       index: Index
       no_post: You have no post!
+      please_login: Please Login
     help:
       help: Help
     about:

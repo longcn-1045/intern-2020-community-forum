@@ -7,13 +7,13 @@
     <h3>
       <%= t ".topics" %>
       <%= @topic.name %>
-      <%= @topic.posts.size.to_s + " " + t(".posts") if @posts.present? %>
+      <%= t ".posts_count", count: @posts.size.to_s if @posts.present? %>
     </h3>
     <div class="item-info" id="user-topic-<%= @topic.id %>">
       <%= load_follow_topic_partial @topic %>
     </div>
   </div>
-  <% if @topic.posts.present? %>
+  <% if @posts.present? %>
     <div class="post-list">
       <%= render @posts if @posts.present? %>
     </div>

@@ -67,11 +67,10 @@ class Post < ApplicationRecord
   end)
 
   scope :in_homepage, (lambda do |topic_ids, user_ids|
-    by_topics(topic_ids).or(by_users(user_ids))
-                        .on
+    by_topics(topic_ids).or(by_users(user_ids)).on
   end)
 
-  enum status: {off: 0, on: 1, pending: 2}
+  enum status: {on: 1, off: 0, pending: 2}
 
   mount_uploader :image, ImageUploader
 

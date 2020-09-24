@@ -17,19 +17,25 @@ class ApplicationController < ActionController::Base
   def load_right_sidebar
     @post_sidebar = Post.includes(:user)
                         .order_created_at
+                        .on
                         .first Settings.right_bar.new_feeds
     @topics_sidebar = Topic.all
     @celebrities_sidebar = User.all_except(current_user)
                                .order_followers_count
                                .first Settings.right_bar.celebrities
-    @activities_sidebar = current_user.activities
-                                      .includes(:trackable)
-                                      .order_created_at
-                                      .limit Settings.acts.per_page_sidebar
+    load_activities_sidebar
   end
 
   def correct_user
     redirect_to root_url unless current_user? @user
+  end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t ".please_login"
+    redirect_to admin_login_url
   end
 
   private
@@ -42,11 +48,12 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}.merge(super)
   end
 
-  def logged_in_user
-    return if logged_in?
+  def load_activities_sidebar
+    return if current_user.blank?
 
-    store_location
-    flash[:danger] = t ".please_login"
-    redirect_to admin_login_url
+    @activities_sidebar = current_user.activities
+                                      .includes(:trackable)
+                                      .order_created_at
+                                      .limit Settings.acts.per_page_sidebar
   end
 end
