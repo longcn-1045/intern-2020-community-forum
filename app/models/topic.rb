@@ -10,7 +10,7 @@ class Topic < ApplicationRecord
 
   validates :name, presence: true,
     length: {maximum: Settings.topic.validates.name_topic},
-    uniqueness: true
+    uniqueness: {case_sensitive: true}
 
   scope :order_created_at, ->{order created_at: :desc}
   scope :order_by_user, (lambda do

@@ -30,7 +30,6 @@ gem "kaminari"
 gem "mini_magick"
 gem "mysql2"
 gem "popper_js", "~> 1.16"
-gem "pry-rails", group: :development
 gem "public_activity"
 gem "puma", "~> 4.1"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
@@ -46,6 +45,7 @@ group :development, :test do
   gem "pry-rails"
   gem "bullet"
   gem "bundle-audit"
+  gem "rails-controller-testing"
   gem "rails_best_practices"
   gem "rspec-rails", "~> 4.0.1"
   gem "rubocop", "~> 0.74.0", require: false
@@ -64,7 +64,7 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "database_cleaner-active_record"
   gem "selenium-webdriver"
-  gem "shoulda-matchers"
+  gem "shoulda-matchers", "~> 4.0"
   gem "simplecov", require: false
   gem "webdrivers"
 end

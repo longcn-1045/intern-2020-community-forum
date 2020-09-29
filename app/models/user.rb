@@ -173,11 +173,6 @@ class User < ApplicationRecord
     update remember_digest: nil
   end
 
-  def display_image
-    image.variant resize_to_limit: [Settings.user.validates.image_size_limit,
-      Settings.user.validates.image_size_limit]
-  end
-
   private
 
   def downcase_email

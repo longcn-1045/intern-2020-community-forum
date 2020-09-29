@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_070945) do
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "album_id"
+    t.string "image"
   end
 
   create_table "post_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

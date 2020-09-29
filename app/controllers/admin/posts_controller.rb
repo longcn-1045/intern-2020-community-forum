@@ -87,13 +87,6 @@ class Admin::PostsController < AdminController
     redirect_to admin_posts_path
   end
 
-  def correct_writer
-    return if current_user.id.eql? @post.user.id
-
-    flash[:danger] = t "post.controller.not_allow"
-    redirect_to admin_posts_path
-  end
-
   def load_element
     @users = User.all
     @topics = Topic.all

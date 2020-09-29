@@ -86,3 +86,4 @@ paginate:
   fifty: 50
 users:
   per_page: 6
+rememberdigest_legth: 60
