@@ -1,5 +1,5 @@
 class Admin::UsersController < AdminController
-  before_action :logged_in_user, except: :show
+  before_action :logged_in_user
   before_action :load_user, except: :index
   before_action :get_users, only: :index
   before_action :admin_user

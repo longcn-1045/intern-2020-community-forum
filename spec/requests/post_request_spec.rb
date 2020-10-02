@@ -19,11 +19,15 @@ RSpec.describe Admin::PostsController, type: :controller do
       before {login user_test}
       let!(:post_two) do
         FactoryBot.create :post,
-                          title: "Ngoc Long"
+                          title: "Ngoc Long",
+                          created_at: "15-04-2020",
+                          updated_at: "15-04-2020"
       end
       let!(:post_three) do
         FactoryBot.create :post,
-                          title: "Minh Thong"
+                          title: "Minh Thong",
+                          created_at: "16-04-2020",
+                          updated_at: "16-04-2020"
       end
 
       before {get :index, params: {page: 1}}

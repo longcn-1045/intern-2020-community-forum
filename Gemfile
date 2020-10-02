@@ -42,9 +42,9 @@ gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 
 group :development, :test do
-  gem "pry-rails"
   gem "bullet"
   gem "bundle-audit"
+  gem "pry-rails"
   gem "rails-controller-testing"
   gem "rails_best_practices"
   gem "rspec-rails", "~> 4.0.1"
