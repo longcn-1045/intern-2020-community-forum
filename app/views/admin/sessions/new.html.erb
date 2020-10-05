@@ -5,8 +5,8 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg"><%= t "sessions.new.sign_in" %></p>
-
-      <%= form_for :session, url: admin_login_path do |f| %>
+      <%= form_for resource, as: resource_name,
+        url: session_path(resource_name) do |f| %>
         <div class="input-group mb-3">
           <%= f.email_field :email, class: "form-control", placeholder: t("sessions.new.email") %>
           <div class="input-group-append">
@@ -46,10 +46,10 @@
         <% end %>
       </div>
       <p class="mb-1">
-        <a href="forgot-password.html"><%= t "sessions.new.forgot_password" %></a>
+        <a href="#"><%= t "sessions.new.forgot_password" %></a>
       </p>
       <p class="mb-0">
-        <%= link_to admin_signup_path, class: "text-center" do %>
+        <%= link_to new_user_registration_path, class: "text-center" do %>
           <%= t "sessions.new.register" %>
         <% end %>
       </p>

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, prepend: true
 
   include PublicActivity::StoreController
   include SessionsHelper
@@ -28,14 +28,6 @@ class ApplicationController < ActionController::Base
 
   def correct_user
     redirect_to root_url unless current_user? @user
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t ".please_login"
-    redirect_to admin_login_url
   end
 
   private

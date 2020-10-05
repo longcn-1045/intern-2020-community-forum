@@ -3,6 +3,8 @@ require "rails_helper"
 RSpec.describe Admin::UsersController, type: :controller do
   let!(:user_1) {FactoryBot.create :user,
     created_at: "2020-09-06 05:48:12", role: "admin"}
+  let!(:user_2) {FactoryBot.create :user,
+    created_at: "2020-09-07 05:48:12"}
   let(:valid_param) {FactoryBot.attributes_for :user}
   let(:invalid_param) {FactoryBot.attributes_for :user, name: nil}
 
@@ -10,12 +12,10 @@ RSpec.describe Admin::UsersController, type: :controller do
     before {get :index, params: {page: 1}}
 
     context "as a guest"  do
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     context "as an  authenticated user" do
-      let!(:user_2) {FactoryBot.create :user,
-        created_at: "2020-09-07 05:48:12"}
       let!(:user_3) {FactoryBot.create :user,
         created_at: "2020-09-08 05:48:12"}
 
@@ -31,9 +31,9 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   describe "GET #show" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_1}
       before {get :show, params: {id: user_1.id}}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_1}
@@ -65,9 +65,9 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   describe "GET #edit" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_1}
       before {get :edit, params: {id: user_1.id}}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_1}
@@ -99,18 +99,17 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   describe "PATCH #update" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_1}
       before {patch :update, params: {id: user_1.id, user: {name: "Test update"}}}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_1}
 
     context "when valid params" do
-      before {patch :update, params: {id: current_user.id, user: {name: "Test update"}}}
-
+      before {patch :update, params: {id: user_2.id, user: {name: "Test update"}}}
       it "should correct name" do
-        expect(current_user.name).to eq "Test update"
+        expect(assigns(:user).name).to eq "Test update"
       end
 
       it "should redirect admin_users_path" do
@@ -119,7 +118,7 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
 
     context "when invalid params" do
-      before { patch :update, params: {id: current_user.id, user: invalid_param} }
+      before { patch :update, params: {id: user_2.id, user: invalid_param} }
 
       it "should a invalid user" do
         expect(assigns(:user).invalid?).to eq true
@@ -135,9 +134,9 @@ RSpec.describe Admin::UsersController, type: :controller do
     let!(:user_destroy) {FactoryBot.create :user, name: "test data"}
 
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_1}
       before {delete :destroy, params: {id: user_destroy.id}}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_1}

@@ -18,7 +18,7 @@
 
       <div class="form-group">
         <%= f.label :email, t(".email"), class: "required" %>
-        <%= f.email_field :email, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control", readonly: true %>
         <%= display_error f.object, :email %>
       </div>
 

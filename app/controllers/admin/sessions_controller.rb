@@ -1,22 +1,17 @@
-class Admin::SessionsController < AdminController
+class Admin::SessionsController < Devise::SessionsController
   layout "authenticate"
 
-  def new; end
+  private
 
-  def create
-    user = User.find_by email: params[:session][:email].downcase
-    if user&.authenticate params[:session][:password]
-      log_in user
-      check_remember user
-      redirect_to admin_root_path
+  def after_sign_in_path_for resource
+    if resource.is_a?(User) && resource.admin?
+      admin_root_path
     else
-      flash.now[:danger] = t "sessions.controller.inform_failed"
-      render :new
+      static_pages_home_path
     end
   end
 
-  def destroy
-    log_out if logged_in?
-    redirect_to admin_login_url
+  def after_sign_out_path_for _resource
+    new_user_session_path
   end
 end

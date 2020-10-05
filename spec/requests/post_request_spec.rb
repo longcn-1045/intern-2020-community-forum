@@ -12,7 +12,7 @@ RSpec.describe Admin::PostsController, type: :controller do
     before {get :index, params: {page: 1}}
 
     context "as a guest"  do
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     context "as an  authenticated user" do
@@ -40,9 +40,9 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe "GET #edit" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_test}
       before {get :edit, params: {id: test_post.id}}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_test}
@@ -74,9 +74,9 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe "PATCH #update" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_test}
       before {patch :update, params: {id: test_post.id, post: {title: "Test update"}}}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_test}
@@ -108,9 +108,9 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe "GET #show" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_test}
       before {get :show, params: {id: test_post.id}}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_test}
@@ -158,9 +158,9 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe "GET #new" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_test}
       before {get :new}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_test}
@@ -193,9 +193,9 @@ RSpec.describe Admin::PostsController, type: :controller do
     end
 
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_test}
       before{post :create, params: invalid_post_params}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_test}
@@ -229,9 +229,9 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe "DELETE #destroy" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_test}
       before { delete :destroy, params: {id: test_post.id} }
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_test}
@@ -278,9 +278,9 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe "GET #post_process" do
     context "as a guest"  do
-      before {nil_session}
+      before {logout user_test}
       before {get :post_process, params: {option: :on, id: test_post.id}}
-      it {expect(response).to redirect_to admin_login_url}
+      it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
 
     before {login user_test}

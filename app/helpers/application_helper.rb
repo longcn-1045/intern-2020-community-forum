@@ -15,10 +15,8 @@ module ApplicationHelper
   def display_error object, object_attr
     return unless object&.errors.present? && object.errors.key?(object_attr)
 
-    error = object.errors
-                  .full_messages[object.errors
-                                       .messages.keys.index object_attr].to_s
-    content_tag :div, error, class: Settings.default_user.error_class
+    errors = object.errors.messages[object_attr]
+    content_tag :p, errors.join(", "), class: Settings.default_user.error_class
   end
 
   def load_follow_user_partial celeb

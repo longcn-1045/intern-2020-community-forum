@@ -5,9 +5,8 @@
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg"><%= t "registers.index.title" %></p>
-
-      <%= form_for @user, url: admin_signup_path do |f| %>
-       <%= render "shared/error_messages", object: f.object %>
+      <%= form_for resource, as: resource_name,
+        url: registration_path(resource_name) do |f| %>
         <div class="input-group mb-3">
           <%= f.text_field :name, class: "form-control", placeholder: t("registers.index.name") %>
           <div class="input-group-append">
@@ -16,6 +15,7 @@
             </div>
           </div>
         </div>
+          <%= display_error f.object, :name %>
         <div class="input-group mb-3">
           <%= f.email_field :email, class: "form-control", placeholder: t("registers.index.email") %>
           <div class="input-group-append">
@@ -24,6 +24,7 @@
             </div>
           </div>
         </div>
+        <%= display_error f.object, :email %>
         <div class="input-group mb-3">
           <%= f.password_field :password, class: "form-control", placeholder: t("registers.index.password") %>
           <div class="input-group-append">
@@ -32,6 +33,7 @@
             </div>
           </div>
         </div>
+        <%= display_error f.object, :password %>
         <div class="input-group mb-3">
           <%= f.password_field :password_confirmation, class: "form-control",  placeholder: t("registers.index.password_confirm") %>
           <div class="input-group-append">
@@ -40,6 +42,7 @@
             </div>
           </div>
         </div>
+        <%= display_error f.object, :password_confirmation %>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -63,7 +66,7 @@
           <i class="fab fa-google-plus mr-2"></i> <%= t "sessions.new.signin_gg" %>
         <% end %>
       </div>
-      <%= link_to admin_login_path, class: "text-center" do %>
+      <%= link_to new_user_session_path, class: "text-center" do %>
         <%= t "registers.index.had_account" %>
       <% end %>
     </div>

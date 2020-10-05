@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, except: %i(index show)
+  before_action :authenticate_user!, except: %i(index show)
   before_action :find_post, except: %i(new create index)
   before_action :correct_user, only: %i(edit update destroy)
 
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build post_params
     if @post.save
       flash[:success] = t ".post_created"
-      redirect_to root_url
+      redirect_to current_user
     else
       flash[:danger] = t ".post_create_failed"
       render :new

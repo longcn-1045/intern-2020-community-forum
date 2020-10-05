@@ -1,5 +1,5 @@
 class Admin::PostsController < AdminController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :load_post, except: %i(index new create)
   before_action :load_element, :post_include, only: :index
   before_action :check_user, only: %i(update post_process)

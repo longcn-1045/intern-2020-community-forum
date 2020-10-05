@@ -2,12 +2,7 @@ class User < ApplicationRecord
   PERMIT_ATTRIBUTES = %i(name email password password_confirmation
                           avatar_cache avatar).freeze
 
-  enum role: {member: 0, admin: 1}
-  enum status: {active: 0, block: 1}
-
   mount_uploader :avatar, AvatarUploader
-
-  attr_accessor :remember_token, :activation_token, :reset_token
 
   has_many :posts, dependent: :destroy
 
@@ -31,17 +26,21 @@ class User < ApplicationRecord
   foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
+  devise :database_authenticatable, :registerable, :rememberable,
+         :validatable, :confirmable, :lockable, :timeoutable
+
   validates :name, presence: true,
     length: {maximum: Settings.user.validates.max_name}
   validates :email, presence: true,
+    uniqueness: {case_sensitive: true},
     length: {maximum: Settings.user.validates.max_email},
-    format: {with: Settings.user.validates.string},
-    uniqueness: {case_sensitive: false}
+    format: {with: Devise.email_regexp}
   validates :password, presence: true,
-    length: {minimum: Settings.user.validates.min_pass},
+    length: {within: Devise.password_length},
     allow_nil: true
 
-  has_secure_password
+  enum role: {member: 0, admin: 1}
+  enum status: {active: 0, block: 1}
 
   scope :order_created_at, ->{order created_at: :desc}
   scope :order_updated_at, ->{order updated_at: :desc}
@@ -69,19 +68,6 @@ class User < ApplicationRecord
   delegate :url, to: :avatar
 
   class << self
-    def digest string
-      cost = if ActiveModel::SecurePassword.min_cost
-               BCrypt::Engine::MIN_COST
-             else
-               BCrypt::Engine.cost
-             end
-      BCrypt::Password.create string, cost: cost
-    end
-
-    def new_token
-      SecureRandom.urlsafe_base64
-    end
-
     def sort_type sort
       if sort.eql? "created_at"
         order_created_at
@@ -155,22 +141,6 @@ class User < ApplicationRecord
 
   def author? post
     posts.include? post
-  end
-
-  def remember
-    self.remember_token = User.new_token
-    update remember_digest: User.digest(remember_token)
-  end
-
-  def authenticated? attribute, token
-    digest = send "#{attribute}_digest"
-    return false unless digest
-
-    BCrypt::Password.new(digest).is_password? token
-  end
-
-  def forget
-    update remember_digest: nil
   end
 
   private

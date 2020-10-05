@@ -333,36 +333,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "#remember" do
-    before {user_1.remember}
-    it "return updated remember_digest success" do
-      expect(user_1.remember_digest.length).to eq Settings.rememberdigest_legth
-    end
-  end
-
-  describe "#authenticated?" do
-    context "when nil param" do
-      it "return authenticated failed" do
-        expect(user_1.authenticated?(:activation, "123")).to eq false
-      end
-    end
-
-    context "when valid param" do
-      before {user_1.remember}
-      it "return authenticated success" do
-        expect(user_1.authenticated?(:remember, user_1.remember_token))
-          .to eq true
-      end
-    end
-  end
-
-  describe "#forget" do
-    before {user_1.forget}
-    it "return remember_digest is nil" do
-      expect(user_1.remember_digest).to eq nil
-    end
-  end
-
   describe ".order_created_at" do
     before {user_1.active!}
     it "order by updated at" do
