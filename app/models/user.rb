@@ -26,6 +26,8 @@ class User < ApplicationRecord
   foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_many :post_comments, dependent: :destroy
+
   devise :database_authenticatable, :registerable, :rememberable,
          :validatable, :confirmable, :lockable, :timeoutable
 

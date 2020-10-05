@@ -45,6 +45,7 @@
     <div class="post-footer">
       <div class="post-comments">
         <%= link_to post do %>
+          <%= post.post_comments.count %>
           <%= t ".comments" %>
         <% end %>
       </div>

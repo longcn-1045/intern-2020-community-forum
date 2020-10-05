@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def show
     Post.update_counters [@post.id], view: Settings.post.inc_per_view
+    @commentable = @post
+    @comments = @commentable.post_comments.includes(:user).order_created_at
   end
 
   def new

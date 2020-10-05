@@ -1,0 +1,12 @@
+<div class="add-comment" id="add-comment-<%= cmt_id %>">
+  <div class="user-ava">
+    <%= load_user_avatar current_user.url %>
+  </div>
+  <%= form_for [commentable, PostComment.new], remote: true do |f| %>
+    <div class="form-group">
+      <%= f.text_area :content, class: "form-control",
+        id: "comment-input-#{cmt_id}" %>
+    </div>
+    <%= f.submit t(".submit"), class: "btn btn-secondary btn-block" %>
+  <% end %>
+</div>

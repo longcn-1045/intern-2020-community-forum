@@ -1,0 +1,28 @@
+<div class="item">
+  <div class="user-ava">
+    <%= load_user_avatar post_comment.user_url %>
+  </div>
+  <div class="item-content">
+    <p class="item-comment">
+      <span class="user-name">
+        <%= post_comment.user_name %>
+      </span>
+      <%= post_comment.content %>
+    </p>
+    <p>
+      <span class="reply" id="reply-<%= post_comment.id %>">
+        <%= t ".reply" %>
+      </span>
+      <span class="item-time">
+        <%= time_ago_in_words post_comment.created_at %>
+      </span>
+    </p>
+  </div>
+</div>
+<div class="child-comment-<%= post_comment.id %> ml-5">
+  <%= render partial: "post_comments/child_post_comment",
+    collection: post_comment.post_comments.includes(:post_comments, :user),
+    as: :item %>
+</div>
+<%= render "post_comments/form", commentable: post_comment,
+  cmt_id: post_comment.id %>

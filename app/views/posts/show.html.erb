@@ -1,6 +1,9 @@
 <% provide :title, t(".posts") %>
 <% provide :controller, t(".posts") %>
 <% provide :action, t(".show") %>
+<% content_for :javascript_includes do %>
+  <%= javascript_pack_tag "comment_post", "data-turbolinks-track": "reload" %>
+<% end %>
 
 <div id="post-show">
   <div class="post-sidebar">
@@ -48,6 +51,7 @@
     </div>
     <div class="post-footer">
       <div class="post-comments">
+        <%= @post.post_comments.size %>
         <%= t ".comments" %>
       </div>
       <div class="post-views">
@@ -68,4 +72,9 @@
       </div>
     </div>
   </div>
+</div>
+<%= render "post_comments/form", commentable: @commentable,
+  cmt_id: 0 %>
+<div class="list-comments">
+  <%= render @comments %>
 </div>

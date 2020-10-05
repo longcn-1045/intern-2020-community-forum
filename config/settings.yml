@@ -87,3 +87,4 @@ paginate:
 users:
   per_page: 6
 rememberdigest_legth: 60
+load_commentable: 2

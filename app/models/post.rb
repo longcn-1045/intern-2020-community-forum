@@ -29,6 +29,8 @@ class Post < ApplicationRecord
   has_many :post_likes, dependent: :destroy
   has_many :like_users, through: :post_likes, source: :user
 
+  has_many :post_comments, dependent: :destroy, as: :commentable
+
   validates :user_id, presence: true
   validates :title, presence: true,
       length: {maximum: Settings.post.validates.max_title}

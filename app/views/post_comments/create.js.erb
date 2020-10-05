@@ -1,0 +1,9 @@
+<% if @error.present? %>
+  alert("<%= @error %>");
+<% elsif @commentable.instance_of?(Post) %>
+  $(".list-comments").prepend("<%= j render "post_comments/post_comment", post_comment: @post_comment %>");
+  $("#comment-input-0").val("");
+<% else %>
+  $(".child-comment-<%= @commentable.id %>").prepend("<%= j render "post_comments/child_post_comment", item: @post_comment %>");
+  $("#comment-input-<%= @commentable.id %>").val("");
+<% end %>

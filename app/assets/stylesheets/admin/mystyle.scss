@@ -144,3 +144,8 @@ input#post_image {
 .per-posts-page {
   width: 6%;
 }
+
+#notification{
+  max-height: 400px;
+  overflow-Y: auto;
+}

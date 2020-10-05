@@ -1,0 +1,18 @@
+<div class="item">
+  <div class="user-ava">
+    <%= load_user_avatar item.user_url %>
+  </div>
+  <div class="item-content">
+    <p class="item-comment">
+      <span class="user-name">
+        <%= item.user_name %>
+      </span>
+      <%= item.content %>
+    </p>
+    <p>
+      <span class="item-time">
+        <%= time_ago_in_words item.created_at %>
+      </span>
+    </p>
+  </div>
+</div>

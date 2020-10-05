@@ -456,3 +456,10 @@ en:
       no_activities: There is no activity now!
       activities: Activities
       index: "Index"
+  post_comments:
+    create:
+      comment_failed: Comment Failed
+    form:
+      submit: Submit
+    post_comments:
+      reply: Reply

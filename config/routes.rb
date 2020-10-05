@@ -41,7 +41,12 @@ Rails.application.routes.draw do
       resources :favorites, only: :index
       resources :activities, only: :index
     end
-    resources :posts
+    resources :posts do
+      resources :post_comments, only: :create
+    end
+    resources :post_comments, only: :create do
+      resources :post_comments, only: :create
+    end
     resources :topics, only: %i(index show)
     resources :post_marks, :post_likes,
       :user_topics, :relationships, only: %i(create destroy)
