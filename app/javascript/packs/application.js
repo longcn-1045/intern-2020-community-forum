@@ -9,3 +9,5 @@ require('jquery');
 require('packs/font_awesome');
 
 import 'cocoon';
+
+require('packs/my_toastr');

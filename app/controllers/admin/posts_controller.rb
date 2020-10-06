@@ -32,7 +32,7 @@ class Admin::PostsController < AdminController
       flash[:info] = t "post.controller.create_success"
       redirect_to admin_posts_path
     else
-      flash.now[:danger] = t "post.controller.create_failed"
+      flash.now[:error] = t "post.controller.create_failed"
       render :new
     end
   end
@@ -46,7 +46,7 @@ class Admin::PostsController < AdminController
       flash[:success] = t "users.update.success"
       redirect_to admin_posts_path
     else
-      flash[:danger] = t "users.update.fail"
+      flash[:error] = t "users.update.fail"
       render :edit
     end
   end
@@ -55,7 +55,7 @@ class Admin::PostsController < AdminController
     if @post.destroy
       flash[:success] = t "post.controller.deleted_success"
     else
-      flash.now[:danger] = t "post.controller.deleted_error"
+      flash.now[:error] = t "post.controller.deleted_error"
     end
     redirect_to admin_posts_path
   end
@@ -83,7 +83,7 @@ class Admin::PostsController < AdminController
     @post = Post.find_by id: params[:id]
     return if @post
 
-    flash[:danger] = t "post.controller.not_found"
+    flash[:error] = t "post.controller.not_found"
     redirect_to admin_posts_path
   end
 
@@ -101,7 +101,7 @@ class Admin::PostsController < AdminController
     if @notify.present?
       @notify.checked!
     else
-      flash[:danger] = t "users.controller.not_found"
+      flash[:error] = t "users.controller.not_found"
       redirect_to admin_posts_path
     end
   end

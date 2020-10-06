@@ -41,7 +41,7 @@
           <% end %>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <%= link_to admin_user_path(session[:user_id]), class: "nav-link" do %>
+              <%= link_to admin_user_path(current_user.id), class: "nav-link" do %>
                 <i class="fas fa-address-card nav-icon"></i>
                 <p><%= t "dashboard.sidebar.profile" %></p>
               <% end %>            </li>

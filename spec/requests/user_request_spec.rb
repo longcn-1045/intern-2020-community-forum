@@ -162,7 +162,7 @@ RSpec.describe Admin::UsersController, type: :controller do
       end
 
       it "flash error message" do
-        expect(flash[:danger]).to eq I18n.t("users.controller.delete_fail")
+        expect(flash[:error]).to eq I18n.t("users.controller.delete_fail")
       end
 
       it "should redirect to admin_users_path" do

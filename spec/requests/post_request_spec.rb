@@ -267,7 +267,7 @@ RSpec.describe Admin::PostsController, type: :controller do
       end
 
       it "flash error message" do
-        expect(flash[:danger]).to eq I18n.t("post.controller.deleted_error")
+        expect(flash[:error]).to eq I18n.t("post.controller.deleted_error")
       end
 
       it "should redirect to admin_posts_path" do

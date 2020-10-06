@@ -16,7 +16,7 @@ module SessionsHelper
   def admin_user
     return if current_user.role != Settings.user.role
 
-    flash[:danger] = t "users.controller.not_allow"
+    flash[:error] = t "users.controller.not_allow"
     redirect_to root_path
   end
 

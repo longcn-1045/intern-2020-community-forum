@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".profile_updated"
       redirect_to @user
     else
-      flash.now[:danger] = t ".failed_update_profile"
+      flash.now[:error] = t ".failed_update_profile"
       render :edit
     end
   end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to root_url
   end
 end

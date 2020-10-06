@@ -1,3 +1,9 @@
+/*
+  *= require_self
+  *= require_toastr
+*/
+
 @import 'bootstrap.min.css';
 @import 'style';
+@import 'toastr/build/toastr.min';
 @import 'mystyle';

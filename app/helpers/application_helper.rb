@@ -62,4 +62,15 @@ module ApplicationHelper
 
     button_tag t(".pending"), type: "button", class: "btn btn-warning mb-3"
   end
+
+  def custom_bootstrap_flash
+    flash_messages = []
+    flash.each do |type, message|
+      type = "success" if type == "notice"
+      type = "error"   if type == "alert"
+      text = "<script>toastr.#{type}('#{message}');</script>"
+      flash_messages << text if message
+    end
+    flash_messages.join("\n")
+  end
 end

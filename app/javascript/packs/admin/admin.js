@@ -10,3 +10,5 @@ require('chart.js')
 
 require ('packs/admin/adminlte/adminlte.js')
 require ('packs/admin/myjs.js')
+
+require('packs/my_toastr');

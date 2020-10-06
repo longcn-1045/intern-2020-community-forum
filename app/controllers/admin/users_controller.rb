@@ -25,7 +25,7 @@ class Admin::UsersController < AdminController
       flash[:success] = t "users.update.success"
       redirect_to admin_users_path
     else
-      flash[:danger] = t "users.update.fail"
+      flash[:error] = t "users.update.fail"
       render :edit
     end
   end
@@ -35,7 +35,7 @@ class Admin::UsersController < AdminController
       flash[:success] = t "users.controller.delete"
       redirect_to admin_users_url
     else
-      flash[:danger] = t "users.controller.delete_fail"
+      flash[:error] = t "users.controller.delete_fail"
       redirect_to admin_users_path
     end
   end

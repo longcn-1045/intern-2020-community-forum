@@ -20,7 +20,7 @@ class Admin::TopicsController < AdminController
       flash[:info] = t "topic.controller.create_success"
       redirect_to admin_topics_path
     else
-      flash.now[:danger] = t "topic.controller.create_failed"
+      flash.now[:error] = t "topic.controller.create_failed"
       render :new
     end
   end
@@ -34,7 +34,7 @@ class Admin::TopicsController < AdminController
       flash[:success] = t "users.update.success"
       redirect_to admin_topics_path
     else
-      flash[:danger] = t "users.update.fail"
+      flash[:error] = t "users.update.fail"
       render :edit
     end
   end
@@ -43,7 +43,7 @@ class Admin::TopicsController < AdminController
     if @topic.destroy
       flash[:success] = t "topic.controller.deleted_success"
     else
-      flash.now[:danger] = t "topic.controller.deleted_error"
+      flash.now[:error] = t "topic.controller.deleted_error"
     end
     redirect_to admin_topics_path
   end
@@ -53,7 +53,7 @@ class Admin::TopicsController < AdminController
       flash[:success] = t "topic.controller.activate_success"
       @topic.off!
     else
-      flash.now[:danger] = t "topic.controller.activate_error"
+      flash.now[:error] = t "topic.controller.activate_error"
       @topic.on!
     end
     redirect_to admin_topics_path
@@ -69,7 +69,7 @@ class Admin::TopicsController < AdminController
     @topic = Topic.find_by id: params[:id]
     return if @topic
 
-    flash[:danger] = t "topic.controller.not_found"
+    flash[:error] = t "topic.controller.not_found"
     redirect_to admin_topics_path
   end
 end

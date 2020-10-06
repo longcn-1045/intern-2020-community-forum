@@ -39,6 +39,7 @@ gem "redis"
 gem "rspec"
 gem "sass-rails", ">= 6"
 gem "select2-rails"
+gem "toastr-rails"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 

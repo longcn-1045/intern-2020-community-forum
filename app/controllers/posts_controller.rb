@@ -22,7 +22,7 @@ class PostsController < ApplicationController
       flash[:success] = t ".post_created"
       redirect_to current_user
     else
-      flash[:danger] = t ".post_create_failed"
+      flash[:error] = t ".post_create_failed"
       render :new
     end
   end
@@ -34,9 +34,9 @@ class PostsController < ApplicationController
   def update
     if @post.update post_params
       flash[:success] = t ".post_updated"
-      redirect_to root_url
+      redirect_to current_user
     else
-      flash[:danger] = t ".post_update_failed"
+      flash[:error] = t ".post_update_failed"
       render :edit
     end
   end
@@ -45,9 +45,9 @@ class PostsController < ApplicationController
     if @post.destroy
       flash[:success] = t ".post_destroyed"
     else
-      flash[:danger] = t ".post_destroy_failed"
+      flash[:error] = t ".post_destroy_failed"
     end
-    redirect_to root_url
+    redirect_to current_user
   end
 
   private
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
     @post = Post.find_by id: params[:id]
     return if @post
 
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to root_url
   end
 

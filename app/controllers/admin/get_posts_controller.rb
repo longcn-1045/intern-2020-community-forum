@@ -12,7 +12,7 @@ class Admin::GetPostsController < AdminController
     @user = User.find_by id: params[:user_id]
     return if @user
 
-    flash[:danger] = t "users.controller.not_found"
+    flash[:error] = t "users.controller.not_found"
     redirect_to admin_root_path
   end
 end
