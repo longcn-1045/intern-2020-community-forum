@@ -2,6 +2,7 @@ class Admin::PostsController < AdminController
   before_action :authenticate_user!
   before_action :load_post, except: %i(index new create)
   before_action :load_element, :post_include, only: :index
+
   before_action :check_user, only: %i(update post_process)
 
   include PostsHelper
@@ -9,12 +10,8 @@ class Admin::PostsController < AdminController
   add_breadcrumb I18n.t("posts.breadcrumbs.post"), :admin_posts_path
 
   def index
-    @posts = @posts.order_updated_at
-                   .by_title(params[:title])
-                   .by_status(params[:status])
-                   .by_user_id(params[:user_id])
-                   .by_topic_id(params[:topic_id])
-                   .page(params[:page]).per params[:per_page]
+    search_element "Post"
+    @posts = @posts.page(params[:page]).per params[:per_page]
   end
 
   def new
@@ -93,7 +90,8 @@ class Admin::PostsController < AdminController
   end
 
   def post_include
-    @posts = Post.includes :user, :topic
+    @q = Post.ransack params[:q].try(:merge, m: "or")
+    @posts = @q.result.includes :user, :topic
   end
 
   def load_notification

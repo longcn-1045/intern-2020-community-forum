@@ -1,20 +1,24 @@
-<%= form_with url: admin_users_path, method: :get, local: true do |f|%>
+<%= search_form_for @q, url: admin_users_path, html: { method: :get } do |f|%>
   <div class="row w-100">
     <div class="col-3">
       <%= f.label :name_or_email %>
-      <%= f.text_field :name, placeholder: t("posts.filter.title"), class: "form-control", value: params[:name] %>
+      <%= f.search_field :user_cont, placeholder: t("posts.filter.title"), class: "form-control", value: params.dig(:q, :user_cont) %>
     </div>
-    <div class="col-3">
+    <div class="col-2">
       <%= f.label :role %>
-      <%= f.select :role, options_for_select(User.roles, params[:role]), {prompt: true}, {class: "form-control"} %>
+      <%= f.select :role_eq, options_for_select(User.roles, params[:role]), {prompt: true}, {class: "form-control"} %>
     </div>
     <div class="col-2">
       <%= f.label :status %>
-      <%= f.select :status, options_for_select(User.statuses, params[:status]), {prompt: true}, {class: "form-control"} %>
+      <%= f.select :status_eq, options_for_select(User.statuses, params[:status]), {prompt: true}, {class: "form-control"} %>
     </div>
     <div class="col-2">
-      <%= f.label :order_by %>
-      <%= f.select :order_by, options_for_select(post_order, params[:order_by]), {prompt: true}, {class: "form-control"} %>
+      <%= f.label :posts_count %>
+      <%= f.search_field :posts_count_gteq, placeholder: t("users.filter.post_count"), class: "form-control", value: params[:posts_count_gteq] %>
+    </div>
+    <div class="col-1">
+      <%= f.label :Higher, class: "text-dark" %>
+      <%= f.check_box :higher, checked: true %>
     </div>
     <div class="col-1">
       <%= f.label :button, class: "text-light" %>

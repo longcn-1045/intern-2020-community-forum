@@ -81,6 +81,7 @@ en:
   posts:
     filter:
       title: "Title..."
+      date: "Please take a date"
     new:
       new_post: New Post
       posts: Posts
@@ -179,6 +180,8 @@ en:
       email: "Email"
       password: "Password"
   users:
+    filter:
+      post_count: "Please give a value"
     user:
       followers_count: "%{count} followers"
     please_login: Please Login

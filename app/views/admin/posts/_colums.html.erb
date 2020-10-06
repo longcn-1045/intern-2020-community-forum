@@ -2,10 +2,10 @@
   <td>
     <%= check_box_tag t("layouts.application.accept"), nil, nil, class: "selectall-checkbox" %>
   </td>
-  <td><%= t "post.index.images" %></td>
-  <td><%= t "post.index.title" %></td>
-  <td><%= t "post.index.status" %></td>
-  <td><%= t "post.index.writer" %></td>
-  <td><%= t "post.index.topic" %></td>
-  <td><%= t "post.index.action" %></td>
+  <td class="list-header"><%= t "post.index.images" %></td>
+  <td class="list-header"><%= sort_link @q, :title %></td>
+  <td class="list-header"><%= sort_link @q, :status %></td>
+  <td class="list-header"><%= sort_link @q, :user_id %></td>
+  <td class="list-header"><%= sort_link @q, :topic_id %></td>
+  <td class="list-header"><%= t "post.index.action" %></td>
 </tr>

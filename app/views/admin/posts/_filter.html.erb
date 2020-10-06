@@ -1,20 +1,26 @@
-<%= form_with url: admin_posts_path, method: :get, local: true do |f| %>
+<%= search_form_for @q, url: admin_posts_path, html: { method: :get } do |f| %>
   <div class="row w-100">
-    <div class="col-3">
+    <div class="col-2">
       <%= f.label :title %>
-      <%= f.text_field :title, placeholder: t("posts.filter.title"), class: "form-control", value: params[:title] %>
+      <%= f.search_field :post_cont, placeholder: t("posts.filter.title"), class: "form-control", value: params.dig(:q, :post_cont) %>
     </div>
-    <div class="col-3">
+    <div class="col-2">
       <%= f.label :writer %>
-      <%= f.collection_select :user_id, @users, :id, :name, {prompt: true, selected: params[:user_id]}, {class: "form-control"} %>
+      <%= f.collection_select :user_id_eq, @users, :id, :name, {include_blank: true, selected: params.dig(:q, :user_id_eq)},
+        {class: "form-control post_select"} %>
     </div>
     <div class="col-2">
       <%= f.label :status %>
-      <%= f.select :status, options_for_select(Post.statuses, params[:status]), {prompt:true}, {class: "form-control"} %>
+      <%= f.select :status_eq, options_for_select(Post.statuses, params[:status]), {prompt:true}, {class: "form-control"} %>
     </div>
     <div class="col-2">
-      <%= f.label :topic %>
-      <%= f.collection_select :topic_id, @topics, :id, :name, {prompt: true, selected: params[:topic_id]}, {class: "form-control"} %>
+      <%= f.label :topic_id %>
+      <%= f.collection_select :topic_id_eq, @topics, :id, :name, {include_blank: true, selected: params.dig(:q, :topic_id_eq)},
+        {class: "form-control post_select"} %>
+    </div>
+    <div class="col-2">
+      <%= f.label :updated_at_date %>
+      <%= f.search_field :updated_at_date_equals, class: "form-control", placeholder: t("posts.filter.date"), value: params.dig(:q, :updated_at_date_equals) %>
     </div>
     <div class="col-1">
       <%= f.label :button, class: "text-white" %>
@@ -31,10 +37,5 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="align-items-center">
-    <%= f.label :per_page, class: "mr-3" %>
-    <%= f.select :per_page, options_for_select([Settings.paginate.ten, Settings.paginate.thirty, Settings.paginate.fifty], params[:per_page]), {}, class: "form-control" %>
-    <%= f.submit t("layouts.application.apply"), class: "btn btn-light" %>
   </div>
 <% end %>

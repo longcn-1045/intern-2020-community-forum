@@ -145,7 +145,20 @@ input#post_image {
   width: 6%;
 }
 
-#notification{
+#notification {
   max-height: 400px;
   overflow-Y: auto;
+}
+
+.list-header {
+  a {
+    color: black;
+  }
+}
+
+.select2-container .select2-selection--single {
+  height: calc(2.25rem + 2px) !important;
+  .select2-selection__arrow {
+    top: 16% !important;
+  }
 }

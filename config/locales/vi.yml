@@ -75,6 +75,7 @@ vi:
   posts:
     filter:
       title: "Tiêu đề..."
+      date: "Hãy chọn 1 ngày bất kì"
     new:
       new_post: Thêm mới bài viết
       posts: Bài viết
@@ -169,6 +170,8 @@ vi:
       email: "Email"
       password: "Mật khẩu"
   users:
+    filter:
+      post_count: "Hãy nhập một giá trị bất kì"
     please_login: Bạn chưa đăng nhập
     controller:
       signup_success: "Chào mừng đến với AdminLTE"

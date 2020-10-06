@@ -1,7 +1,7 @@
 class Admin::UsersController < AdminController
   before_action :authenticate_user!
   before_action :load_user, except: :index
-  before_action :get_users, only: :index
+  before_action :check_params, :get_users, only: :index
   before_action :admin_user
 
   include UsersHelper
@@ -9,6 +9,7 @@ class Admin::UsersController < AdminController
   add_breadcrumb I18n.t("users.breadcrumbs.user"), :admin_users_path
 
   def index
+    search_element "User"
     session[:user_filtered] = @users.ids
   end
 
@@ -47,11 +48,14 @@ class Admin::UsersController < AdminController
   end
 
   def get_users
-    @users = User.by_user_name(params[:name])
-                 .by_status(params[:status])
-                 .by_role(params[:role])
-                 .order_by_post_count(params[:order_by])
-                 .order_created_at
-                 .page(params[:page]).per Settings.user.page
+    @q = User.ransack params[:q]
+    @users = @q.result.page(params[:page]).per Settings.user.page
+  end
+
+  def check_params
+    return unless params.dig(:q, :higher).eql? Settings.not_higher
+
+    params[:q][:posts_count_lt] = params[:q][:posts_count_gteq]
+    params[:q].delete :posts_count_gteq
   end
 end

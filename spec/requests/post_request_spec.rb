@@ -34,7 +34,7 @@ RSpec.describe Admin::PostsController, type: :controller do
 
       it {expect(response).to render_template :index}
 
-      it {expect(assigns(:posts).pluck(:id)).to eq [post_three.id, post_two.id, notification_test.post.id]}
+      it {expect(assigns(:posts).pluck(:id)).to eq [notification_test.post.id, post_two.id, post_three.id]}
     end
   end
 

@@ -1,9 +1,9 @@
 <tr>
-  <td><%= t "users.index.images" %></td>
-  <td><%= t "users.index.name" %></td>
-  <td><%= t "users.index.email" %></td>
-  <td><%= t "users.index.status" %></td>
-  <td><%= t "users.index.role" %></td>
-  <td><%= t "users.index.post_number" %></td>
-  <td><%= t "users.index.action" %></td>
+  <td class="list-header"><%= t "users.index.images" %></td>
+  <td class="list-header"><%= sort_link @q, :name %></td>
+  <td class="list-header"><%= sort_link @q, :email %></td>
+  <td class="list-header"><%= sort_link @q, :status %></td>
+  <td class="list-header"><%= sort_link @q, :role_id %></td>
+  <td class="list-header"><%= sort_link @q, :posts_count %></td>
+  <td class="list-header"><%= t "users.index.action" %></td>
 </tr>

@@ -14,6 +14,12 @@ class Post < ApplicationRecord
 
   attr_accessor :editor_id
 
+  ransack_alias :post, :title_or_content
+
+  ransacker :updated_at, type: :date do
+    Arel.sql("date(updated_at)")
+  end
+
   belongs_to :user, counter_cache: :posts_count
   belongs_to :topic
 

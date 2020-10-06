@@ -11,6 +11,10 @@ class AdminController < ActionController::Base
 
   helper_method :get_all_notification, :get_uncheck_notification
 
+  def search_element element
+    @q = element.classify.constantize.search params[:q]
+  end
+
   private
 
   def get_uncheck_notification

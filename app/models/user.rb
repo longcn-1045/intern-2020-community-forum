@@ -4,6 +4,10 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  attr_accessor :remember_token, :activation_token, :reset_token, :higher
+
+  ransack_alias :user, :name_or_email
+
   has_many :posts, dependent: :destroy
 
   has_many :activities, as: :owner, dependent: :destroy

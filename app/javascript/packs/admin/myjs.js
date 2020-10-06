@@ -11,4 +11,8 @@ $(document).on('turbolinks:load', function(){
        });
      }
   });
+  $('.post_select').select2({
+    placeholder: "--All--",
+    allowClear: true
+  });
 });
