@@ -1,4 +1,4 @@
-<% unless flash.empty? %>
+<% if flash.present? %>
   <script type="text/javascript">
     <% flash.each do |f| %>
       <% type = f[1].to_s.gsub("alert", "error").gsub("notice", "info") %>

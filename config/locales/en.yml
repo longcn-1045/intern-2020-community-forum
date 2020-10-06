@@ -466,3 +466,9 @@ en:
       submit: Submit
     post_comments:
       reply: Reply
+  followers:
+    index:
+       no_followers: You haven't follow any person
+  followings:
+    index:
+       no_followings: You haven't follow any person

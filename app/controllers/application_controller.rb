@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     @user = User.find_by id: params[:user_id]
     return if @user
 
-    flash[:error] = t ".not_found"
+    flash[:alert] = t ".not_found"
     redirect_to root_url
   end
 

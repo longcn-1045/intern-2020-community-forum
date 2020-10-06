@@ -1,0 +1,13 @@
+<% provide :title, t(".users") %>
+<% provide :controller, t(".users") %>
+<% provide :action, t(".followers") %>
+
+<div class="users-index">
+  <div class="row">
+    <% if @user.followers.present? %>
+      <%= render @user.followers %>
+    <% else %>
+      <h5 class="ml-3"><% t ".no_followers" %></h5>
+    <% end %>
+  </div>
+</div>

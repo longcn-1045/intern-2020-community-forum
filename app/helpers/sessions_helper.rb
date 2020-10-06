@@ -16,7 +16,7 @@ module SessionsHelper
   def admin_user
     return if current_user.role != Settings.user.role
 
-    flash[:error] = t "users.controller.not_allow"
+    flash[:alert] = t "users.controller.not_allow"
     redirect_to root_path
   end
 
@@ -42,7 +42,7 @@ module SessionsHelper
   def correct_user
     return if current_user? @user
 
-    flash[:warning] = t "users.controller.not_correct"
+    flash[:alert] = t "users.controller.not_correct"
     redirect_to admin_users_path
   end
 end

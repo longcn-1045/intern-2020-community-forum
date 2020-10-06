@@ -42,7 +42,7 @@ class AdminController < ActionController::Base
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:error] = t "users.controller.not_found"
+    flash[:alert] = t "users.controller.not_found"
     redirect_to admin_root_path
   end
 

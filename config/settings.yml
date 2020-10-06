@@ -89,3 +89,5 @@ users:
 rememberdigest_legth: 60
 load_commentable: 2
 not_higher: "0"
+follow:
+  per_page: 4

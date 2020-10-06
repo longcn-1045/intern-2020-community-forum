@@ -334,7 +334,7 @@ RSpec.describe User, type: :model do
   end
 
   describe ".order_created_at" do
-    before {user_1.active!}
+    before {user_1.admin!}
     it "order by updated at" do
       expect(User.order_updated_at.first).to eq user_1
     end

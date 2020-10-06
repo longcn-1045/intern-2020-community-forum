@@ -25,10 +25,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_without_password user_params
-      flash[:success] = t ".profile_updated"
+      flash[:notice] = t ".profile_updated"
       redirect_to @user
     else
-      flash.now[:error] = t ".failed_update_profile"
+      flash.now[:alert] = t ".failed_update_profile"
       render :edit
     end
   end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:error] = t ".not_found"
+    flash[:alert] = t ".not_found"
     redirect_to root_url
   end
 end

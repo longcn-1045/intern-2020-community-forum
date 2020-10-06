@@ -17,10 +17,10 @@ class Admin::TopicsController < AdminController
   def create
     @topic = Topic.new topic_params
     if @topic.save
-      flash[:info] = t "topic.controller.create_success"
+      flash[:notice] = t "topic.controller.create_success"
       redirect_to admin_topics_path
     else
-      flash.now[:error] = t "topic.controller.create_failed"
+      flash.now[:alert] = t "topic.controller.create_failed"
       render :new
     end
   end
@@ -31,29 +31,29 @@ class Admin::TopicsController < AdminController
 
   def update
     if @topic.update topic_params
-      flash[:success] = t "users.update.success"
+      flash[:notice] = t "users.update.success"
       redirect_to admin_topics_path
     else
-      flash[:error] = t "users.update.fail"
+      flash[:alert] = t "users.update.fail"
       render :edit
     end
   end
 
   def destroy
     if @topic.destroy
-      flash[:success] = t "topic.controller.deleted_success"
+      flash[:notice] = t "topic.controller.deleted_success"
     else
-      flash.now[:error] = t "topic.controller.deleted_error"
+      flash.now[:alert] = t "topic.controller.deleted_error"
     end
     redirect_to admin_topics_path
   end
 
   def activate
     if @topic.on?
-      flash[:success] = t "topic.controller.activate_success"
+      flash[:notice] = t "topic.controller.activate_success"
       @topic.off!
     else
-      flash.now[:error] = t "topic.controller.activate_error"
+      flash.now[:alert] = t "topic.controller.activate_error"
       @topic.on!
     end
     redirect_to admin_topics_path
@@ -69,7 +69,7 @@ class Admin::TopicsController < AdminController
     @topic = Topic.find_by id: params[:id]
     return if @topic
 
-    flash[:error] = t "topic.controller.not_found"
+    flash[:alert] = t "topic.controller.not_found"
     redirect_to admin_topics_path
   end
 end

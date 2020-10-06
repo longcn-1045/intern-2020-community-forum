@@ -9,7 +9,7 @@ class Admin::BlockController < AdminController
       BlockMailer.unblock_email(@user).deliver
       @user.active!
     end
-    flash[:success] = t "users.update.success"
+    flash[:notice] = t "users.update.success"
     redirect_to admin_users_path
   end
 
@@ -21,7 +21,7 @@ class Admin::BlockController < AdminController
       AuthorizeMailer.member_email(@user).deliver
       @user.member!
     end
-    flash[:success] = t "users.update.success"
+    flash[:notice] = t "users.update.success"
     redirect_to admin_users_path
   end
 end

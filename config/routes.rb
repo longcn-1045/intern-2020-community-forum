@@ -38,15 +38,16 @@ Rails.application.routes.draw do
     }
 
     resources :users, except: %i(new create destroy) do
-      resources :favorites, only: :index
-      resources :activities, only: :index
+      resources :favorites, :activities, :followers, :followings, only: :index
     end
+
     resources :posts do
       resources :post_comments, only: :create
     end
     resources :post_comments, only: :create do
       resources :post_comments, only: :create
     end
+
     resources :topics, only: %i(index show)
     resources :post_marks, :post_likes,
       :user_topics, :relationships, only: %i(create destroy)

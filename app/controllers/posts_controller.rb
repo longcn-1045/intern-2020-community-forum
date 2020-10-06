@@ -19,10 +19,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build post_params
     if @post.save
-      flash[:success] = t ".post_created"
+      flash[:notice] = t ".post_created"
       redirect_to current_user
     else
-      flash[:error] = t ".post_create_failed"
+      flash[:alert] = t ".post_create_failed"
       render :new
     end
   end
@@ -33,19 +33,19 @@ class PostsController < ApplicationController
 
   def update
     if @post.update post_params
-      flash[:success] = t ".post_updated"
+      flash[:notice] = t ".post_updated"
       redirect_to current_user
     else
-      flash[:error] = t ".post_update_failed"
+      flash[:alert] = t ".post_update_failed"
       render :edit
     end
   end
 
   def destroy
     if @post.destroy
-      flash[:success] = t ".post_destroyed"
+      flash[:notice] = t ".post_destroyed"
     else
-      flash[:error] = t ".post_destroy_failed"
+      flash[:alert] = t ".post_destroy_failed"
     end
     redirect_to current_user
   end
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
     @post = Post.find_by id: params[:id]
     return if @post
 
-    flash[:error] = t ".not_found"
+    flash[:alert] = t ".not_found"
     redirect_to root_url
   end
 

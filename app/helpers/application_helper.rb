@@ -1,4 +1,6 @@
 module ApplicationHelper
+  FLASH_TYPES = {notice: "success", alert: "error"}.freeze
+
   def full_title page_title
     base_title = t ".title"
     page_title.blank? ? base_title : "#{page_title} | #{base_title}"
@@ -66,11 +68,10 @@ module ApplicationHelper
   def custom_bootstrap_flash
     flash_messages = []
     flash.each do |type, message|
-      type = "success" if type == "notice"
-      type = "error"   if type == "alert"
-      text = "<script>toastr.#{type}('#{message}');</script>"
+      type = FLASH_TYPES[type.to_sym]
+      text = javascript_tag "toastr.#{type}('#{message}');"
       flash_messages << text if message
     end
-    flash_messages.join("\n")
+    safe_join flash_messages, "\n"
   end
 end

@@ -1,0 +1,10 @@
+<% if follow_list.present? %>
+  <% follow_list.limit(Settings.follow.per_page).each do |item| %>
+    <%= link_to item do %>
+      <%= load_user_avatar item.url %>
+    <% end %>
+  <% end %>
+  <%= link_to t(".show_more"), path,  class: "btn btn-block" %>
+<% else %>
+  <span><%= t ".dont_rela" %></span>
+<% end %>

@@ -51,7 +51,8 @@
         </span>
       </p>
       <p class="relationship-infor-content">
-        <span><%= t ".dont_have" %></span>
+        <%= render "follower", follow_list: @user.followers,
+          path: user_followers_path(@user) %>
       </p>
     </div>
   </div>
@@ -66,7 +67,8 @@
         </span>
       </p>
       <p class="relationship-infor-content">
-        <span><%= t ".dont_rela" %></span>
+        <%= render "follower", follow_list: @user.following,
+          path: user_followings_path(@user) %>
       </p>
     </div>
   </div>

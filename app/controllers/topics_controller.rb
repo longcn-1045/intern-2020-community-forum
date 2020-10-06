@@ -22,7 +22,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by id: params[:id]
     return if @topic
 
-    flash[:error] = t ".not_found"
+    flash[:alert] = t ".not_found"
     redirect_to root_url
   end
 end

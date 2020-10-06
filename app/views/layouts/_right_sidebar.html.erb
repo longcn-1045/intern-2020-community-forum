@@ -7,7 +7,7 @@
     <% end %>
   </div>
   <div class="status-part3821">
-    <%= link_to "#" do %>
+    <%= link_to user_followers_path(current_user) do %>
       <i class="fas fa-newspaper" aria-hidden="true">
         <%= t ".followers" %>
         <span id="followers_count">
@@ -15,7 +15,7 @@
         </span>
       </i>
     <% end %>
-    <%= link_to "#" do %>
+    <%= link_to user_followings_path(current_user) do %>
       <i class="fas fa-users" aria-hidden="true">
         <%= t ".followings" %>
         <span id="followings_count">

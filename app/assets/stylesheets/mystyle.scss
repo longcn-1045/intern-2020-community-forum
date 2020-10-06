@@ -422,10 +422,10 @@
     padding: 8px 12px;
     font-size: 16px;
     padding: 20px 12px;
+    padding-bottom: 5px;
 
     p {
       margin: 0;
-
       a {
         color: $black;
         text-decoration: none;
@@ -438,6 +438,30 @@
 
     .relationship-infor-content {
       margin-top: 10px;
+
+      img {
+        width: 55px;
+        height: 55px;
+        object-fit: cover;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+
+      .btn {
+        margin-top: 10px;
+        padding: 0;
+        font-style: italic;
+        color: $strong_line;
+        text-align: right;
+        font-size: 14px;
+        font-weight: bold;
+
+        &:focus {
+          border-color: transparent;
+          outline: none;
+          box-shadow: none;
+        }
+      }
     }
   }
 

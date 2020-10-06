@@ -23,20 +23,20 @@ class Admin::UsersController < AdminController
 
   def update
     if @user.update user_params
-      flash[:success] = t "users.update.success"
+      flash[:notice] = t "users.update.success"
       redirect_to admin_users_path
     else
-      flash[:error] = t "users.update.fail"
+      flash[:alert] = t "users.update.fail"
       render :edit
     end
   end
 
   def destroy
     if @user.destroy
-      flash[:success] = t "users.controller.delete"
+      flash[:notice] = t "users.controller.delete"
       redirect_to admin_users_url
     else
-      flash[:error] = t "users.controller.delete_fail"
+      flash[:alert] = t "users.controller.delete_fail"
       redirect_to admin_users_path
     end
   end
@@ -49,7 +49,8 @@ class Admin::UsersController < AdminController
 
   def get_users
     @q = User.ransack params[:q]
-    @users = @q.result.page(params[:page]).per Settings.user.page
+    @users = @q.result.order_created_at
+               .page(params[:page]).per Settings.user.page
   end
 
   def check_params

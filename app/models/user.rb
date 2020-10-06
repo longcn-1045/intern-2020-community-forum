@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  attr_accessor :remember_token, :activation_token, :reset_token, :higher
+  attr_accessor :higher
 
   ransack_alias :user, :name_or_email
 
