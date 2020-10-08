@@ -367,7 +367,7 @@ en:
       new: "New"
       edit: "Edit"
   authorize_mailer:
-    authorize_email:
+    authorize:
       admin: "Admin"
       member: "Member"
   topics:

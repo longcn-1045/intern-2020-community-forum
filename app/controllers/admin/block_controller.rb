@@ -2,11 +2,10 @@ class Admin::BlockController < AdminController
   before_action :load_user, :admin_user
 
   def update
+    BlockWorker.perform_async @user.id
     if @user.active?
-      BlockMailer.block_email(@user).deliver
       @user.block!
     else
-      BlockMailer.unblock_email(@user).deliver
       @user.active!
     end
     flash[:notice] = t "users.update.success"
@@ -14,11 +13,10 @@ class Admin::BlockController < AdminController
   end
 
   def authorize
+    UserRoleWorker.perform_async @user.id
     if @user.member?
-      AuthorizeMailer.admin_email(@user).deliver
       @user.admin!
     else
-      AuthorizeMailer.member_email(@user).deliver
       @user.member!
     end
     flash[:notice] = t "users.update.success"

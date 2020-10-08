@@ -9,6 +9,7 @@ class User < ApplicationRecord
   ransack_alias :user, :name_or_email
 
   has_many :posts, dependent: :destroy
+  has_many :post_reports, dependent: :destroy
 
   has_many :activities, as: :owner, dependent: :destroy
 

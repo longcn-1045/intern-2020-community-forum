@@ -345,7 +345,7 @@ vi:
       new: "Thêm"
       edit: "Sửa"
   authorize_mailer:
-    authorize_email:
+    authorize:
       admin: "Admin"
       member: "Thành viên"
   topics:
