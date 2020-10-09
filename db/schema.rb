@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_042619) do
+ActiveRecord::Schema.define(version: 2020_10_08_032809) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -138,9 +138,10 @@ ActiveRecord::Schema.define(version: 2020_09_30_042619) do
   create_table "post_reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "user_id", null: false
-    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "report_reason_id"
+    t.text "report_reason_content"
     t.index ["post_id"], name: "index_post_reports_on_post_id"
     t.index ["user_id"], name: "index_post_reports_on_user_id"
   end
@@ -164,6 +165,8 @@ ActiveRecord::Schema.define(version: 2020_09_30_042619) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "image"
+    t.datetime "off_date", default: "2020-10-08 01:53:24"
+    t.integer "posts_report", default: 0, null: false
     t.index ["topic_id"], name: "index_posts_on_topic_id"
     t.index ["user_id", "created_at", "topic_id"], name: "index_posts_on_user_id_and_created_at_and_topic_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -177,6 +180,12 @@ ActiveRecord::Schema.define(version: 2020_09_30_042619) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "report_reasons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -229,6 +238,7 @@ ActiveRecord::Schema.define(version: 2020_09_30_042619) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.datetime "warning_date", default: "2020-10-08 01:53:24"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

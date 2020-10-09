@@ -94,6 +94,18 @@ en:
       post_update_failed: Post Update Failed
     find_post:
       not_found: Not Found
+    report:
+      report_form: Report Form
+      create_report: REPORT A POST
+      form_title: As accurately as you can, please tell us what happened with this post. Choose up one reporting category if you need to
+      report_button: Report
+      violence: The article has violent and animal abused contents
+      nudity: The post has adult nudity, sexual activities
+      harassment: The article has contents that harasses individuals or organizations
+      false_news: The article contains fake contents
+      unauthorised_sales: The articles advertising illegal sales of banned drugs, weapons, endangered animals
+      hate_speech: The articles has hateful speech, race or ethnicity, social caste, sexism
+      something_else: Something else
     form:
       title: Title
       topic: Topic

@@ -1109,3 +1109,69 @@
     color: $forest_green;
   }
 }
+
+.report-post {
+  .modal-content {
+    background-color: $main_color;
+    border: 2px solid $kumera;
+    .modal-header {
+      border-bottom-color: transparent;
+
+      .modal-title {
+        color: $white;
+        font-size: 16px;
+      }
+
+      .close {
+        span {
+          color: $white;
+        }
+      }
+    }
+
+    .modal-body {
+      h3 {
+        color: $white;
+        font-size: 23px;
+        font-weight: 600;
+      }
+
+      p {
+        color: $white;
+        font-style: italic;
+      }
+
+      .form-check {
+        padding-left: 1rem;
+        margin-bottom: 10px;
+
+        .form-check-label {
+          color: $white;
+          font-size: 16px;
+        }
+      }
+
+      textarea {
+        border: 2px solid $kumera;
+        font-size: 16px;
+        min-height: 89px;
+        margin: 0;
+        display: none;
+      }
+    }
+
+    .modal-footer {
+      border-top-color: transparent;
+      padding-top: 0;
+      padding-bottom: 3px;
+
+      button {
+        background-color: $main_color;
+        font-size: 18px;
+        font-weight: bold;
+        color: $white;
+        border: 1px solid $white;
+      }
+    }
+  }
+}

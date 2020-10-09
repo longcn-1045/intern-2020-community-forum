@@ -1,9 +1,9 @@
 <% if flash.present? %>
   <script type="text/javascript">
     <% flash.each do |f| %>
-      <% type = f[1].to_s.gsub("alert", "error").gsub("notice", "info") %>
+      <% type = f[0].to_s.gsub("alert", "error").gsub("notice", "success") %>
       toastr["<%= type %>"]("<%= f[1] %>", "", {
-        "positionClass": "toast-bottom-left",
+        "positionClass": "toast-top-right",
         "showDuration": "300",
         "hideDuration": "1000",
         "timeOut": "6000",

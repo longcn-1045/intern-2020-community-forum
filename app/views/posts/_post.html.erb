@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_pack_tag "report_post", "data-turbolinks-track": "reload" %>
+<% end %>
 <div class="post-item">
   <div class="post-sidebar">
     <div class="user-ava">
@@ -58,6 +61,13 @@
           <%= render "posts/unsave", post: post %>
         <% else %>
           <%= render "posts/save", post: post %>
+        <% end %>
+      </div>
+      <div id="report-post-<%= post.id %>">
+        <% if current_user.report_post? post %>
+          <%= render "posts/reported", post: post %>
+        <% else %>
+          <%= render "posts/report", post: post %>
         <% end %>
       </div>
       <div class="comment-post">

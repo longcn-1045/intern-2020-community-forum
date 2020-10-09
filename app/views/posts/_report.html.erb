@@ -1,0 +1,32 @@
+<%= form_for current_user.post_reports.build, remote: true do |f| %>
+  <%= hidden_field_tag :post_id, post.id %>
+
+  <%= button_tag class: "post-saved", type: "button",
+    data: {toggle: "modal", target: "#report-#{post.id}"} do %>
+    <i class="fas fa-exclamation-triangle"></i>
+  <% end %>
+
+  <div class="modal fade report-post" id="report-<%= post.id %>" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><%= t ".report_form" %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3><%= t ".create_report" %></h3>
+          <p><%= t ".form_title" %></p>
+          <%= load_report_contents post.id %>
+          <div class="form-group m-0" id="form-check-textarea-<%= post.id %>">
+            <%= text_area_tag :report_reason_content, nil, class: "form-control" %>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <%= button_tag t(".report_button"),class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

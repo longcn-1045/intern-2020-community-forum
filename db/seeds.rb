@@ -17,14 +17,26 @@
 #                role: "member")
 # end
 
-users = User.order(:created_at).take(3)
+# users = User.order(:created_at).take(3)
 
-users.each do |user|
-  10.times do
-    title = Faker::Quotes::Shakespeare.romeo_and_juliet_quote
-    content = Faker::Lorem.paragraphs[0]
-    user.posts.create!(content: content,
-                            topic_id: 7,
-                            title: title)
-  end
+# users.each do |user|
+#   10.times do
+#     title = Faker::Quotes::Shakespeare.romeo_and_juliet_quote
+#     content = Faker::Lorem.paragraphs[0]
+#     user.posts.create!(content: content,
+#                             topic_id: 7,
+#                             title: title)
+#   end
+# end
+contents = [
+  "nudity",
+  "violence",
+  "harassment",
+  "false_news",
+  "unauthorised_sales",
+  "hate_speech",
+  "something_else"
+]
+contents.each_with_index do |n, index|
+  ReportReason.create! id: index, name: n
 end

@@ -33,6 +33,9 @@ class User < ApplicationRecord
 
   has_many :post_comments, dependent: :destroy
 
+  has_many :post_reports, dependent: :destroy
+  has_many :report_posts, through: :post_reports, source: :post
+
   devise :database_authenticatable, :registerable, :rememberable,
          :validatable, :confirmable, :lockable, :timeoutable
 
@@ -144,6 +147,10 @@ class User < ApplicationRecord
 
   def following? other_user
     following.include? other_user
+  end
+
+  def report_post? post
+    report_posts.include? post
   end
 
   def author? post

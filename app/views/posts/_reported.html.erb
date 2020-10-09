@@ -1,0 +1,7 @@
+<%= form_for current_user.post_reports.build, remote: true do |f| %>
+  <%= hidden_field_tag :post_id, post.id %>
+
+  <%= button_tag class: "post-unsaved" do %>
+    <i class="fas fa-exclamation-triangle"></i>
+  <% end %>
+<% end %>

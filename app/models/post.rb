@@ -33,6 +33,7 @@ class Post < ApplicationRecord
   has_many :mark_users, through: :post_marks, source: :user
 
   has_many :post_likes, dependent: :destroy
+  has_many :post_reports, dependent: :destroy
   has_many :like_users, through: :post_likes, source: :user
 
   has_many :post_comments, dependent: :destroy, as: :commentable

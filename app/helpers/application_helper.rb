@@ -74,4 +74,20 @@ module ApplicationHelper
     end
     safe_join flash_messages, "\n"
   end
+
+  def load_report_contents post_id
+    html = []
+    ReportReason.all.each do |item|
+      temp = content_tag :div, class: "form-check" do
+        radio_button_tag(:report_reason_id, item.id, false,
+                         class: "form-check-input",
+                         id: "report-content-#{post_id}-#{item.id}") +
+          label_tag("report-content-#{post_id}-#{item.id}", t(".#{item.name}"),
+                    class: "form-check-label",
+                    id: "report-label-#{post_id}-#{item.id}")
+      end
+      html << temp
+    end
+    safe_join html
+  end
 end

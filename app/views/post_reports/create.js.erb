@@ -1,0 +1,8 @@
+$("form").prepend("<%= j render "shared/toastr" %>");
+
+<% if flash[:notice].present? %>
+  $("#report-<%= @post.id %>").remove();
+  $(".modal-backdrop").remove();
+  $("body").css("overflow", "auto");
+  $("#report-post-<%= @post.id %>").html("<%= j render "posts/reported", post: @post %>");
+<% end %>
