@@ -1,6 +1,8 @@
 class Admin::RegistersController < Devise::RegistrationsController
   layout "authenticate"
 
+  authorize_resource User
+
   before_action :configure_sign_up_params, only: :create
 
   def create

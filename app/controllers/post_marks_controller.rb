@@ -1,4 +1,6 @@
 class PostMarksController < ApplicationController
+  authorize_resource
+
   before_action :authenticate_user!
   before_action :find_post, only: %i(create destroy)
 

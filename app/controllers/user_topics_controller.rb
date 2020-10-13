@@ -1,4 +1,6 @@
 class UserTopicsController < ApplicationController
+  authorize_resource
+
   before_action :authenticate_user!
   before_action :find_topic, only: %i(create destroy)
 

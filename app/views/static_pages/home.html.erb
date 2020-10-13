@@ -1,11 +1,15 @@
 <% provide :title, t(".home") %>
 <% provide :controller, t(".home") %>
+<% content_for :javascript_includes do %>
+  <%= javascript_pack_tag "paginate", "data-turbolinks-track": "reload" %>
+<% end %>
 
 <div class="homepage">
   <% if @posts.present? %>
     <div class="post-list">
       <%= render @posts %>
     </div>
+    <%= paginate @posts %>
   <% else %>
     <h3 class="empty-data">
       <%= t ".no_post" %>

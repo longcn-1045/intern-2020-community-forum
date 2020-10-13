@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  authorize_resource User
+
   before_action :authenticate_user!
   before_action :find_user, only: %i(edit update show)
   before_action :correct_user, only: %i(edit update)
@@ -18,7 +20,9 @@ class UsersController < ApplicationController
                   .order_created_at
                   .by_title(params[:name])
                   .by_topic_id(params[:select_type])
-                  .by_status params[:status]
+                  .by_status(params[:status])
+                  .page(params[:page])
+                  .per Settings.posts.per_page
   end
 
   def edit; end

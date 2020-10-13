@@ -34,7 +34,8 @@ Rails.application.routes.draw do
     devise_for :users, controllers: {
       sessions: "admin/sessions",
       registrations: "admin/registers",
-      passwords: "admin/passwords"
+      passwords: "admin/passwords",
+      confirmations: "admin/confirmations"
     }
 
     resources :users, except: %i(new create destroy) do

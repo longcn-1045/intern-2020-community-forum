@@ -1,6 +1,9 @@
 <% provide :title, t(".users") %>
 <% provide :controller, t(".users") %>
 <% provide :action, t(".show") %>
+<% content_for :javascript_includes do %>
+  <%= javascript_pack_tag "paginate", "data-turbolinks-track": "reload" %>
+<% end %>
 
 <div class="row" id="personal-page">
   <div class="col-md-9">
@@ -78,8 +81,9 @@
       select_type_label: t(".topics"), name_type: t(".title") %>
     <% if @posts.present? %>
       <div class="post-list">
-        <%= render @posts if @posts.present? %>
+        <%= render @posts %>
       </div>
+      <%= paginate @posts %>
     <% else %>
       <h3 class="empty-data">
         <%= t ".no_post" %>

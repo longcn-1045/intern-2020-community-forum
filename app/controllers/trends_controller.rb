@@ -1,4 +1,6 @@
 class TrendsController < ApplicationController
+  authorize_resource Topic, User
+
   def index
     @topics = Topic.order_by_user.first Settings.trends.topics
 

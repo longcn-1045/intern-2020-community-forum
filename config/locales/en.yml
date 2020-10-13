@@ -481,6 +481,8 @@ en:
   followers:
     index:
        no_followers: You haven't follow any person
+       followers: Followers
   followings:
     index:
        no_followings: You haven't follow any person
+       followings: Followings

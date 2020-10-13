@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  authorize_resource Post
+
   before_action :authenticate_user!, :find_user, :correct_user, only: :index
 
   def index

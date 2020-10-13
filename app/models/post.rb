@@ -12,6 +12,8 @@ class Post < ApplicationRecord
     tags_attributes: [:id, :name, :_destroy].freeze
   ].freeze
 
+  POST_INCLUDES = [:topic, :tags, :user, :post_likes, :post_marks].freeze
+
   attr_accessor :editor_id
 
   ransack_alias :post, :title_or_content
@@ -86,6 +88,19 @@ class Post < ApplicationRecord
   delegate :name, :url, to: :user
 
   delegate :name, to: :topic, prefix: true
+
+  class << self
+    def in_homepage user
+      user_ids = user.following_ids << user.id
+      topic_ids = user.topic_ids
+
+      if topic_ids.present? || user.following_ids.present?
+        by_topics(topic_ids).or(by_users(user_ids)).on
+      else
+        user.posts.on
+      end
+    end
+  end
 
   def post_score
     @post_score = post_likes.count +

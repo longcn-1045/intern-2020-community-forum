@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Post, type: :model do
+  let!(:user_test) {FactoryBot.create :user}
   let(:post) {FactoryBot.build :post}
   let(:invalid_post) {FactoryBot.build :post, title: nil}
   let(:post_count) {Post.count}
@@ -14,7 +15,8 @@ RSpec.describe Post, type: :model do
     FactoryBot.create :post,
                       title: "Minh Thong",
                       created_at: "15-09-2020",
-                      updated_at: "15-09-2020"
+                      updated_at: "15-09-2020",
+                      user: user_test
   end
 
   describe "Validations" do
@@ -126,7 +128,7 @@ RSpec.describe Post, type: :model do
       end
 
       it "in homepage" do
-        expect(Post.in_homepage(post_two.topic_id, post_three.user_id).pluck(:id)).to eq [post_two.id, post_three.id]
+        expect(Post.in_homepage(user_test).pluck(:id)).to eq [post_three.id]
       end
     end
   end

@@ -1,6 +1,8 @@
 class TopicsController < ApplicationController
   before_action :find_topic, only: :show
 
+  authorize_resource Topic
+
   def index
     @topics = Topic.by_topic_name(params[:name])
                    .sort_type(params[:select_type])
