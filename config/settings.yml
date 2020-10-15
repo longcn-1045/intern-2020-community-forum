@@ -91,3 +91,10 @@ load_commentable: 2
 not_higher: "0"
 follow:
   per_page: 4
+password:
+  regex:
+    must contain at least one lowercase letter: !ruby/regexp '/[a-z]+/'
+    must contain at least one uppercase letter: !ruby/regexp '/[A-Z]+/'
+    must contain at least one digit: !ruby/regexp '/\d+/'
+    must contain at least one special character: !ruby/regexp '/[^A-Za-z0-9]+/'
+  validates: 3

@@ -1,0 +1,35 @@
+<div class="register-box">
+  <div class="register-logo">
+    <%= t "layouts.application.title" %>
+  </div>
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg"><%= "Reset Password" %></p>
+      <%= form_for resource, as: resource_name,
+        url: user_password_url, method: :patch do |f| %>
+        <%= f.hidden_field :reset_password_token, value: params[:reset_password_token] %>
+        <div class="input-group mb-3">
+          <%= f.password_field :password, class: "form-control",  placeholder: t("password.new_password") %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <%= display_error f.object, :password %>
+        <div class="input-group mb-3">
+          <%= f.password_field :password_confirmation, class: "form-control",  placeholder: t("password.retype_new_password") %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <%= display_error f.object, :password_confirmation %>
+        <div>
+          <%= f.submit t("registers.index.register"), class: "btn btn-primary btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

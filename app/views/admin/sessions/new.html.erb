@@ -46,7 +46,7 @@
         <% end %>
       </div>
       <p class="mb-1">
-        <a href="#"><%= t "sessions.new.forgot_password" %></a>
+        <%= link_to t("sessions.new.forgot_password"), new_password_path(resource_name) %><br />
       </p>
       <p class="mb-0">
         <%= link_to new_user_registration_path, class: "text-center" do %>

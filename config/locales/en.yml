@@ -486,3 +486,13 @@ en:
     index:
        no_followings: You haven't follow any person
        followings: Followings
+  password:
+    validate:
+      lower_case: must contain at least one lowercase letter
+      upper_case: must contain at least one uppercase letter
+      digit: must contain at least one digit
+      special_character: must contain at least one special character
+    infor:
+      title: "We will send in your email instruction"
+    new_password: New Password
+    retype_new_password: Retype new password

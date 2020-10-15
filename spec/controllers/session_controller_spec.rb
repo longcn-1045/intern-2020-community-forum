@@ -17,12 +17,12 @@ RSpec.describe Admin::SessionsController, type: :controller do
 
       context "when a valid user" do
         it "should redirect to admin_dashboads if user is admin" do
-          post :create, params: {user: {email: valid_user_admin.email, password: "123456"}}
+          post :create, params: {user: {email: valid_user_admin.email, password: "Minhthong511"}}
           expect(response).to redirect_to admin_root_path
         end
 
         it "should redirect to trainers_courses_path if user is trainee" do
-          post :create, params: {user: {email: valid_user_member.email, password: "123456"}}
+          post :create, params: {user: {email: valid_user_member.email, password: "Minhthong511"}}
           expect(response).to redirect_to static_pages_home_path
         end
       end

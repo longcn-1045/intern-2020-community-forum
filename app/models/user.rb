@@ -37,7 +37,7 @@ class User < ApplicationRecord
   has_many :report_posts, through: :post_reports, source: :post
 
   devise :database_authenticatable, :registerable, :rememberable,
-         :validatable, :confirmable, :lockable, :timeoutable
+         :validatable, :confirmable, :lockable, :timeoutable, :recoverable
 
   validates :name, presence: true,
     length: {maximum: Settings.user.validates.max_name}
@@ -48,6 +48,7 @@ class User < ApplicationRecord
   validates :password, presence: true,
     length: {within: Devise.password_length},
     allow_nil: true
+  validate :password_requirements_are_met
 
   enum role: {member: 0, admin: 1}
   enum status: {active: 0, block: 1}
@@ -158,6 +159,21 @@ class User < ApplicationRecord
   end
 
   private
+
+  def password_requirements_are_met
+    return if password.blank?
+
+    count = 0
+
+    Settings.password.regex.each do |message, regex|
+      if password.match regex
+        count += 1
+      else
+        errors.add :password, message
+      end
+      break if count.eql? Settings.password.validates
+    end
+  end
 
   def downcase_email
     email.downcase!

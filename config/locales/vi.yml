@@ -413,3 +413,13 @@ vi:
               required: "chưa được chọn"
             content:
               blank: "chưa được nhập"
+  password:
+    validate:
+      lower_case: Chứa tối thiểu 1 kí tự thường
+      upper_case: Chứa tối thiểu 1 kí tự in hoa
+      digit: Chứa tối thiểu 1 chữ số
+      special_character: Chứa tối thiểu 1 kí tự đặc biệt
+    infor:
+      title: "Chúng tôi sẽ gửi lại cho bạn thông báo"
+    new_password: Mật khẩu mới
+    retype_new_password: Ghi lại mật khẩu

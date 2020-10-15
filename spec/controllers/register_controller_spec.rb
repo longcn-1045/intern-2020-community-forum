@@ -16,7 +16,7 @@ RSpec.describe Admin::RegistersController, type: :controller do
         user: {
           name: "Lebara",
           email: "abc@gmail.com",
-          password: "123456",
+          password: "Minhthong511",
           role: "member"
         }
       }
