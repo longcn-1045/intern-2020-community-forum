@@ -1,0 +1,20 @@
+<div class="d-flex algin-items-center">
+  <%= link_to admin_user_path(report.user_id), class: "nav-link active d-inline text-dark p-0 pr-3" do %>
+    <%= image_tag report.user.avatar_url, class: "img-size-50 img-circle" %>
+  <% end %>
+  <%= link_to admin_user_path(report.user_id), class: "text-dark" do %>
+    <%= report.user_name %>
+    <p class="text-sm text-muted mb-0">
+      <i class="far fa-clock mr-1"></i>
+      <%= time_ago_in_words report.updated_at %>
+    </p>
+    <hr>
+    <p>
+      <%= report.report_reason_content %>
+    </p>
+  <% end %>
+  <%= link_to admin_posts_path, class: "nav-link active d-inline ml-auto" do %>
+    <i class="fas fa-edit nav-icon text-success"></i>
+  <% end %>
+</div>
+<hr>

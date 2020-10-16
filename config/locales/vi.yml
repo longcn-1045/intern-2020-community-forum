@@ -423,3 +423,9 @@ vi:
       title: "Chúng tôi sẽ gửi lại cho bạn thông báo"
     new_password: Mật khẩu mới
     retype_new_password: Ghi lại mật khẩu
+  report:
+    title: "Bài viết đã bị khóa"
+    email:
+      post: "Bài viết"
+      info: "đã vi phạm bản quyền vì những lí do sau"
+      warning: "Chúng tôi sẽ tạm thời khóa tài khoản của bạn!"

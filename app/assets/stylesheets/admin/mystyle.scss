@@ -49,7 +49,7 @@
 }
 
 .notification-true {
-  background: $cornflower_blue;
+  background: $geyser;
 }
 
 #notification{
@@ -160,5 +160,21 @@ input#post_image {
   height: calc(2.25rem + 2px) !important;
   .select2-selection__arrow {
     top: 16% !important;
+  }
+}
+
+.report-btn{
+  padding: 5px 5px;
+  border-radius: 10px;
+  background-color: red;
+  color: $white;
+  text-decoration: none;
+  position: relative;
+  top: -20px;
+  left: -30px;
+  z-index: 1000;
+
+  &:hover{
+    color: $gray;
   }
 }

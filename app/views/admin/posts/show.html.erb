@@ -19,6 +19,12 @@
           <%= t "posts.show.off_post" %>
         <% end %>
       </div>
+      <div class="card-footer">
+        <%= link_to admin_post_get_reports_path(@post.id), remote: true, class: "btn btn-warning text-white bg-dark", "data-toggle": :modal, "data-target": "#modal-post" do %>
+          <span><%= @post.post_reports.count %></span>
+          <i class="fas fa-exclamation-triangle"></i>
+        <% end %>
+      </div>
     </div>
     <%= render "shared/error_messages", object: f.object %>
       <div class="row p-3">
@@ -33,7 +39,7 @@
         <div class="col-lg-8">
           <div class="form-group">
             <%= f.label t "post.new.topic" %>
-              <p class="post-contents"><%= @post.topic_name %></p>
+            <p class="post-contents"><%= @post.topic_name %></p>
           </div>
            <div class="form-group">
             <%= f.label t "post.new.title" %>
@@ -48,26 +54,25 @@
           <%= f.label t "post.new.content" %>
           <%= @post.content.html_safe %>
         </div>
-        <div class="form-group">
-          <%= f.label t "post.new.status" %>
-        </div>
-        <div class="row">
-          <div class="pr-2">
-            <%= link_to t("posts.show.on_post"),
-              admin_posts_process_path(@post.id, :on),
-              {class: "btn btn-success"} %>
-          </div>
-          <div class="pr-2">
-            <%= link_to t("posts.show.pending_post"),
-              admin_posts_process_path(@post.id, :pending),
-              {class: "btn btn-warning text-white"} %>
-          </div>
-          <div class="pr-2">
-            <%= link_to t("posts.show.off_post"),
-              admin_posts_process_path(@post.id, :off),
-              {class: "btn btn-danger"} %>
-          </div>
-        </div>
       </div>
   <% end %>
+</div>
+
+<div class="modal fade" id="modal-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><%= "Reports" %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body-post">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t "users.index.close" %></button>
+      </div>
+    </div>
+  </div>
 </div>

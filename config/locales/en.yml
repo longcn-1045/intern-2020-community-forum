@@ -496,3 +496,9 @@ en:
       title: "We will send in your email instruction"
     new_password: New Password
     retype_new_password: Retype new password
+  report:
+    title: "This post has been locked"
+    email:
+      post: "This post"
+      info: "has vi phạm bản quyền vì những lí do sau"
+      warning: "We will block your post !"

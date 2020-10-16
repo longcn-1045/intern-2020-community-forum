@@ -45,6 +45,7 @@ gem "sidekiq"
 gem "toastr-rails"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
+gem "whenever"
 
 group :development, :test do
   gem "bullet"

@@ -27,7 +27,9 @@ Rails.application.routes.draw do
         resources :get_posts, only: :index
       end
       resource :check_posts, only: :update
-      resources :posts
+      resources :posts do
+        resources :get_reports, only: :index
+      end
       resources :topics
     end
 
@@ -45,14 +47,14 @@ Rails.application.routes.draw do
     resources :posts do
       resources :post_comments, only: :create
     end
+
     resources :post_comments, only: :create do
       resources :post_comments, only: :create
     end
 
     resources :topics, only: %i(index show)
     resources :post_marks, :post_likes,
-      :user_topics, :relationships, only: %i(create destroy)
-
+        :user_topics, :relationships, only: %i(create destroy)
     resources :post_reports, only: :create
   end
 end

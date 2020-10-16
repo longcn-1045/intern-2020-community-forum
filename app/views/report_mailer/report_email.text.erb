@@ -1,0 +1,6 @@
+<%= @user["name"] %>
+<%= t "report.email.post" %> <%= @reports_post.title %> <%= t"report.email.info" %>
+<%= @reports.find_each do |report| %>
+  <%= report.report_reason_content %>
+<% end %>
+<%= t "report.email.warning" %>

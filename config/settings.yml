@@ -98,3 +98,9 @@ password:
     must contain at least one digit: !ruby/regexp '/\d+/'
     must contain at least one special character: !ruby/regexp '/[^A-Za-z0-9]+/'
   validates: 3
+crontab:
+  day_delete_job: 7
+report:
+  number:
+    block: 3
+    no_report: 0

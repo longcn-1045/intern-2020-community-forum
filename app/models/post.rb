@@ -29,6 +29,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tags
   has_many :notifications, dependent: :destroy
 
+  after_save :set_off_date
+
   after_commit :notify, on: %i(create update)
 
   has_many :post_marks, dependent: :destroy
@@ -89,7 +91,23 @@ class Post < ApplicationRecord
 
   delegate :name, to: :topic, prefix: true
 
+  def set_off_date
+    if off? && status_before_last_save != status
+      update off_date: Time.zone.now
+    elsif on? && status_before_last_save == "off"
+      post_reports.destroy_all
+    end
+  end
+
   class << self
+    def check_post
+      posts = off
+      posts.find_each do |post|
+        time = (Time.zone.now - post.off_date) / 1.day
+        post.destroy if time > Settings.crontab.day_delete_job
+      end
+    end
+
     def in_homepage user
       user_ids = user.following_ids << user.id
       topic_ids = user.topic_ids

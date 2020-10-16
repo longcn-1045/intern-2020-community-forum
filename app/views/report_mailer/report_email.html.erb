@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.name %></h1>
+    <p>
+      <%= t "report.email.post" %> <%= @reports_post.title %> <%= t"report.email.info" %>
+      <hr>
+      <ul>
+      <%= @reports.find_each do |report| %>
+        <li>
+          <%= report.report_reason_content %>
+        </li>
+      <% end %>
+      </ul>
+    </p>
+    <p><%= t "report.email.warning" %></p>
+  </body>
+</html>

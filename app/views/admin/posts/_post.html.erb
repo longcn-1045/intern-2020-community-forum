@@ -4,9 +4,17 @@
   </td>
   <td><%= image_tag post.image_url.to_s %></td>
     <td>
-      <%= link_to admin_post_path post.id, class: "nav-link active d-inline text-dark" do %>
-        <%= post.title %>
-      <% end %>
+      <div class="card-footer">
+        <% if post.post_reports.count > Settings.report.number.no_report %>
+          <%= link_to admin_post_get_reports_path(post.id), remote: true, class: "report-btn", "data-toggle": :modal, "data-target": "#modal-post" do %>
+            <span><%= post.post_reports.count %></span>
+            <i class="fas fa-exclamation-triangle"></i>
+          <% end %>
+        <% end %>
+        <%= link_to admin_post_path post.id, class: "nav-link active d-inline text-dark" do %>
+          <%= post.title %>
+        <% end %>
+      </div>
     </td>
     <td>
       <div class="status <%= post_status(post)[:css] %>">
@@ -30,3 +38,22 @@
     <% end %>
   </td>
 </tr>
+
+<div class="modal fade" id="modal-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><%= "Reports" %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body-post">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t "users.index.close" %></button>
+      </div>
+    </div>
+  </div>
+</div>
