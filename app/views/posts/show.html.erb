@@ -73,6 +73,10 @@
           <%= render "posts/report", post: @post %>
         <% end %>
       </div>
+      <div class="post-shares">
+        <%= rails_social_share_button_tag t("share_to_facebook"),
+          url: post_url(@post), desc: @post.title %>
+      </div>
       <div class="comment-post">
         <button type="button" class="btn btn-primary">
           <%= link_to t("answer"), @post %>

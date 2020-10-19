@@ -47,7 +47,7 @@ GEM
     activerecord (6.0.3.4)
       activemodel (= 6.0.3.4)
       activesupport (= 6.0.3.4)
-    activerecord-import (1.0.6)
+    activerecord-import (1.0.7)
       activerecord (>= 3.2)
     activestorage (6.0.3.4)
       actionpack (= 6.0.3.4)
@@ -297,6 +297,7 @@ GEM
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 7)
+    rails-social-share-button (0.0.2)
     rails_best_practices (1.20.0)
       activesupport
       code_analyzer (>= 0.5.1)
@@ -482,6 +483,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-controller-testing
   rails-i18n
+  rails-social-share-button
   rails_best_practices
   ransack
   redis
